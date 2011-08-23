@@ -39,14 +39,11 @@
   <div id="header" style="height:15%;width:100%" >
     <h1><span id="zf-name">GDS Instituto de Física</span></h1> 
   </div>
-<!--   <div id="menu" style="height:100%;width:20%;float:left;"> -->
-<!--          <?php //echo $this->render('menu.phtml'); ?> -->
-<!--   </div> -->
-  <div id="content" style="height:100%;width:100%;float:right">
+  <div id="menu" style="height:100%;width:20%;float:left;">
+         <?php echo $this->render('index/menu.phtml'); ?>
+  </div>
+  <div id="content" style="height:100%;width:80%;float:right">
         <?php echo $this->layout()->content ?>
-	<?php //echo $this->results; ?>
-  
-
   <div id="footpage" style="height:10%;width:100%;clear:both">
  <h1><span id="zf-name">Gfif Development Team</span></h1>     
 
