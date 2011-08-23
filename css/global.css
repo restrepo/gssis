@@ -1,0 +1,56 @@
+<style>
+    a:link,
+    a:visited
+    {
+        color: #0398CA;
+    }
+    span#zf-name
+    {
+        color: #91BE3F;
+    }
+
+    div#header
+    {
+/*         color: #FFFFFF; */
+/*         border: 2px solid #444444; */
+        overflow: hidden;
+        text-align: center;
+/* 	background-color:#C3C3C3; */
+    }
+
+    div#menu
+    {
+/*         color: #FFFFFF; */
+        overflow: hidden;
+        text-align: center;
+/* 	border: 2px solid #444444; */
+/* 	background-color:#C3C3C3; */
+	float:left;
+    }
+    div#content
+    {
+/*         color: #FFFFFF; */
+        overflow: auto;
+        text-align: left;
+/*         background-color:#C3C3C3; */
+/* 	align:right; */
+	float:right;
+
+    }
+
+    div#footpage
+    {
+        height: 100%;
+	float:left;
+/* 	border: 2px solid #444444; */
+	text-align: center;
+    }
+    h2
+    {
+        color: #009900;
+    }
+    p
+    {
+        color: #000000;
+    }
+</style>
