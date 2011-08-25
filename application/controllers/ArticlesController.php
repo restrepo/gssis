@@ -15,7 +15,7 @@ class ArticlesController extends Zend_Controller_Action
     private function getCsvButton($url)
     {
      $formb = new Zend_Form;
-     $formb->setAction("/gds/public/index/downloadcsv")->setMethod('post');
+     $formb->setAction("/gds/public/articles/downloadcsv")->setMethod('post');
      $formb->addElement('submit', 'csv', array('label' => 'Descargar csv'));
      return $formb;
     }
@@ -75,10 +75,12 @@ class ArticlesController extends Zend_Controller_Action
 // 	  "(C+contains+'".$values['yearInit']."')+and+".
 // 	print_r($values);
 	$this->view->resultscsv = "<iframe style=\"height:100%;width:100%\"  src=\"".
-        "https://spreadsheets.google.com/tq?tqx=out:csv&tq=select+E,F,D,G,H,C,J,M+where+".
-        "(E+contains+'".$values['autor']."')+and+".
-        "(F+contains+'".$values['journal']."')+and+";
-	$this->view->resultscsv."(J+contains+'".$values['article']."')+order+by+A+desc&key=0AjqGPI5Q_Ez6dDA3ajhtYVVDOWdBckVhWm1MSFRET1E\"> Downloading</iframe>";
+	 "https://spreadsheets.google.com/tq?tqx=out:csv&tq=select+E,F,D,G,H,C,J,M+where+".
+	  "(E+contains+'".$values['autor']."')+and+".
+	  "(F+contains+'".$values['journal']."')+and+".
+	  $yearInitCode.$yearEndCode.$values['type'].  
+	  "(J+contains+'".$values['article']."')+order+by+A+desc&key=0AjqGPI5Q_Ez6dDA3ajhtYVVDOWdBckVhWm1MSFRET1E\"> Searching</iframe>";
+	
 	$this->view->results = "<iframe style=\"height:100%;width:100%\"  src=\"".
 	 "https://spreadsheets.google.com/tq?tqx=out:html&tq=select+E,F,D,G,H,C,J,M+where+".
 	  "(E+contains+'".$values['autor']."')+and+".

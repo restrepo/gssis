@@ -5,27 +5,13 @@ class IndexController extends Zend_Controller_Action
 
     public $csvFile = null;
 
-    public $form = null;
 
     public function init()
     {
         /* Initialize action controller here */
-      $this->form = new Zend_Form;	
+
     }
 
-    private function getForm()
-    {
-//       $form = new Zend_Form;
-      $this->form->setAction("/gds/public/index/search")->setMethod('post');
-      $this->form->addElement('text', 'article', array('label' => 'Articulo'));
-      $this->form->addElement('text', 'autor', array('label' => 'Autor'));
-      $this->form->addElement('text', 'yearInit', array('label' => 'Año Inicial','text', 'yearEnd', array('label' => 'Año Final')));
-//       $this->form->addElement();
-      $this->form->addElement('text', 'journal', array('label' => 'Revista'));
-      $this->form->addElement('text', 'group', array('label' => 'Grupo'));
-      $this->form->addElement('submit', 'search', array('label' => 'Buscar'));
-      return $this->form;
-    }
 
     private function getCsvButton($url)
     {
@@ -95,14 +81,8 @@ class IndexController extends Zend_Controller_Action
             return $this->render('form');
         }
 	$values = $form->getValues();
-	$this->view->resultscsv = "<iframe style=\"height:0%;width:0%\" type=\"hidden\" class=\"hidden\" src=\"".
-	 "https://spreadsheets.google.com/tq?tqx=out:csv&tq=select+E,F,G,H,C,J+where+".
-	  "(E+contains+'".$values['autor']."')+and+".
-	  "(F+contains+'".$values['journal']."')+and+".
-	  "(C+contains+'".$values['year']."')+and+".
-	  "(J+contains+'".$values['article']."')+order+by+A+desc&key=0AjqGPI5Q_Ez6dDA3ajhtYVVDOWdBckVhWm1MSFRET1E\"> Downloading</iframe>";
-// 	print_r($value); 
-	echo $this->view->resultscsv;
+// 	$this->view->resultscsv = "<iframe style=\"height:0%;width:0%\" type=\"hidden\" class=\"hidden\" src=\"".
+
         
 	return $this->_forward('search');
     }
