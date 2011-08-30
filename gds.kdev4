@@ -1,4 +1,4 @@
 [Project]
+Manager=KDevCustomMakeManager
 Name=gds
-Manager=KDevGenericManager
 VersionControl=

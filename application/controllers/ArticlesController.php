@@ -6,7 +6,7 @@ class ArticlesController extends Zend_Controller_Action
     public $csvFile = null;
 
     public $form = null;
-
+    public $doc_key="0AjqGPI5Q_Ez6dDA3ajhtYVVDOWdBckVhWm1MSFRET1E";
     public function init()
     {
         /* Initialize action controller here */
@@ -28,7 +28,6 @@ class ArticlesController extends Zend_Controller_Action
       $this->form->addElement('text', 'autor', array('label' => 'Autor'));
       $this->form->addElement('hidden', 'yearLabel', array('label' => 'Años (Intervalo)'));
       $this->form->addElement('text', 'yearInit',array('disableLoadDefaultDecorators' => true,'decorators'=>Array('ViewHelper','Errors')));
-//       $this->form->yearInit->addValidator('Regex', false, array('/^[0-9]{4,}$/i'));
       $this->form->addElement('text', 'yearEnd', array('disableLoadDefaultDecorators' => true,'decorators'=>Array('ViewHelper')));
       $this->form->addElement('text', 'journal', array('label' => 'Revista'));
       $this->form->addElement('text', 'group', array('label' => 'Grupo'));
@@ -48,7 +47,7 @@ class ArticlesController extends Zend_Controller_Action
 
     public function searchAction()
     {
-               if (!$this->getRequest()->isPost()) {
+        if (!$this->getRequest()->isPost()) {
             return $this->_forward('index');
         }
         $form = $this->getForm();
@@ -79,19 +78,19 @@ class ArticlesController extends Zend_Controller_Action
 	  "(E+contains+'".$values['autor']."')+and+".
 	  "(F+contains+'".$values['journal']."')+and+".
 	  $yearInitCode.$yearEndCode.$values['type'].  
-	  "(J+contains+'".$values['article']."')+order+by+A+desc&key=0AjqGPI5Q_Ez6dDA3ajhtYVVDOWdBckVhWm1MSFRET1E\"> Searching</iframe>";
+	  "(J+contains+'".$values['article']."')+order+by+A+desc&key=$this->doc_key\"> Searching</iframe>";
 	
 	$this->view->results = "<iframe style=\"height:100%;width:100%\"  src=\"".
 	 "https://spreadsheets.google.com/tq?tqx=out:html&tq=select+E,F,D,G,H,C,J,M+where+".
 	  "(E+contains+'".$values['autor']."')+and+".
 	  "(F+contains+'".$values['journal']."')+and+".
 	  $yearInitCode.$yearEndCode.$values['type'].  
-	  "(J+contains+'".$values['article']."')+order+by+A+desc&key=0AjqGPI5Q_Ez6dDA3ajhtYVVDOWdBckVhWm1MSFRET1E\"> Searching</iframe>";
+	  "(J+contains+'".$values['article']."')+order+by+A+desc&key=$this->doc_key\"> Searching</iframe>";
 	echo $this->getForm();
 	echo $this->getCsvButton("https://spreadsheets.google.com/tq?tqx=out:csv&tq=select+E,F,G,H,C,J+where+".
 	  "(E+contains+'".$values['autor']."')+and+".
 	  $yearInitCode.$yearEndCode.$values['type'].
-	  "(J+contains+'".$values['article']."')+order+by+A+desc&key=0AjqGPI5Q_Ez6dDA3ajhtYVVDOWdBckVhWm1MSFRET1E");
+	  "(J+contains+'".$values['article']."')+order+by+A+desc&key=$this->doc_key");
 	echo $this->view->results;
 // 	return $this->_forward('index');
     }
