@@ -77,7 +77,7 @@ class ArticlesController extends Zend_Controller_Action
 	 "https://spreadsheets.google.com/tq?tqx=out:csv&tq=select+E,F,D,G,H,C,J,M+where+".
 	  "(E+contains+'".$values['autor']."')+and+".
 	  "(F+contains+'".$values['journal']."')+and+".
-	  $yearInitCode.$yearEndCode.$values['type'].  
+	  $yearInitCode.$yearEndCode.$values['type'].
 	  "(J+contains+'".$values['article']."')+order+by+A+desc&key=$this->doc_key\"> Searching</iframe>";
 	
 	$this->view->results = "<iframe style=\"height:100%;width:100%\"  src=\"".

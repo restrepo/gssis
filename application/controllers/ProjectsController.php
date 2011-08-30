@@ -23,8 +23,8 @@ class ProjectsController extends Zend_Controller_Action
       $this->form->addElement('text', 'yearEnd', array('disableLoadDefaultDecorators' => true,'decorators'=>Array('ViewHelper')));
       $this->form->addElement('text', 'manager', array('label' => 'Investigador Principal'));
       $this->form->addElement('text', 'group', array('label' => 'Grupo'));
-      $this->form->addElement('select','type',array('label'=>'Tipo de Proyecto','value'=>'Todos','autocomplete'=>false,'multiOptions'=>array(''=>'Todos','(D+contains+\'Sostenibilidad\')+and+'=>'Sostenibilidad',
-	      '(D+contains+\'Colciencias\')+and+'  => 'Colciencias')));
+      $this->form->addElement('select','type',array('label'=>'Tipo de Proyecto','value'=>'Todos','autocomplete'=>false,'multiOptions'=>array(''=>'Todos','Sostenibilidad'=>'Sostenibilidad',
+	      'Colciencias'  => 'Colciencias')));
 
 
       $this->form->addElement('submit', 'search', array('label' => 'Buscar'));
