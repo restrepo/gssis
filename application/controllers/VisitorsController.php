@@ -38,6 +38,40 @@ class VisitorsController extends Zend_Controller_Action
     public function searchAction()
     {
         // action body
+        if (!$this->getRequest()->isPost()) {
+            return $this->_forward('index');
+        }
+        $form = $this->getForm();
+        if (!$this->form->isValid($_POST)) {
+            // Failed validation; redisplay form
+            $this->view->form = $form;
+            return $this->render('form');
+        }
+
+        $values = $form->getValues();
+	
+	
+	$yearInitCode='';
+	$yearEndCode='';
+	if(!empty($values['yearInit']))
+	{
+	  $yearInitCode="(C>=".$values['yearInit'].")+and+";
+	}
+	if(!empty($values['yearEnd']))
+	{
+	  $yearEndCode="(C<=".$values['yearEnd'].")+and+";
+
+	}
+
+	$this->view->results = "<iframe style=\"height:100%;width:100%\"  src=\"".
+	 "https://spreadsheets.google.com/tq?tqx=out:html&tq=select+A,B,C,D,E,F,G,H,I,J+where+".
+	  "(A+contains+'".$values['name']."')+and+".
+	  "(B+contains+'".$values['institution']."')+and+".
+          "(C+contains+'".$values['country']."')+and+".
+	  "(F+contains+'".$values['group']."')+and+".  
+	  "(G+contains+'".$values['seminar']."')+order+by+A+desc&key=$this->doc_key\"> Searching</iframe>";
+	echo $this->getForm();
+	echo $this->view->results;
     }
 
 
