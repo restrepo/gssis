@@ -73,8 +73,6 @@ class VisitorsController extends Zend_Controller_Action
 	echo $this->getForm();
 	echo $this->view->results;
     }
-
-
 }
 
 

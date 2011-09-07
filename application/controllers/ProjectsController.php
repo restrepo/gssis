@@ -55,15 +55,15 @@ class ProjectsController extends Zend_Controller_Action
 	
 	$yearInitCode='';
 	$yearEndCode='';
-	if(!empty($values['yearInit']))
-	{
-	  $yearInitCode="(C>=".$values['yearInit'].")+and+";
-	}
-	if(!empty($values['yearEnd']))
-	{
-	  $yearEndCode="(C<=".$values['yearEnd'].")+and+";
-
-	}
+// 	if(!empty($values['yearInit']))
+// 	{
+// 	  $yearInitCode="(C>=".$values['yearInit'].")+and+";
+// 	}
+// 	if(!empty($values['yearEnd']))
+// 	{
+// 	  $yearEndCode="(C<=".$values['yearEnd'].")+and+";
+// 
+// 	}
 
 	$this->view->results = "<iframe style=\"height:100%;width:100%\"  src=\"".
 	 "https://spreadsheets.google.com/tq?tqx=out:html&tq=select+A,B,C,D,E,F,G,H,I,J,K,L+where+".
