@@ -1,10 +1,16 @@
-<?php echo $this->doctype() ?>
-<html xmlns="http://www.w3.org/1999/xhtml">
+<?php echo $this->doctype('HTML5') ?>
+<html>
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <title>GDS</title>
-  <?php echo $this->headLink()->appendStylesheet('/gds/css/global.css');
-	echo $this->headScript()->appendFile('/gds/js/json.js');
+  <!-- <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> -->
+  <?php
+    echo $this->headMeta();
+    $this->headTitle()->prepend('GfifDev - ');
+    echo $this->headTitle();
+    echo $this->headScript();
+    echo $this->headLink();
+  ?>
+  <?php //echo $this->headLink()->appendStylesheet($this->baseUrl()+'/css/global.css');
+	//echo $this->headScript()->appendFile('/gds/js/json.js');
 ?>
 
 </head>
