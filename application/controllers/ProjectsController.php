@@ -14,7 +14,7 @@ class ProjectsController extends Zend_Controller_Action
     private function getForm()
     {
 //       $form = new Zend_Form;
-      $this->form->setAction("/gds/public/projects/search")->setMethod('post');
+      $this->form->setAction($this->view->url(array('controller' => 'projects', 'action' => 'search')))->setMethod('post');
       $this->form->addElement('text', 'name', array('label' => 'Nombre'));
       $this->form->addElement('text', 'id', array('label' => 'Id'));
       $this->form->addElement('hidden', 'yearLabel', array('label' => 'Años (Intervalo)'));
@@ -80,9 +80,4 @@ class ProjectsController extends Zend_Controller_Action
 	echo $this->view->results;
 
     }
-
-
 }
-
-
-

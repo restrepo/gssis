@@ -23,7 +23,7 @@ class ArticlesController extends Zend_Controller_Action
     private function getForm()
     {
 //       $form = new Zend_Form;
-      $this->form->setAction("/gds/public/articles/search")->setMethod('post');
+      $this->form->setAction($this->view->url(array('controller' => 'articles', 'action' => 'search')))->setMethod('post');
       $this->form->addElement('text', 'article', array('label' => 'Articulo'));
       $this->form->addElement('text', 'autor', array('label' => 'Autor'));
       $this->form->addElement('hidden', 'yearLabel', array('label' => 'Años (Intervalo)'));
@@ -94,9 +94,4 @@ class ArticlesController extends Zend_Controller_Action
 	echo $this->view->results;
 // 	return $this->_forward('index');
     }
-
-
 }
-
-
-

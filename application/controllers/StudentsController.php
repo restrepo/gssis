@@ -15,7 +15,7 @@ class StudentsController extends Zend_Controller_Action
     private function getForm()
     {
 //       $form = new Zend_Form;
-      $this->form->setAction("/gds/public/students/search")->setMethod('post');
+      $this->form->setAction($this->view->url(array('controller' => 'students', 'action' => 'search')))->setMethod('post');
       $this->form->addElement('text', 'name', array('label' => 'Nombre'));
       $this->form->addElement('text', 'id', array('label' => 'Identificación'));
       $this->form->addElement('text', 'advisor', array('label' => 'Director'));

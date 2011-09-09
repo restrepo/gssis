@@ -14,7 +14,7 @@ class VisitorsController extends Zend_Controller_Action
     private function getForm()
     {
 //       $form = new Zend_Form;
-      $this->form->setAction("/gds/public/visitors/search")->setMethod('post');
+      $this->form->setAction($this->view->url(array('controller' => 'visitors', 'action' => 'search')))->setMethod('post');
       $this->form->addElement('text', 'name', array('label' => 'Nombre'));
       $this->form->addElement('text', 'institution', array('label' => 'Institución'));
       $this->form->addElement('text', 'country', array('label' => 'Pais'));
