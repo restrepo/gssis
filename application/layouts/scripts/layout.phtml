@@ -13,28 +13,27 @@ echo $this->doctype()
     echo $this->headScript();
     echo $this->headLink();
   ?>
-  <?php //echo $this->headLink()->appendStylesheet($this->baseUrl()+'/css/global.css');
-	//echo $this->headScript()->appendFile('/gds/js/json.js');
-?>
-
 </head>
 <body>
-<div style="height:500px;width:100%" >
-  <div id="header" style="height:15%;width:100%" >
-    <h1><span id="zf-name">GDS Instituto de Física</span></h1> 
-  </div>
-  <div id="menu" style="height:100%;width:20%;float:left;">
-         <?php echo $this->render('index/menu.phtml'); ?>
-  </div>
-  <div id="content" style="height:100%;width:78%;float:right">
-        <?php echo $this->layout()->content ?>
-  </div>
-  <div id="footpage" style="height:10%;width:100%;clear:both">
- <h1><span id="zf-name">Gfif Development Team</span></h1>     
-
-  </div>
-</div>
-
-
+  <table class="bodyPage">
+    <tr>
+      <td class="header" colspan="2">
+        <h1><span id="zf-name">GDS Instituto de Física</span></h1> 
+      </td>
+    </tr>
+    <tr>
+      <td class="menu" width="20%">
+          <?php echo $this->render('index/menu.phtml'); ?>
+      </td>
+      <td class="content" width="80%">
+          <?php echo $this->layout()->content ?>
+      </td>
+    </tr>
+    <tr>
+      <td class="footpage" colspan="2">
+        <h1><span id="zf-name">Gfif Development Team</span></h1>     
+      </td>
+    </tr>
+  </table>
 </body>
 </html>

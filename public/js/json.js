@@ -12,14 +12,14 @@ function processArticle(ajaxRequest,type,format)
 {
   var info;
   switch(type)
+  {
     case Type.Cien :
-    {
       //get info for cien format
-    }
+      break;
     case Type.ViceInves :
-    {
       //get information sorted for 
-    }
+      break;
+  }
 }
 
 function processProject(ajaxRequest,format)

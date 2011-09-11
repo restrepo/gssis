@@ -33,8 +33,8 @@ class ProjectsController extends Zend_Controller_Action
 
     public function indexAction()
     {
-     $this->view->form = $this->getForm();
-     echo $this->view->form;
+        $this->view->form = $this->getForm();
+        echo $this->view->form;
     }
 
     public function searchAction()
@@ -65,19 +65,18 @@ class ProjectsController extends Zend_Controller_Action
 // 
 // 	}
 
-	$this->view->results = "<iframe style=\"height:100%;width:100%\"  src=\"".
+	$this->view->results = "<iframe src=\"".
 	 "https://spreadsheets.google.com/tq?tqx=out:html&tq=select+A,B,C,D,E,F,G,H,I,J,K,L+where+".
 	  "(B+contains+'".$values['id']."')+and+".
 	  "(C+contains+'".$values['name']."')+and+".
           "(D+contains+'".$values['manager']."')+and+".
 	  "(H+contains+'".$values['type']."')+and+".  
 	  "(J+contains+'".$values['group']."')+order+by+A+desc&key=$this->doc_key\"> Searching</iframe>";
-	echo $this->getForm();
+	// echo $this->getForm();
 // 	echo $this->getCsvButton("https://spreadsheets.google.com/tq?tqx=out:csv&tq=select+E,F,G,H,C,J+where+".
 // 	  "(E+contains+'".$values['autor']."')+and+".
 // 	  $yearInitCode.$yearEndCode.$values['type'].
 // 	  "(J+contains+'".$values['article']."')+order+by+A+desc&key=$this->doc_key");
 	echo $this->view->results;
-
     }
 }

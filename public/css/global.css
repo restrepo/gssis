@@ -1,60 +1,48 @@
-<style>
-    a:link,
-    a:visited
-    {
-        color: #0398CA;
-    }
-    span#zf-name
-    {
-        color: #91BE3F;
-    }
-
-    div#header
-    {
-/*         color: #FFFFFF; */
-/*         border: 2px solid #444444; */
-        overflow: hidden;
-        text-align: center;
-/* 	background-color:#C3C3C3; */
-    }
-
-    div#menu
-    {
-/*         color: #FFFFFF; */
-        overflow: hidden;
-        text-align: center;
-/* 	border: 2px solid #444444; */
-/* 	background-color:#C3C3C3; */
-	float:left;
-    }
-    div#content
-    {
-/*         color: #FFFFFF; */
-        overflow: auto;
-        text-align: left;
-/*         background-color:#C3C3C3; */
-/* 	align:right; */
-	float:right;
-
-    }
-
-    div#footpage
-    {
-        height: 100%;
-	float:left;
-/* 	border: 2px solid #444444; */
-	text-align: center;
-    }
-    h2
-    {
-        color: #009900;
-    }
-    h1
-    {
-        color: #005500;
-    }
-    p
-    {
-        color: #000000;
-    }
-</style>
+a:link, a:visited
+{
+    color: #0398CA;
+}
+span#zf-name
+{
+    color: #91BE3F;
+}
+.header, .menu, .footpage
+{
+    text-align: center;
+    vertical-align: text-top;
+}
+.content
+{
+}
+h2
+{
+    color: #009900;
+}
+h1
+{
+    color: #005500;
+}
+p
+{
+    color: #000000;
+}
+iframe
+{
+    width: 100%;
+    height: 100%;
+    border-style: none;
+}
+div
+{
+    border: solid 2px blue;
+}
+.bodyPage
+{
+    border: solid 2px green;
+    width: 100%;
+    height: 100%;
+}
+table, tr, td
+{
+    border: solid 2px green;
+}
