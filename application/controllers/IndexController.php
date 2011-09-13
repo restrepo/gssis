@@ -24,8 +24,6 @@ class IndexController extends Zend_Controller_Action
 
     public function indexAction()
     {
-        // action body
-        // $this->view->headLink()->appendStylesheet($this->view->baseUrl().'/css/global.css');
     }
 
     public function searchAction()

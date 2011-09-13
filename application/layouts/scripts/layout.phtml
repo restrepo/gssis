@@ -6,12 +6,13 @@ echo $this->doctype()
 <html>
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <script type="text/javascript" src="<?php echo $this->baseUrl()."/js/jquery/jquery.js"; ?>"></script>
   <?php
     echo $this->headMeta();
-    $this->headTitle()->prepend('GfifDev - ');
-    echo $this->headTitle();
     echo $this->headScript();
     echo $this->headLink();
+    $this->headTitle()->prepend('GfifDev - ');
+    echo $this->headTitle();
   ?>
 </head>
 <body>
@@ -26,7 +27,7 @@ echo $this->doctype()
           <?php echo $this->render('index/menu.phtml'); ?>
       </td>
       <td class="content" width="80%">
-          <?php echo $this->layout()->content ?>
+         <div id="content"><?php echo $this->layout()->content ?></div>
       </td>
     </tr>
     <tr>
@@ -35,5 +36,6 @@ echo $this->doctype()
       </td>
     </tr>
   </table>
+<div id="debug"></div>
 </body>
 </html>
