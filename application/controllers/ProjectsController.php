@@ -9,7 +9,7 @@ class ProjectsController extends Zend_Controller_Action
     {
         /* Initialize action controller here */
 	$this->form = new Zend_Form;
-        // $this->view->headScript()->appendFile($this->view->baseUrl().'/js/proyectos.js');
+//         $this->view->headScript()->appendFile($this->view->baseUrl().'/js/proyectos.js');
     }
 
     private function getForm()
@@ -40,6 +40,9 @@ class ProjectsController extends Zend_Controller_Action
 
     public function searchAction()
     {
+        $this->view->headScript()->appendFile($this->view->baseUrl().'/js/json.js');
+        $this->view->headScript()->appendFile($this->view->baseUrl().'/js/proyectos.js');
+
         // action body
         if (!$this->getRequest()->isPost()) {
             return $this->_forward('index');
@@ -51,39 +54,30 @@ class ProjectsController extends Zend_Controller_Action
             return $this->render('form');
         }
 
-        $values = $form->getValues();
-	
-	
-	$yearInitCode='';
-	$yearEndCode='';
-// 	if(!empty($values['yearInit']))
-// 	{
-// 	  $yearInitCode="(C>=".$values['yearInit'].")+and+";
-// 	}
-// 	if(!empty($values['yearEnd']))
-// 	{
-// 	  $yearEndCode="(C<=".$values['yearEnd'].")+and+";
-// 
-// 	}
-        $this->view->headScript()->appendFile($this->view->baseUrl().'/js/if.js');
-	$this->view->results = '<iframe id="query" onload="algo();" src="'.
-	 "https://spreadsheets.google.com/tq?tqx=out:html&tq=select+C,D,H,E,F,G,K,L+where+".
-	  "(B+contains+'".$values['id']."')+and+".
-	  "(C+contains+'".$values['name']."')+and+".
-          "(D+contains+'".$values['manager']."')+and+".
-	  "(H+contains+'".$values['type']."')+and+".  
-	  "(J+contains+'".$values['group']."')+order+by+A+desc&key=$this->doc_key\">Searching</iframe>";
-    echo "<script type=\"text/javascript\">
-        function algo(){
-            // alert('termino de leer');
-            // jQuery('iframe').iframeAutoHeight({debug: true, diagnostics: false});
-        }
-    </script>";
+//         $values = $form->getValues();
+
+// 	$yearInitCode='';
+// 	$yearEndCode='';
+
+//         $this->view->headScript()->appendFile($this->view->baseUrl().'/js/if.js');
+// 	$this->view->results = '<iframe id="query" onload="algo();" src="'.
+// 	 "https://spreadsheets.google.com/tq?tqx=out:html&tq=select+C,D,H,E,F,G,K,L+where+".
+// 	  "(B+contains+'".$values['id']."')+and+".
+// 	  "(C+contains+'".$values['name']."')+and+".
+//           "(D+contains+'".$values['manager']."')+and+".
+// 	  "(H+contains+'".$values['type']."')+and+".  
+// 	  "(J+contains+'".$values['group']."')+order+by+A+desc&key=$this->doc_key\">Searching</iframe>";
+//     echo "<script type=\"text/javascript\">
+//         function algo(){
+//             // alert('termino de leer');
+//             // jQuery('iframe').iframeAutoHeight({debug: true, diagnostics: false});
+//         }
+//     </script>";
 	// echo $this->getForm();
 // 	echo $this->getCsvButton("https://spreadsheets.google.com/tq?tqx=out:csv&tq=select+E,F,G,H,C,J+where+".
 // 	  "(E+contains+'".$values['autor']."')+and+".
 // 	  $yearInitCode.$yearEndCode.$values['type'].
 // 	  "(J+contains+'".$values['article']."')+order+by+A+desc&key=$this->doc_key");
-	echo $this->view->results;
+// 	echo $this->view->results;
     }
 }

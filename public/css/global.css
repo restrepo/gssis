@@ -46,3 +46,7 @@ table, tr, td
 {
     border: solid 2px green;
 }
+.templateTable
+{
+    border: solid 1px black;
+}
