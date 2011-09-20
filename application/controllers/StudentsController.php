@@ -37,7 +37,7 @@ class StudentsController extends Zend_Controller_Action
 
     public function searchAction()
     {
-               // action body
+        // action body
         if (!$this->getRequest()->isPost()) {
             return $this->_forward('index');
         }
@@ -48,11 +48,13 @@ class StudentsController extends Zend_Controller_Action
             return $this->render('form');
         }
 
-        $values = $form->getValues();
-	
-	
-	$yearInitCode='';
-	$yearEndCode='';
+        $values = urlencode(serialize($form->getValues()));
+
+        $this->view->headScript()->appendFile($this->view->baseUrl().'/js/json.js');
+        $this->view->headScript()->appendFile($this->view->baseUrl().'/js/estudiantes.php?s='.$values);
+
+// 	$yearInitCode='';
+// 	$yearEndCode='';
 // 	if(!empty($values['yearInit']))
 // 	{
 // 	  $yearInitCode="(C>=".$values['yearInit'].")+and+";
@@ -63,15 +65,15 @@ class StudentsController extends Zend_Controller_Action
 // 
 // 	}
 
-	$this->view->results = "<iframe style=\"height:100%;width:100%\"  src=\"".
-	 "https://spreadsheets.google.com/tq?tqx=out:html&tq=select+A,B,C,D,E,F,G,H,I+where+".
-	  "(C+contains+'".$values['name']."')+and+".
-	  "(D+contains+'".$values['id']."')+and+".
-          "(G+contains+'".$values['advisor']."')+and+".
-	  "(H+contains+'".$values['group']."')+and+".  
-	  "(I+contains+'".$values['projectid']."')+order+by+A+desc&key=$this->doc_key\"> Searching</iframe>";
-	echo $this->getForm();
-	echo $this->view->results;
+// 	$this->view->results = "<iframe style=\"height:100%;width:100%\"  src=\"".
+// 	 "https://spreadsheets.google.com/tq?tqx=out:html&tq=select+A,B,C,D,E,F,G,H,I+where+".
+// 	  "(C+contains+'".$values['name']."')+and+".
+// 	  "(D+contains+'".$values['id']."')+and+".
+//           "(G+contains+'".$values['advisor']."')+and+".
+// 	  "(H+contains+'".$values['group']."')+and+".  
+// 	  "(I+contains+'".$values['projectid']."')+order+by+A+desc&key=$this->doc_key\"> Searching</iframe>";
+// 	echo $this->getForm();
+// 	echo $this->view->results;
     }
 
 
