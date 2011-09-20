@@ -8,7 +8,7 @@ $s = unserialize(urldecode(stripslashes($_GET['s'])));
 var SS_URL = "http://spreadsheets.google.com/tq?key=0AjqGPI5Q_Ez6dFE1S2pWQkZJdFkycWFvNXdaMDhkWFE";
 
 $.ss(SS_URL)
-  .setQuery("select C,D,H,E,F,G,K,L where B contains '<?php echo $s['id']; ?>' and D contains '<?php echo $s['name']; ?>'")
+  .setQuery("select C,D,H,E,F,G,K,L where B contains '<?php echo $s['id']; ?>' and C contains '<?php echo $s['name']; ?>' and D contains '<?php echo $s['manager']; ?>' and H contains '<?php echo $s['type']; ?>' and J contains '<?php echo $s['group']; ?>'")
   .setField("C,D,H,E,F,G,K,L")
   .send(function(success) {
     if(!success) return;
@@ -25,11 +25,3 @@ $.ss(SS_URL)
     str += "</table>"
     con.html(con.html() + str)
   });
-
-// 	$this->view->results = '<iframe id="query" onload="algo();" src="'.
-// 	 "https://spreadsheets.google.com/tq?tqx=out:html&tq=select+C,D,H,E,F,G,K,L+where+".
-// 	  "(B+contains+'".$values['id']."')+and+".
-// 	  "(C+contains+'".$values['name']."')+and+".
-//           "(D+contains+'".$values['manager']."')+and+".
-// 	  "(H+contains+'".$values['type']."')+and+".  
-// 	  "(J+contains+'".$values['group']."')+order+by+A+desc&key=$this->doc_key\">Searching</iframe>";
