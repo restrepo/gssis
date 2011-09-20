@@ -7,29 +7,23 @@ class ProjectsController extends Zend_Controller_Action
     public $doc_key="0AjqGPI5Q_Ez6dFE1S2pWQkZJdFkycWFvNXdaMDhkWFE";
     public function init()
     {
-        /* Initialize action controller here */
-	$this->form = new Zend_Form;
-//         $this->view->headScript()->appendFile($this->view->baseUrl().'/js/proyectos.js');
+        $this->form = new Zend_Form;
     }
 
     private function getForm()
     {
-//       $form = new Zend_Form;
-      $this->form->setAction($this->view->url(array('controller' => 'projects', 'action' => 'search')))->setMethod('post');
-      $this->form->addElement('text', 'name', array('label' => 'Nombre'));
-      $this->form->addElement('text', 'id', array('label' => 'Id'));
-      $this->form->addElement('hidden', 'yearLabel', array('label' => 'Años (Intervalo)'));
-      $this->form->addElement('text', 'yearInit',array('disableLoadDefaultDecorators' => true,'decorators'=>Array('ViewHelper','Errors')));
-//       $this->form->yearInit->addValidator('Regex', false, array('/^[0-9]{4,}$/i'));
-      $this->form->addElement('text', 'yearEnd', array('disableLoadDefaultDecorators' => true,'decorators'=>Array('ViewHelper')));
-      $this->form->addElement('text', 'manager', array('label' => 'Investigador Principal'));
-      $this->form->addElement('text', 'group', array('label' => 'Grupo'));
-      $this->form->addElement('select','type',array('label'=>'Tipo de Proyecto','value'=>'Todos','autocomplete'=>false,'multiOptions'=>array(''=>'Todos','Sostenibilidad'=>'Sostenibilidad',
-	      'Colciencias'  => 'Colciencias')));
-
-
-      $this->form->addElement('submit', 'search', array('label' => 'Buscar'));
-      return $this->form;
+        $this->form->setAction($this->view->url(array('controller' => 'projects', 'action' => 'search')))->setMethod('post');
+        $this->form->addElement('text', 'name', array('label' => 'Nombre'));
+        $this->form->addElement('text', 'id', array('label' => 'Id'));
+        $this->form->addElement('hidden', 'yearLabel', array('label' => 'Años (Intervalo)'));
+        $this->form->addElement('text', 'yearInit',array('disableLoadDefaultDecorators' => true,'decorators'=>Array('ViewHelper','Errors')));
+        $this->form->addElement('text', 'yearEnd', array('disableLoadDefaultDecorators' => true,'decorators'=>Array('ViewHelper')));
+        $this->form->addElement('text', 'manager', array('label' => 'Investigador Principal'));
+        $this->form->addElement('text', 'group', array('label' => 'Grupo'));
+        $this->form->addElement('select','type',array('label'=>'Tipo de Proyecto','value'=>'Todos','autocomplete'=>false,'multiOptions'=>array(''=>'Todos','Sostenibilidad'=>'Sostenibilidad',
+                                'Colciencias'  => 'Colciencias')));
+        $this->form->addElement('submit', 'search', array('label' => 'Buscar'));
+        return $this->form;
     }
 
     public function indexAction()
@@ -58,7 +52,7 @@ class ProjectsController extends Zend_Controller_Action
 
 // 	$yearInitCode='';
 // 	$yearEndCode='';
-
+// 
 //         $this->view->headScript()->appendFile($this->view->baseUrl().'/js/if.js');
 // 	$this->view->results = '<iframe id="query" onload="algo();" src="'.
 // 	 "https://spreadsheets.google.com/tq?tqx=out:html&tq=select+C,D,H,E,F,G,K,L+where+".
@@ -73,7 +67,7 @@ class ProjectsController extends Zend_Controller_Action
 //             // jQuery('iframe').iframeAutoHeight({debug: true, diagnostics: false});
 //         }
 //     </script>";
-	// echo $this->getForm();
+// 	echo $this->getForm();
 // 	echo $this->getCsvButton("https://spreadsheets.google.com/tq?tqx=out:csv&tq=select+E,F,G,H,C,J+where+".
 // 	  "(E+contains+'".$values['autor']."')+and+".
 // 	  $yearInitCode.$yearEndCode.$values['type'].

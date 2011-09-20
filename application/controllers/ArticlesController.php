@@ -57,41 +57,43 @@ class ArticlesController extends Zend_Controller_Action
             return $this->render('form');
         }
 
-        $values = $form->getValues();
-	
-	
-	$yearInitCode='';
-	$yearEndCode='';
-	if(!empty($values['yearInit']))
-	{
-	  $yearInitCode="(C>=".$values['yearInit'].")+and+";
-	}
-	if(!empty($values['yearEnd']))
-	{
-	  $yearEndCode="(C<=".$values['yearEnd'].")+and+";
+        $values = urlencode(serialize($form->getValues()));
 
-	}
-// 	  "(C+contains+'".$values['yearInit']."')+and+".
-// 	print_r($values);
-	$this->view->resultscsv = "<iframe style=\"height:100%;width:100%\"  src=\"".
-	 "https://spreadsheets.google.com/tq?tqx=out:csv&tq=select+E,F,D,G,H,C,J,M+where+".
-	  "(E+contains+'".$values['autor']."')+and+".
-	  "(F+contains+'".$values['journal']."')+and+".
-	  $yearInitCode.$yearEndCode.$values['type'].
-	  "(J+contains+'".$values['article']."')+order+by+A+desc&key=$this->doc_key\"> Searching</iframe>";
-	
-	$this->view->results = "<iframe style=\"height:100%;width:100%\"  src=\"".
-	 "https://spreadsheets.google.com/tq?tqx=out:html&tq=select+E,F,D,G,H,C,J,M+where+".
-	  "(E+contains+'".$values['autor']."')+and+".
-	  "(F+contains+'".$values['journal']."')+and+".
-	  $yearInitCode.$yearEndCode.$values['type'].  
-	  "(J+contains+'".$values['article']."')+order+by+A+desc&key=$this->doc_key\"> Searching</iframe>";
-	echo $this->getForm();
-	echo $this->getCsvButton("https://spreadsheets.google.com/tq?tqx=out:csv&tq=select+E,F,G,H,C,J+where+".
-	  "(E+contains+'".$values['autor']."')+and+".
-	  $yearInitCode.$yearEndCode.$values['type'].
-	  "(J+contains+'".$values['article']."')+order+by+A+desc&key=$this->doc_key");
-	echo $this->view->results;
+        $this->view->headScript()->appendFile($this->view->baseUrl().'/js/json.js');
+        $this->view->headScript()->appendFile($this->view->baseUrl().'/js/articulos.php?s='.$values);
+
+// 	$yearInitCode='';
+// 	$yearEndCode='';
+// 	if(!empty($values['yearInit']))
+// 	{
+// 	  $yearInitCode="(C>=".$values['yearInit'].")+and+";
+// 	}
+// 	if(!empty($values['yearEnd']))
+// 	{
+// 	  $yearEndCode="(C<=".$values['yearEnd'].")+and+";
+// 
+// 	}
+// // 	  "(C+contains+'".$values['yearInit']."')+and+".
+// // 	print_r($values);
+// 	$this->view->resultscsv = "<iframe style=\"height:100%;width:100%\"  src=\"".
+// 	 "https://spreadsheets.google.com/tq?tqx=out:csv&tq=select+E,F,D,G,H,C,J,M+where+".
+// 	  "(E+contains+'".$values['autor']."')+and+".
+// 	  "(F+contains+'".$values['journal']."')+and+".
+// 	  $yearInitCode.$yearEndCode.$values['type'].
+// 	  "(J+contains+'".$values['article']."')+order+by+A+desc&key=$this->doc_key\"> Searching</iframe>";
+// 	
+// 	$this->view->results = "<iframe style=\"height:100%;width:100%\"  src=\"".
+// 	 "https://spreadsheets.google.com/tq?tqx=out:html&tq=select+E,F,D,G,H,C,J,M+where+".
+// 	  "(E+contains+'".$values['autor']."')+and+".
+// 	  "(F+contains+'".$values['journal']."')+and+".
+// 	  $yearInitCode.$yearEndCode.$values['type'].  
+// 	  "(J+contains+'".$values['article']."')+order+by+A+desc&key=$this->doc_key\"> Searching</iframe>";
+// 	echo $this->getForm();
+// 	echo $this->getCsvButton("https://spreadsheets.google.com/tq?tqx=out:csv&tq=select+E,F,G,H,C,J+where+".
+// 	  "(E+contains+'".$values['autor']."')+and+".
+// 	  $yearInitCode.$yearEndCode.$values['type'].
+// 	  "(J+contains+'".$values['article']."')+order+by+A+desc&key=$this->doc_key");
+// 	echo $this->view->results;
 // 	return $this->_forward('index');
     }
 }
