@@ -3,12 +3,23 @@
 header('content-type: application/x-javascript');
 
 $s = unserialize(urldecode(stripslashes($_GET['s'])));
+
+$query="select J,E,F,I,C where E contains '".$s['autor']."' and F contains '".$s['journal']."' and J contains '".$s['article']."'";
+
+if(!empty($s['yearInit']))
+{
+    $query=$query." and C >= ".$s['yearInit'];
+}
+if(!empty($s['yearEnd']))
+{
+    $query=$query." and C <= ".$s['yearEnd'];
+}
 ?>
 
 var SS_URL = "http://spreadsheets.google.com/tq?key=0AjqGPI5Q_Ez6dDA3ajhtYVVDOWdBckVhWm1MSFRET1E";
 
 $.ss(SS_URL)
-  .setQuery("select J,E,F,I,C")
+  .setQuery("<?php echo $query; ?>")
   .setField("J,E,F,I,C")
   .send(function(success) {
     if(!success) return;
