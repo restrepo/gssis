@@ -3,12 +3,23 @@
 header('content-type: application/x-javascript');
 
 $s = unserialize(urldecode(stripslashes($_GET['s'])));
+
+$query="select C,D,H,E,F,G,K,L where B contains '".$s['id']."' and C contains '".$s['name']."' and D contains '".$s['manager']."' and H contains '".$s['type']."' and J contains '".$s['group']."'";
+
+// if(!empty($s['yearInit']))
+// {
+//     $query=$query." and F >= '".$s['yearInit']."'";
+// }
+// if(!empty($s['yearEnd']))
+// {
+//     $query=$query." and F <= ".$s['yearEnd'];
+// }
 ?>
 
 var SS_URL = "http://spreadsheets.google.com/tq?key=0AjqGPI5Q_Ez6dFE1S2pWQkZJdFkycWFvNXdaMDhkWFE";
 
 $.ss(SS_URL)
-  .setQuery("select C,D,H,E,F,G,K,L where B contains '<?php echo $s['id']; ?>' and C contains '<?php echo $s['name']; ?>' and D contains '<?php echo $s['manager']; ?>' and H contains '<?php echo $s['type']; ?>' and J contains '<?php echo $s['group']; ?>'")
+  .setQuery("<?php echo $query; ?>")
   .setField("C,D,H,E,F,G,K,L")
   .send(function(success) {
     if(!success) return;
