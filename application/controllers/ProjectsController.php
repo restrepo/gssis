@@ -40,9 +40,6 @@ class ProjectsController extends Zend_Controller_Action
 
     public function searchAction()
     {
-        $this->view->headScript()->appendFile($this->view->baseUrl().'/js/json.js');
-        $this->view->headScript()->appendFile($this->view->baseUrl().'/js/proyectos.js');
-
         // action body
         if (!$this->getRequest()->isPost()) {
             return $this->_forward('index');
@@ -54,7 +51,10 @@ class ProjectsController extends Zend_Controller_Action
             return $this->render('form');
         }
 
-//         $values = $form->getValues();
+        $values = urlencode(serialize($form->getValues()));
+
+        $this->view->headScript()->appendFile($this->view->baseUrl().'/js/json.js');
+        $this->view->headScript()->appendFile($this->view->baseUrl().'/js/proyectos.php?s='.$values);
 
 // 	$yearInitCode='';
 // 	$yearEndCode='';
