@@ -26,7 +26,7 @@ class ArticlesController extends Zend_Controller_Action
       $this->form->setAction($this->view->url(array('controller' => 'articles', 'action' => 'search')))->setMethod('post');
       $this->form->addElement('text', 'article', array('label' => 'Articulo'));
       $this->form->addElement('text', 'autor', array('label' => 'Autor'));
-      $this->form->addElement('hidden', 'yearLabel', array('label' => 'Años (Intervalo)'));
+      $this->form->addElement('hidden', 'yearLabel', array('label' => 'Años [Año inicial - Año final]'));
       $this->form->addElement('text', 'yearInit',array('disableLoadDefaultDecorators' => true,'decorators'=>Array('ViewHelper','Errors')));
       $this->form->addElement('text', 'yearEnd', array('disableLoadDefaultDecorators' => true,'decorators'=>Array('ViewHelper')));
       $this->form->addElement('text', 'journal', array('label' => 'Revista'));
