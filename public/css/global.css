@@ -6,13 +6,10 @@ span#zf-name
 {
     color: #91BE3F;
 }
-.header, .menu, .footpage
+header, .menu, footer
 {
     text-align: center;
     vertical-align: text-top;
-}
-.content
-{
 }
 h2
 {
@@ -32,7 +29,7 @@ iframe
     height: 100%;
     border-style: none;
 }
-div
+div, header, footer
 {
     border: solid 2px blue;
 }

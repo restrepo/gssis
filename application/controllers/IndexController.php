@@ -12,7 +12,6 @@ class IndexController extends Zend_Controller_Action
 
     }
 
-
     private function getCsvButton($url)
     {
      $formb = new Zend_Form;
@@ -37,7 +36,7 @@ class IndexController extends Zend_Controller_Action
             $this->view->form = $form;
             return $this->render('form');
         }
- 
+
         $values = $form->getValues();
 	$this->view->resultscsv = "<iframe style=\"height:100%;width:100%\"  src=\"".
 	 "https://spreadsheets.google.com/tq?tqx=out:csv&tq=select+E,F,G,H,C,J+where+".

@@ -1,7 +1,7 @@
 <?php
 $this->headLink()->appendStylesheet($this->baseUrl().'/css/global.css');
 $this->headScript()->appendFile($this->baseUrl().'/js/json.js');
-echo $this->doctype()
+echo $this->doctype("HTML5");
 ?>
 <html>
 <head>
@@ -16,26 +16,17 @@ echo $this->doctype()
   ?>
 </head>
 <body>
+  <header><h1><span id="zf-name">GDS Instituto de Física</span></h1></header>
   <table class="bodyPage">
     <tr>
-      <td class="header" colspan="2">
-        <h1><span id="zf-name">GDS Instituto de Física</span></h1> 
-      </td>
-    </tr>
-    <tr>
-      <td class="menu" width="20%">
-          <?php echo $this->render('index/menu.phtml'); ?>
-      </td>
-      <td class="content" width="80%">
-         <div id="content"><?php echo $this->layout()->content ?></div>
-      </td>
-    </tr>
-    <tr>
-      <td class="footpage" colspan="2">
-        <h1><span id="zf-name">Gfif Development Team</span></h1>     
-      </td>
+    <td class="menu" width="20%">
+      <?php echo $this->render('index/menu.phtml'); ?>
+    </td>
+    <td id="content" class="content" width="80%">
+      <?php echo $this->layout()->content; ?>
+    </td>
     </tr>
   </table>
-<div id="debug"></div>
+  <footer><h1><span id="zf-name">Gfif Development Team</span></h1></footer>
 </body>
 </html>
