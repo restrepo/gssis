@@ -2,14 +2,23 @@ a:link, a:visited
 {
     color: #0398CA;
 }
-span#zf-name
-{
-    color: #91BE3F;
-}
 header, .menu, footer
 {
     text-align: center;
     vertical-align: text-top;
+}
+header
+{
+    color: #91BE3F;
+    font-size: 40px;
+    font-weight: bold;
+    padding: 10px;
+}
+footer
+{
+    color: #606060;
+    font-size: 12px;
+    font-family: Arial, Helvetica, sans-serif;
 }
 h2
 {
