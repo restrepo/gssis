@@ -3,9 +3,6 @@
 class StudentsController extends Zend_Controller_Action
 {
 
-   
-    public $doc_key = '0AjqGPI5Q_Ez6dHJwV0tzaHRzOXlHcHVZSmwySnRTU1E';
-
     public function init()
     {
         /* Initialize action controller here */
@@ -29,10 +26,16 @@ class StudentsController extends Zend_Controller_Action
       return $this->form;
     }
 
+    public function links()
+    {
+	echo "<a href='https://docs.google.com/spreadsheet/ccc?key=0AjqGPI5Q_Ez6dHJwV0tzaHRzOXlHcHVZSmwySnRTU1E&hl=es#gid=0' target='_blank'>Ir a Google Docs</a><br>";
+    }
+
     public function indexAction()
     {
      $this->view->form = $this->getForm();
      echo $this->view->form;
+      $this->links();
     }
 
     public function searchAction()
@@ -53,31 +56,7 @@ class StudentsController extends Zend_Controller_Action
         $this->view->headScript()->appendFile($this->view->baseUrl().'/js/json.js');
         $this->view->headScript()->appendFile($this->view->baseUrl().'/js/estudiantes.php?s='.$values);
 
-// 	$yearInitCode='';
-// 	$yearEndCode='';
-// 	if(!empty($values['yearInit']))
-// 	{
-// 	  $yearInitCode="(C>=".$values['yearInit'].")+and+";
-// 	}
-// 	if(!empty($values['yearEnd']))
-// 	{
-// 	  $yearEndCode="(C<=".$values['yearEnd'].")+and+";
-// 
-// 	}
-
-// 	$this->view->results = "<iframe style=\"height:100%;width:100%\"  src=\"".
-// 	 "https://spreadsheets.google.com/tq?tqx=out:html&tq=select+A,B,C,D,E,F,G,H,I+where+".
-// 	  "(C+contains+'".$values['name']."')+and+".
-// 	  "(D+contains+'".$values['id']."')+and+".
-//           "(G+contains+'".$values['advisor']."')+and+".
-// 	  "(H+contains+'".$values['group']."')+and+".  
-// 	  "(I+contains+'".$values['projectid']."')+order+by+A+desc&key=$this->doc_key\"> Searching</iframe>";
-// 	echo $this->getForm();
-// 	echo $this->view->results;
+	$this->links();
     }
 
-
 }
-
-
-
