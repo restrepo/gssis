@@ -2,6 +2,10 @@ a:link, a:visited
 {
     color: #0398CA;
 }
+td
+{
+    vertical-align: text-top;
+}
 header, .menu, footer
 {
     text-align: center;
