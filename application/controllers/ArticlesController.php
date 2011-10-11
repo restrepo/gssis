@@ -37,14 +37,14 @@ class ArticlesController extends Zend_Controller_Action
     }
     public function links()
     {
-	echo "<a href='https://docs.google.com/spreadsheet/ccc?key=0AjqGPI5Q_Ez6dDA3ajhtYVVDOWdBckVhWm1MSFRET1E&hl=es#gid=0' target='_blank'>Ir a Google Docs</a><br>";
+        echo "<a href='https://docs.google.com/spreadsheet/ccc?key=0AjqGPI5Q_Ez6dDA3ajhtYVVDOWdBckVhWm1MSFRET1E&hl=es#gid=0' target='_blank'>Ir a Google Docs</a><br>";
     }
     public function indexAction()
     {
         // action body
         $this->view->form = $this->getForm();
         echo $this->view->form;
-	$this->links();
+        $this->links();
     }
     public function searchAction()
     {
@@ -63,6 +63,6 @@ class ArticlesController extends Zend_Controller_Action
         $this->view->headScript()->appendFile($this->view->baseUrl().'/js/json.js');
         $this->view->headScript()->appendFile($this->view->baseUrl().'/js/articulos.php?s='.$values);
 
-	$this->links();
+        $this->links();
     }
 }

@@ -26,10 +26,16 @@ class ProjectsController extends Zend_Controller_Action
         return $this->form;
     }
 
+    public function links()
+    {
+        echo "<a href='https://docs.google.com/spreadsheet/ccc?key=0AjqGPI5Q_Ez6dFE1S2pWQkZJdFkycWFvNXdaMDhkWFE&hl=es#gid=0' target='_blank'>Ir a Google Docs</a><br>";
+    }
+
     public function indexAction()
     {
         $this->view->form = $this->getForm();
         echo $this->view->form;
+        $this->links();
     }
 
     public function searchAction()
@@ -50,28 +56,6 @@ class ProjectsController extends Zend_Controller_Action
         $this->view->headScript()->appendFile($this->view->baseUrl().'/js/json.js');
         $this->view->headScript()->appendFile($this->view->baseUrl().'/js/proyectos.php?s='.$values);
 
-// 	$yearInitCode='';
-// 	$yearEndCode='';
-// 
-//         $this->view->headScript()->appendFile($this->view->baseUrl().'/js/if.js');
-// 	$this->view->results = '<iframe id="query" onload="algo();" src="'.
-// 	 "https://spreadsheets.google.com/tq?tqx=out:html&tq=select+C,D,H,E,F,G,K,L+where+".
-// 	  "(B+contains+'".$values['id']."')+and+".
-// 	  "(C+contains+'".$values['name']."')+and+".
-//           "(D+contains+'".$values['manager']."')+and+".
-// 	  "(H+contains+'".$values['type']."')+and+".  
-// 	  "(J+contains+'".$values['group']."')+order+by+A+desc&key=$this->doc_key\">Searching</iframe>";
-//     echo "<script type=\"text/javascript\">
-//         function algo(){
-//             // alert('termino de leer');
-//             // jQuery('iframe').iframeAutoHeight({debug: true, diagnostics: false});
-//         }
-//     </script>";
-// 	echo $this->getForm();
-// 	echo $this->getCsvButton("https://spreadsheets.google.com/tq?tqx=out:csv&tq=select+E,F,G,H,C,J+where+".
-// 	  "(E+contains+'".$values['autor']."')+and+".
-// 	  $yearInitCode.$yearEndCode.$values['type'].
-// 	  "(J+contains+'".$values['article']."')+order+by+A+desc&key=$this->doc_key");
-// 	echo $this->view->results;
+        $this->links();
     }
 }
