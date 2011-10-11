@@ -18,7 +18,8 @@ if(!empty($s['yearEnd']))
 ?>
 
 var SS_URL = "http://spreadsheets.google.com/tq?key=0AjqGPI5Q_Ez6dDA3ajhtYVVDOWdBckVhWm1MSFRET1E";
-var SS_URL_EXEL = "http://spreadsheets.google.com/tq?tqx=out:html&tq=<?php echo $query2; ?>&key=0AjqGPI5Q_Ez6dDA3ajhtYVVDOWdBckVhWm1MSFRET1E";
+var SS_URL_EXEL = "https://spreadsheets.google.com/feeds/download/spreadsheets/Export?tq=<?php echo $query2; ?>&key=0AjqGPI5Q_Ez6dDA3ajhtYVVDOWdBckVhWm1MSFRET1E&exportFormat=xls";
+
 
 $.ss(SS_URL)
   .setQuery("<?php echo $query; ?>")
