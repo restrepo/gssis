@@ -42,19 +42,24 @@ iframe
     height: 100%;
     border-style: none;
 }
-div, header, footer
+header, .menu
 {
-    border: solid 2px blue;
+    background-color: #f7f7f7;
+/*     border: solid 2px blue; */
 }
 .bodyPage
 {
-    border: solid 2px green;
+/*     border: solid 2px green; */
     width: 100%;
     height: 100%;
 }
 table, tr, td
 {
-    border: solid 2px green;
+/*     border: solid 2px green; */
+}
+.menuItem
+{
+/*     border: 1px solid green; */
 }
 table.templateTable td
 {
