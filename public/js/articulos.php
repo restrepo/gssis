@@ -26,7 +26,7 @@ $.ss(SS_URL)
 .send(function(success) {
     if(!success) return;
     var con = $('#content')
-              var str = "<a href=\"" + SS_URL_EXEL +"\">Descargar en formato Excel</a><br><table class='templateTable'>"
+    var str = "<a href=\"" + SS_URL_EXEL +"\">Descargar en formato Excel</a><br><table class='templateTable'>"
     this.each(function(i, k) {
         str += "<tr><td><b>Título del artículo " + (i+1) + "</b></td><td align='center' colspan='2'><b>" + this['J'] + "</b></td></tr>\
              <tr><td>Autores</td><td colspan='2'>" + this['E'] + "</td></tr>\

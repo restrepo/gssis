@@ -16,7 +16,6 @@ $query2="select+C,D,G,I,J+where+(C+contains+'".$s['name']."'+and+D+contains+'".$
 //     $query=$query." and C <= ".$s['yearEnd'];
 // }
 
-
 ?>
 
 var SS_URL = "http://spreadsheets.google.com/tq?key=0AjqGPI5Q_Ez6dHJwV0tzaHRzOXlHcHVZSmwySnRTU1E";
