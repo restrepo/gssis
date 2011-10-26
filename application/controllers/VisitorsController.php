@@ -31,7 +31,7 @@ class VisitorsController extends Zend_Controller_Action
 
     public function links()
     {
-        echo "<a href='https://docs.google.com/spreadsheet/ccc?key=0AjqGPI5Q_Ez6dGllR2x3NHEwU1VaV3oyb2pFVl9Vc0E&hl=es' target='_blank'>Ir a Google Docs</a><br>";
+        echo "<a href=''>Insertar</a> - <a href='https://docs.google.com/spreadsheet/ccc?key=0AjqGPI5Q_Ez6dGllR2x3NHEwU1VaV3oyb2pFVl9Vc0E&hl=es' target='_blank'>Editar</a><br>";
     }
 
     public function indexAction()

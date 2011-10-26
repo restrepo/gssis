@@ -28,7 +28,7 @@ class ProjectsController extends Zend_Controller_Action
 
     public function links()
     {
-        echo "<a href='https://docs.google.com/spreadsheet/ccc?key=0AjqGPI5Q_Ez6dFE1S2pWQkZJdFkycWFvNXdaMDhkWFE&hl=es#gid=0' target='_blank'>Ir a Google Docs</a><br>";
+        echo "<a href=''>Insertar</a> - <a href='https://docs.google.com/spreadsheet/ccc?key=0AjqGPI5Q_Ez6dFE1S2pWQkZJdFkycWFvNXdaMDhkWFE&hl=es#gid=0' target='_blank'>Editar</a><br>";
     }
 
     public function indexAction()
