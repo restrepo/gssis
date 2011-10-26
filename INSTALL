@@ -1,0 +1,25 @@
+Instalacion:
+# aptitude install zendframework zendframework-resources zendframework-bin phpunit php5-mysql php5-pgsql
+
+
+Configuración de Apache (mod_rewrite)
+ - Para que ZF funcione, todas las urls deben ser procesadas por el archivo index.php, el cual decidirá qué hacer con ellas. Por ejemplo, si yo escribo:
+	http://localhost/miproyecto/public/
+	http://localhost/miproyecto/public/algo/otro
+	http://localhost/miproyecto/public/saludo/hola
+
+   todas esas páginas deberían redirigirse a 
+	http://localhost/miproyecto/public/index.php , el cual decidirá qué paginas mostrar, según la url que se le envíe.
+
+Para activar esta opción escribimos en la terminal:
+
+# a2enmod rewrite
+
+Como no nos redireccionaba el index.php del public, pusimos la opción en el archivo /etc/apache2/httpd.conf 
+
+<Directory “ruta al proyecto”>
+AllowOverride All
+Options All
+</Directory>
+
+y reiniciamos el apache.
