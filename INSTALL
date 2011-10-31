@@ -1,5 +1,5 @@
 Instalacion:
-# aptitude install zendframework zendframework-resources zendframework-bin phpunit php5-mysql php5-pgsql
+# aptitude install zendframework zendframework-resources zendframework-bin libjs-jquery
 
 
 Configuración de Apache (mod_rewrite)
