@@ -22,6 +22,8 @@ class StudentsController extends Zend_Controller_Action
         $this->form->addElement('text', 'yearEnd', array('disableLoadDefaultDecorators' => true,'decorators'=>Array('ViewHelper')));
         $this->form->addElement('text', 'group', array('label' => 'Grupo'));
         $this->form->addElement('text', 'projectid', array('label' => 'Id del proyecto'));
+        $this->form->addElement('select', 'format', array('label' => 'Formato', 'value'=>'CODI', 'autocomplete'=>false, 'multiOptions'=>array('codi'=>'CODI', 'list' => 'Lista')));
+
         $this->form->addElement('submit', 'search', array('label' => 'Buscar'));
         return $this->form;
     }

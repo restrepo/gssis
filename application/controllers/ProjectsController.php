@@ -22,6 +22,8 @@ class ProjectsController extends Zend_Controller_Action
         $this->form->addElement('text', 'group', array('label' => 'Grupo'));
         $this->form->addElement('select','type',array('label'=>'Tipo de Proyecto','value'=>'Todos','autocomplete'=>false,'multiOptions'=>array(''=>'Todos','Sostenibilidad'=>'Sostenibilidad',
                                 'Colciencias'  => 'Colciencias')));
+        $this->form->addElement('select', 'format', array('label' => 'Formato', 'value'=>'CODI', 'autocomplete'=>false, 'multiOptions'=>array('codi'=>'CODI', 'list' => 'Lista')));
+
         $this->form->addElement('submit', 'search', array('label' => 'Buscar'));
         return $this->form;
     }

@@ -25,6 +25,8 @@ class VisitorsController extends Zend_Controller_Action
         $this->form->addElement('text', 'projectid', array('label' => 'Id del proyecto'));
         $this->form->addElement('text', 'group', array('label' => 'Grupo'));
         $this->form->addElement('text', 'seminar', array('label' => 'Seminario'));
+        $this->form->addElement('select', 'format', array('label' => 'Formato', 'value'=>'CODI', 'autocomplete'=>false, 'multiOptions'=>array('list' => 'Lista')));
+
         $this->form->addElement('submit', 'search', array('label' => 'Buscar'));
         return $this->form;
     }
@@ -62,6 +64,3 @@ class VisitorsController extends Zend_Controller_Action
         $this->links();
     }
 }
-
-
-
