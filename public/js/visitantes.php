@@ -25,7 +25,9 @@ var SS_URL_EXEL = "https://spreadsheets.google.com/feeds/download/spreadsheets/E
 $.ss(SS_URL)
 .setQuery("<?php echo $query; ?>")
 .setField("A,B,C,D,E,F,G,H,I,J")
-.send(function(success) {
+.send(<?php echo $s['format']; ?>);
+
+function list(success) {
     if(!success) return;
     var con = $('#content')
     var str = "<a href=\"" + SS_URL_EXEL +"\">Descargar en formato Excel</a><br><table class='templateTable'>"
@@ -35,4 +37,4 @@ $.ss(SS_URL)
     })
     str += "</table>"
     con.html(con.html() + str)
-});
+}
