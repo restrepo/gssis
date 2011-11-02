@@ -7,14 +7,16 @@ $s = unserialize(urldecode(stripslashes($_GET['s'])));
 $query="select A,B,C,D,E,F,G,H,I,J,K,L where B contains '".$s['id']."' and C contains '".$s['name']."' and D contains '".$s['manager']."' and H contains '".$s['type']."' and J contains '".$s['group']."'";
 $query2="select+A,B,C,D,E,F,G,H,I,J,K,L+where+(B+contains+'".$s['id']."'+and+C+contains+'".$s['name']."'+and+D+contains+'".$s['manager']."'+and+H+contains+'".$s['type']."'+and+J+contains+'".$s['group']."')";
 
-// if(!empty($s['yearInit']))
-// {
-//     $query=$query." and F >= '".$s['yearInit']."'";
-// }
-// if(!empty($s['yearEnd']))
-// {
-//     $query=$query." and F <= ".$s['yearEnd'];
-// }
+if(!empty($s['yearInit']))
+{
+    $query=$query." and F >= '".$s['yearInit']."'";
+    $query2=$query2."+and+(F>='".$s['yearInit']."')";
+}
+if(!empty($s['yearEnd']))
+{
+    $query=$query." and G <= '".$s['yearEnd']."'";
+    $query2=$query2."+and+(G<='".$s['yearEnd']."')";
+}
 ?>
 
 var SS_URL = "http://spreadsheets.google.com/tq?key=0AjqGPI5Q_Ez6dFE1S2pWQkZJdFkycWFvNXdaMDhkWFE";
