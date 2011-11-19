@@ -1,0 +1,31 @@
+Scripts to the massive creation of google apps accounts for a domain
+wihtout change of Mail Exchange (MX) registers. 
+
+In this case the google mail alias must be configured in the .forward
+of each user in the Unix server mail associated to the domain:
+
+<user name>@domain_name.test-google-a.com
+
+The included files are
+* functions.sh
+* userscsv.sh
+* forward.sh
+
+userscsv.sh: Creates the cvs file required by Google Apps to the
+massive creation of accounts. The generated password for each account
+corresponds to login + some appended word given as an input parameter
+of userscsv.sh (check 
+ $ userscsv.sh --help 
+for details).
+
+Upload this file into your Google Apps administration panel before
+continue. 
+
+forward.sh
+
+Create or modify the .forwards to redirect the incoming mail to the
+google servers.
+
+x Create new accounts for email addresses that do not yet exist.
+ Update existing accounts with new names and passwords.
+x Require a password change when new or updated users sign in.
