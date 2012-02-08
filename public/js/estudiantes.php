@@ -29,25 +29,25 @@ $.ss(SS_URL)
 function codi(success) {
     if(!success) return;
     var con = $('#content')
-    var str = "<a href=\"" + SS_URL_EXEL +"\">Descargar en formato Excel</a><br><table class='templateTable'>"
+              var str = "<a href=\"" + SS_URL_EXEL +"\">Descargar en formato Excel</a><br><table class='templateTable'>"
     this.each(function(i, k) {
         str += "<tr><td colspan='4'><b>Estudiante matriculado o admitido " + (i+1) + "</b></td></tr>\
                 <tr><td>Nombre:</td><td>" + this['C'] + "</td><td>Cédula:</td><td>" + this['D'] + "</td></tr>\
                 <tr><td>Tutor:</td><td>" + this['G'] + "</td><td>Programa:</td><td>" + this['I'] + "</td></tr>\
                 <tr><td colspan='2'>Trabajo de investigación o proyecto:</td><td colspan='2'>" + this['J'] +"</td></tr>"
     })
-    str += "</table>"
-    con.html(con.html() + str)
+                        str += "</table>"
+                               con.html(con.html() + str)
 }
 
 function list(success) {
     if(!success) return;
     var con = $('#content')
-    var str = "<a href=\"" + SS_URL_EXEL +"\">Descargar en formato Excel</a><br>\
+              var str = "<a href=\"" + SS_URL_EXEL +"\">Descargar en formato Excel</a><br>\
                <table class='templateTable'><tr><th>Timestamp</th><th>Username</th><th>Nombre y Apellidos</th><th>Identificación</th><th>Semestre Ingreso</th><th>Semestre de Sálida</th><th>Director</th><th>Grupo</th><th>Programa</th><th>Trabajo de Investigación</th><th>Proyecto ID</th><th>Programa</th><th>Trabajo de Investigación</th><th>Timestamp</th><th>Username</th></tr>"
     this.each(function(i, k) {
         str += "<tr><td>" + this['A'] + "</td><td>" + this['B'] + "</td><td>" + this['C'] + "</td><td>" + this['D'] + "</td><td>" + this['E'] + "</td><td>" + this['F'] + "</td><td>" + this['G'] + "</td><td>" + this['H'] + "</td><td>" + this['I'] + "</td><td>" + this['J'] + "</td><td>" + this['K'] + "</td><td>" + this['R'] + "</td><td>" + this['S'] + "</td><td>" + this['T'] + "</td><td>" + this['U'] + "</td></tr>"
     })
-    str += "</table>"
-    con.html(con.html() + str)
+                        str += "</table>"
+                               con.html(con.html() + str)
 }
