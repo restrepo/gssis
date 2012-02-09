@@ -2,15 +2,19 @@
 
 class ActivitiesController extends Zend_Controller_Action
 {
-
+    public $form = null;
+    public $doc_keyProjects="0AjqGPI5Q_Ez6dFE1S2pWQkZJdFkycWFvNXdaMDhkWFE";
+    
     private function getForm()
     {
         $this->form->setAction($this->view->url(array('controller' => 'activities', 'action' => 'search')))->setMethod('post');
         $this->form->addElement('text', 'name', array('label' => 'Nombre'));
-        $this->form->getElement('name')->setRequired(true);
-        $this->form->addElement('text', 'year', array('label' => 'Año'));
-        $this->form->getElement('year')->setRequired(true);
-        $this->form->getElement('year')->addValidator("Digits");
+        $this->form->addElement('hidden', 'yearLabel', array('label' => 'Años (Intervalo)'));
+        $this->form->addElement('text', 'yearInit',array('disableLoadDefaultDecorators' => true,'decorators'=>Array('ViewHelper','Errors')));
+        $this->form->addElement('text', 'yearEnd', array('disableLoadDefaultDecorators' => true,'decorators'=>Array('ViewHelper')));
+        $this->form->getElement('yearInit')->addValidator("Digits");
+        $this->form->getElement('yearEnd')->addValidator("Digits");
+        $this->form->addElement('select', 'format', array('label' => 'Formato', 'value'=>'CODI', 'autocomplete'=>false, 'multiOptions'=>array('codi'=>'CODI', 'list' => 'Lista')));
         $this->form->addElement('submit', 'search', array('label' => 'Buscar'));
         return $this->form;
     }
@@ -40,10 +44,14 @@ class ActivitiesController extends Zend_Controller_Action
         if (!$form->isValid($_POST)) {
             // Failed validation; redisplay form
             echo $form;
+	    return;
         }
         echo $form;
-
         $values = urlencode(serialize($form->getValues()));
+
+        $this->view->headScript()->appendFile($this->view->baseUrl().'/js/json.js');
+        $this->view->headScript()->appendFile($this->view->baseUrl().'/js/actividades.php?s='.$values);
+
 
 
     }
