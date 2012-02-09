@@ -2,54 +2,63 @@
 <?php
 header('content-type: application/x-javascript');
 
-$s = unserialize(urldecode(stripslashes($_GET['s'])));
+$p = unserialize(urldecode(stripslashes($_GET['activities'])));
 
-$query="select D,I,J,L where (E contains '".$s['name']."')";
-$query2="select+A,B,C,D,E,F,G,H,I,J,K,L+where+(B+contains+'".$s['id']."'+and+C+contains+'".$s['name']."'+and+D+contains+'".$s['manager']."'+and+H+contains+'".$s['type']."'+and+J+contains+'".$s['group']."')";
-
-if(!empty($s['yearInit']))
+$query="select D,I,J,L where (E contains '".$p['name']."')";
+$query2="select E,J,F,G,H where (E contains '".$p['name']."')";
+/*if(!empty($p['yearInit']))
 {
-    $query=$query." and F >= '".$s['yearInit']."'";
-    $query2=$query2."+and+(F>='".$s['yearInit']."')";
+    $query=$query." and F >= '".$p['yearInit']."'";
 }
+
+
+if(!empty($p['yearEnd']))
+{
+    $query=$query." and G <= '".$p['yearEnd']."'";
+}
+
 if(!empty($s['yearEnd']))
 {
-    $query=$query." and G <= '".$s['yearEnd']."'";
     $query2=$query2."+and+(G<='".$s['yearEnd']."')";
-}
+}*/
 ?>
 
-var SS_URL = "http://spreadsheets.google.com/tq?key=0AjqGPI5Q_Ez6dFE1S2pWQkZJdFkycWFvNXdaMDhkWFE";
-var SS_URL_EXEL = "https://spreadsheets.google.com/feeds/download/spreadsheets/Export?tq=<?php echo $query2; ?>&key=0AjqGPI5Q_Ez6dFE1S2pWQkZJdFkycWFvNXdaMDhkWFE&exportFormat=xls";
+var SS_URL1 = "http://spreadsheets.google.com/tq?key=0AjqGPI5Q_Ez6dFE1S2pWQkZJdFkycWFvNXdaMDhkWFE";
+var SS_URL2 = "http://spreadsheets.google.com/tq?key=0AjqGPI5Q_Ez6dDA3ajhtYVVDOWdBckVhWm1MSFRET1E";
 
-$.ss(SS_URL)
+var SS_URL_EXEL1 = "https://spreadsheets.google.com/feeds/download/spreadsheets/Export?tq=<?php echo $query; ?>&key=0AjqGPI5Q_Ez6dFE1S2pWQkZJdFkycWFvNXdaMDhkWFE&exportFormat=xls";
+var SS_URL_EXEL2 = "https://spreadsheets.google.com/feeds/download/spreadsheets/Export?tq=<?php echo $query2; ?>&key=0AjqGPI5Q_Ez6dDA3ajhtYVVDOWdBckVhWm1MSFRET1E&exportFormat=xls";
+
+
+$.ss(SS_URL1)
 .setQuery("<?php echo $query; ?>")
 .setField("D,I,J,L")
-.send(<?php echo $s['format']; ?>);
+.send(<?php echo 'listProjects'; ?>);
 
-function codi (success) {
+function listProjects(success) {
     if(!success) return;
     var con = $('#content')
-    var str = "<a href=\"" + SS_URL_EXEL +"\">Descargar en formato Excel</a><br><table class='templateTable'>"
+    var str = "<a href=\"" + SS_URL_EXEL1 +"\">Descargar en formato Excel</a><br>\
+               <table class='templateTable' ><th>Título</th><th>Entidad</th><th>Centro que administra</th><th>Monto</th></tr>"
     this.each(function(i, k) {
-        str += "<tr><td colspan='4'><b>Proyecto " + (i+1) + ": " + this['C'] + "</b></td></tr>\
-                <tr><td colspan='4'>Investigador principal: " + this['D'] + "</td></tr>\
-                <tr><td>Financiadores</td><td colspan='3'>" + this['H'] + "</td></tr>\
-                <tr><td>Convocatoria</td><td colspan='3'>" + this['E'] + "</td></tr>\
-                <tr><td>Fecha de inicio</td><td>" + this['F'] + "</td><td>Duración en meses<br>o fecha de<br>finalización</td><td>" + this['G'] + "</td></tr>\
-                <tr><td>Valor total en $ millones</td><td>" + this['K'] + "</td><td>% Cofinanciación U.<br>de A.</td><td>" + this['L'] + "</td></tr>"
+        str += "<tr><td>" + this['D'] + "</td><td>" + this['I'] + "</td><td>" + this['J'] + "</td><td>" + this['L'] + "</td></tr>"
     })
     str += "</table>"
     con.html(con.html() + str)
 }
 
-function list (success) {
+$.ss(SS_URL2)
+.setQuery("<?php echo $query2; ?>")
+.setField("E,J,F,G,H")
+.send(<?php echo 'listArticles'; ?>);
+
+function listArticles(success) {
     if(!success) return;
     var con = $('#content')
-    var str = "<a href=\"" + SS_URL_EXEL +"\">Descargar en formato Excel</a><br>\
-               <table class='templateTable'><th>Título</th><th>Entidad</th><th>Centro que administra</th><th>Monto</th></tr>"
+    var str = "<a href=\"" + SS_URL_EXEL2 +"\">Descargar en formato Excel</a><br>\
+               <table class='templateTable''><th>Autores</th><th>Título</th><th>Revista</th><th>Volumen y Páginas</th></tr>"
     this.each(function(i, k) {
-        str += "<tr><td>" + this['D'] + "</td><td>" + this['I'] + "</td><td>" + this['J'] + "</td><td>" + this['L'] + "</td></tr>"
+        str += "<tr><td>" + this['E'] + "</td><td>" + this['J'] + "</td><td>" + this['F'] + "</td><td>" + this['G']+"/"+this['H']+ "</td></tr>"
     })
     str += "</table>"
     con.html(con.html() + str)

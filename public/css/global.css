@@ -45,11 +45,14 @@ header, .menu
     width: 100%;
     height: 100%;
 }
+
 table.templateTable td
 {
     border: solid 1px black;
+    width:500px;
 }
 table.templateTable th
 {
     border: solid 1px black;
+    width:500px;
 }

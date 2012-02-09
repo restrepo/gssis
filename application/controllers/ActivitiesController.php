@@ -14,7 +14,7 @@ class ActivitiesController extends Zend_Controller_Action
         $this->form->addElement('text', 'yearEnd', array('disableLoadDefaultDecorators' => true,'decorators'=>Array('ViewHelper')));
         $this->form->getElement('yearInit')->addValidator("Digits");
         $this->form->getElement('yearEnd')->addValidator("Digits");
-        $this->form->addElement('select', 'format', array('label' => 'Formato', 'value'=>'CODI', 'autocomplete'=>false, 'multiOptions'=>array('codi'=>'CODI', 'list' => 'Lista')));
+        $this->form->addElement('select', 'format', array('label' => 'Formato', 'value'=>'CODI', 'autocomplete'=>false, 'multiOptions'=>array('list' => 'Lista')));
         $this->form->addElement('submit', 'search', array('label' => 'Buscar'));
         return $this->form;
     }
@@ -50,7 +50,7 @@ class ActivitiesController extends Zend_Controller_Action
         $values = urlencode(serialize($form->getValues()));
 
         $this->view->headScript()->appendFile($this->view->baseUrl().'/js/json.js');
-        $this->view->headScript()->appendFile($this->view->baseUrl().'/js/actividades.php?s='.$values);
+        $this->view->headScript()->appendFile($this->view->baseUrl().'/js/actividades.php?activities='.$values);
 
 
 
