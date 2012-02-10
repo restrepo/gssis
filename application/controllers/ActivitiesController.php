@@ -4,7 +4,7 @@ class ActivitiesController extends Zend_Controller_Action
 {
     public $form = null;
     public $doc_keyProjects="0AjqGPI5Q_Ez6dFE1S2pWQkZJdFkycWFvNXdaMDhkWFE";
-    
+
     private function getForm()
     {
         $this->form->setAction($this->view->url(array('controller' => 'activities', 'action' => 'search')))->setMethod('post');
@@ -44,7 +44,7 @@ class ActivitiesController extends Zend_Controller_Action
         if (!$form->isValid($_POST)) {
             // Failed validation; redisplay form
             echo $form;
-	    return;
+            return;
         }
         echo $form;
         $values = urlencode(serialize($form->getValues()));
