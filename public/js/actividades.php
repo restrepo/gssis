@@ -135,7 +135,7 @@ function listEvents(success) {
         })
                   str += "</table>"
         
-        con.html("<h1><?php echo $query3 ?></h1>"+con.html() + str)
+        con.html(</h1>"+con.html() + str)
 
     }
 }
