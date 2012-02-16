@@ -65,7 +65,7 @@ function listProjects(success) {
               if(format=="list")
     {
 
-        var str = "><h3>Proyectos de Investigación</h3> <a href=\"" + SS_URL_EXEL1 +"\">Descargar en formato Excel</a><br>\
+        var str = "<h3>Proyectos de Investigación</h3> <a href=\"" + SS_URL_EXEL1 +"\">Descargar en formato Excel</a><br>\
       <table class='templateTable' ><th>Título</th><th>Entidad</th><th>Centro que administra</th><th>Monto</th></tr>"
         this.each(function(i, k) {
             str += "<tr><td>" + this['D'] + "</td><td>" + this['I'] + "</td><td>" + this['J'] + "</td><td>" + this['L'] + "</td></tr>"
