@@ -5,7 +5,7 @@ header('content-type: application/x-javascript');
 $s = unserialize(urldecode(stripslashes($_GET['s'])));
 
 $query="select A,B,C,D,E,F,G,H,I,J,K,L,M where C contains '".$s['id']."' and D contains '".$s['name']."' and E contains '".$s['manager']."' and I contains '".$s['type']."' and K contains '".$s['group']."'";
-$query2="select+A,B,C,D,E,F,G,H,I,J,K,L+where+(B+contains+'".$s['id']."'+and+C+contains+'".$s['name']."'+and+D+contains+'".$s['manager']."'+and+H+contains+'".$s['type']."'+and+J+contains+'".$s['group']."')";
+$query2="select+A,B,C,D,E,F,G,H,I,J,K,L,M+where+(C+contains+'".$s['id']."'+and+D+contains+'".$s['name']."'+and+E+contains+'".$s['manager']."'+and+I+contains+'".$s['type']."'+and+K+contains+'".$s['group']."')";
 
 if(!empty($s['yearInit']))
 {
