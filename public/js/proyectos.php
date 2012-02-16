@@ -9,13 +9,13 @@ $query2="select+A,B,C,D,E,F,G,H,I,J,K,L+where+(B+contains+'".$s['id']."'+and+C+c
 
 if(!empty($s['yearInit']))
 {
-    $query=$query." and F >= '".$s['yearInit']."'";
-    $query2=$query2."+and+(F>='".$s['yearInit']."')";
+    $query=$query." and G >= ".$s['yearInit']."";
+    $query2=$query2."+and+(G>='".$s['yearInit']."')";
 }
 if(!empty($s['yearEnd']))
 {
-    $query=$query." and G <= '".$s['yearEnd']."'";
-    $query2=$query2."+and+(G<='".$s['yearEnd']."')";
+    $query=$query." and H <= ".$s['yearEnd']."";
+    $query2=$query2."+and+(H<='".$s['yearEnd']."')";
 }
 ?>
 
@@ -49,7 +49,7 @@ function list (success) {
               var str = "<a href=\"" + SS_URL_EXEL +"\">Descargar en formato Excel</a><br>\
                <table class='templateTable'><tr><th>Timestamp</th><th>Proyecto ID</th><th>Título</th><th>Investigador Principal</th><th>Acta</th><th>Fecha de Inicio</th><th>Fecha de Finalización</th><th>Tipo</th><th>Centro</th><th>Grupo</th><th>Valor Total</th><th>% Cofinanciación UdeA</th></tr>"
     this.each(function(i, k) {
-        str += "<tr><td>" + this['A'] + "</td><td>" + this['B'] + "</td><td>" + this['C'] + "</td><td>" + this['D'] + "</td><td>" + this['E'] + "</td><td>" + this['F'] + "</td><td>" + this['G'] + "</td><td>" + this['H'] + "</td><td>" + this['I'] + "</td><td>" + this['J'] + "</td><td>" + this['K'] + "</td><td>" + this['L'] + "</td></tr>"
+        str += "<tr><td>" + this['A'] + "</td><td>" + this['C'] + "</td><td>" + this['D'] + "</td><td>" + this['E'] + "</td><td>" + this['F'] + "</td><td>" + this['G'] + "</td><td>" + this['H'] + "</td><td>" + this['I'] + "</td><td>" + this['J'] + "</td><td>" + this['K'] + "</td><td>" + this['L'] + "</td><td>" + this['M'] + "</td></tr>"
     })
                         str += "</table>"
                                con.html(con.html() + str)

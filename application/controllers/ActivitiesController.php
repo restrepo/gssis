@@ -12,8 +12,8 @@ class ActivitiesController extends Zend_Controller_Action
         $this->form->addElement('hidden', 'yearLabel', array('label' => 'Años (Intervalo)'));
         $this->form->addElement('text', 'yearInit',array('disableLoadDefaultDecorators' => true,'decorators'=>Array('ViewHelper','Errors')));
         $this->form->addElement('text', 'yearEnd', array('disableLoadDefaultDecorators' => true,'decorators'=>Array('ViewHelper')));
-        $this->form->getElement('yearInit')->addValidator("Digits");
-        $this->form->getElement('yearEnd')->addValidator("Digits");
+//         $this->form->getElement('yearInit')->addValidator("Date");
+//         $this->form->getElement('yearEnd')->addValidator("Date");
         $this->form->addElement('select', 'format', array('label' => 'Formato', 'autocomplete'=>false, 'multiOptions'=>array('list' => 'Lista','csv'=>'CSV')));
         $this->form->addElement('submit', 'search', array('label' => 'Buscar'));
         return $this->form;

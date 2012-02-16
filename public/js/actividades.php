@@ -4,41 +4,41 @@ header('content-type: application/x-javascript');
 
 $p = unserialize(urldecode(stripslashes($_GET['activities'])));
 
-$query="select D,I,J,L where E contains '".$p['name']."' ";
+$query="select D,I,J,L,G where E contains '".$p['name']."' ";
 $query2="select E,J,F,G,H where E contains '".$p['name']."' ";
 $query3="select C,H,D,M,L,F,G where C contains '".$p['name']."' ";
 if(!empty($p['yearInit']))
 {
-    $query=$query." or G >= '".$p['yearInit']."'";
+    $query=$query." and G >= ".$p['yearInit']." ";
 }
 
 
 if(!empty($p['yearEnd']))
 {
-    $query=$query." or H <= '".$p['yearEnd']."'";
+    $query=$query." and H <= ".$p['yearEnd']." ";
 }
 
 if(!empty($p['yearInit']))
 {
-    $query2=$query2." or C >= '".$p['yearInit']."'";
+    $query2=$query2." and C >= ".$p['yearInit']."";
 }
 
 
 if(!empty($p['yearEnd']))
 {
-    $query2=$query2." or C <= '".$p['yearEnd']."'";
+    $query2=$query2." and C <= ".$p['yearEnd']."";
 }
 
-if(!empty($p['yearInit']))
-{
-    $query3=$query3." or F >= '".$p['yearInit']."'";
-}
-
-
-if(!empty($p['yearEnd']))
-{
-    $query3=$query3." or G <= '".$p['yearEnd']."'";
-}
+// if(!empty($p['yearInit']))
+// {
+//     $query3=$query3." and F contains ".$p['yearInit']."";
+// }
+//
+//
+// if(!empty($p['yearEnd']))
+// {
+//     $query3=$query3." and G contains ".$p['yearEnd']."";
+// }
 
 $output=$p['format'];
 ?>
@@ -52,11 +52,11 @@ var SS_URL_EXEL1 = "https://spreadsheets.google.com/feeds/download/spreadsheets/
 var SS_URL_EXEL2 = "https://spreadsheets.google.com/feeds/download/spreadsheets/Export?tq=<?php echo $query2; ?>&key=0AjqGPI5Q_Ez6dDA3ajhtYVVDOWdBckVhWm1MSFRET1E&exportFormat=xls";
 var SS_URL_EXEL3 = "https://spreadsheets.google.com/feeds/download/spreadsheets/Export?tq=<?php echo $query3; ?>&key=0AjqGPI5Q_Ez6dHlfZTZJN0tuS1c1ZlZNakhpbjc0Umc&exportFormat=xls";
 
-$.ajaxSetup( {'async': false});
+
 
 $.ss(SS_URL1)
 .setQuery("<?php echo $query; ?>")
-.setField("D,I,J,L")
+.setField("D,I,J,L,G")
 .send(<?php echo 'listProjects'; ?>);
 
 function listProjects(success) {
@@ -64,13 +64,15 @@ function listProjects(success) {
     var con = $('#content')
               if(format=="list")
     {
-        var str = "<h3>Proyectos de Investigación</h3> <a href=\"" + SS_URL_EXEL1 +"\">Descargar en formato Excel</a><br>\
+
+        var str = "><h3>Proyectos de Investigación</h3> <a href=\"" + SS_URL_EXEL1 +"\">Descargar en formato Excel</a><br>\
       <table class='templateTable' ><th>Título</th><th>Entidad</th><th>Centro que administra</th><th>Monto</th></tr>"
         this.each(function(i, k) {
             str += "<tr><td>" + this['D'] + "</td><td>" + this['I'] + "</td><td>" + this['J'] + "</td><td>" + this['L'] + "</td></tr>"
         })
                   str += "</table>"
                          con.html(con.html() + str)
+
     } else {
         var str = "<table class='csvTable' ><th>Título,</th><th>Entidad,</th><th>Centro que administra,</th><th>Monto</th></tr>"
         this.each(function(i, k) {
@@ -119,7 +121,7 @@ function listArticles(success) {
 function listEvents(success) {
     if(!success) return;
     var con = $('#content')
-    if(format=="list")
+              if(format=="list")
     {
         var str = "<h3>Eventos</h3> <a href=\"" + SS_URL_EXEL3 +"\">Descargar en formato Excel</a><br>\
 	      <table class='templateTable''><th>Autores</th><th>Título</th><th>Evento, lugar y fecha</th><th>Volumen y Páginas</th></tr>"
@@ -133,9 +135,9 @@ function listEvents(success) {
         this.each(function(i, k) {
             str += "<tr><td>" + this['C'] + ",</td><td>" + this['H'] + ",</td><td>" + this['D']+" / "+this['M']+" / "+this['L']+" / "+this['F']+" / "+this['G']+ ",</td><td>"+"-"+"</td></tr>"
         })
-                  str += "</table>"
-        
-        con.html(</h1>"+con.html() + str)
+                 str += "</table>"
+
+                        con.html(con.html() + str)
 
     }
 }
