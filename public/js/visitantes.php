@@ -30,11 +30,11 @@ $.ss(SS_URL)
 function list(success) {
     if(!success) return;
     var con = $('#content')
-    var str = "<a href=\"" + SS_URL_EXEL +"\">Descargar en formato Excel</a><br><table class='templateTable'>"
+              var str = "<a href=\"" + SS_URL_EXEL +"\">Descargar en formato Excel</a><br><table class='templateTable'>"
     this.each(function(i, k) {
         str += "<tr><th>Timestamp</th><th>Nombre</th><th>Institución</th><th>País</th><th>Fecha llegada</th><th>Fecha salida</th><th>Grupo</th><th>Seminario</th><th>Resumen</th><th>Fecha seminario</th><th>Proyecto ID</th></tr>\
                <tr><td>" + this['A'] + "</td><td>" + this['B'] + "</td><td>" + this['C'] + "</td><td>" + this['D'] + "</td><td>" + this['E'] + "</td><td>" + this['F'] + "</td><td>" + this['G'] + "</td><td>" + this['H'] + "</td><td>" + this['I'] + "</td><td>" + this['J'] + "</td><td>" + this['K'] + "</td></tr>"
     })
-    str += "</table>"
-    con.html(con.html() + str)
+                        str += "</table>"
+                               con.html(con.html() + str)
 }
