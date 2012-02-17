@@ -1,0 +1,4 @@
+bibtex2csv.py
+
+Convert a BibTeX file in the forma of the spreadsheet for publications
+in Google Docs.
