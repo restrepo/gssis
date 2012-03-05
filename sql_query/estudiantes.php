@@ -61,7 +61,12 @@ if($_POST["step"]==1)
       $urlss=$urlss."&gid=".$_POST['sheetgid'];
     }
     $urlss=$urlss."&key=".$_POST['key'];
-       echo "<meta http-equiv=\"refresh\" content=\"0; url=".$urlss."\">";
+    if($_POST['sql_query']){
+      echo "<meta http-equiv=\"refresh\" content=\"0; url=".$urlss."\">";
+    }
+    else{
+      echo 'ERROR: Plese fill the "SQL query" field. Check example above the field <br/><br/>';
+    }
   }
 echo '<a href="http://gfif.udea.edu.co/query.php">Búsqueda</a> sobre cualquier hoja de cálculo de Google';
 echo '</html></body>';
