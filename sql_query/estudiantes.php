@@ -16,6 +16,7 @@
 //select E,F,G,H,C,J where (E contains 'Osorio') order by A desc
 //&key=0AjqGPI5Q_Ez6dDA3ajhtYVVDOWdBckVhWm1MSFRET1E
 echo '<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link href="/gssis/public/css/global.css" media="screen" rel="stylesheet" type="text/css">
 <title>SQL queryes in public Google Spreadsheets</title></head>';
 
