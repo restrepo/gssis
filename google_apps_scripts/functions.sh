@@ -1,7 +1,9 @@
 #global variables
 homeprof="$1"
 domain="$2"
-listusers=$(cat /etc/passwd |grep -v "/bin/false"| grep ":$homeprof" | awk -F":" '{print $1}')
+passwdfile=/etc/passwd
+#passwdfile=/home/restrepo/prog/google_apps_accounts/gssis/google_apps_scripts/passwd
+listusers=$(cat $passwdfile |grep -v "/bin/false"| grep ":$homeprof" |sort |uniq | awk -F":" '{print $1}')
 function forwardcm {
     for i in $listusers
     do 
@@ -51,7 +53,8 @@ function createcsv {
     echo "email address ,first name ,last name ,password" > $tmpfile
     for i in $listusers
     do 
-	fullname=$(cat /etc/passwd | grep $homeprof | grep $i | awk -F":" '{print $5}' | awk -F"," '{print $1}')
+	#check for uniq entries, delete quotes: "", in full name
+	fullname=$(cat $passwdfile | grep $homeprof | grep $i | uniq | sed 's/"//g'| awk -F":" '{print $5}' | awk -F"," '{print $1}')
 	if [ "$(nameparts $fullname)" == 0 ];then 
 	    firstname=""
 	    lastname=""
@@ -67,6 +70,9 @@ function createcsv {
 	elif [ "$(nameparts $fullname)" == 4 ];then 
 	    firstname=$(echo $fullname | awk '{print $1" "$2}') 
 	    lastname=$(echo $fullname | awk '{print $3" "$4}')
+	elif [ "$(nameparts $fullname)" == 5 ];then 
+	    firstname=$(echo $fullname | awk '{print $1" "$2" "$3}') 
+	    lastname=$(echo $fullname | awk '{print $4" "$5}')
 	else 
 	    firstname=$fullname
 	    lastname=""
