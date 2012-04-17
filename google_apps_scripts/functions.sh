@@ -34,7 +34,7 @@ function forwardcm {
     done
 }
 
-function forwarddel {
+function forwardappsdel {
     for i in $listusers
     do 
 	realhome=$(cat $passwdfile | grep ":$homeprof" |grep -E "^$i:" | awk -F":" '{print $6}' |sort |uniq )
@@ -46,6 +46,31 @@ function forwarddel {
             else
       		echo deleting ${i}@$malias to $i/.forward
       		cat "$realhome/.forward" | sed 's/'$i'@'$malias'//'| grep -E '^.'  > /tmp/forward
+		cp /tmp/forward "$realhome/.forward"
+		/bin/rm -f /tmp/forward
+            fi
+        fi
+        #change permissions
+        owner=$(/bin/ls -l "$realhome/.forward" | awk '{print $3}')
+        if [ "$owner" = root ]; then 
+      	    group=$(/bin/ls -ld $realhome | awk '{print $4}')
+      	    chown ${i}:$group "$realhome/.forward" 
+        fi
+    done
+}
+
+function forwardlocaldel {
+    for i in $listusers
+    do 
+	realhome=$(cat $passwdfile | grep ":$homeprof" |grep -E "^$i:" | awk -F":" '{print $6}' |sort |uniq )
+        if [ -f "$realhome/.forward" ];then 
+           #add redirection to google
+            existe=$(cat "$realhome/.forward" | grep "$malias")
+            if [ ! "$existe" ];then
+		echo ".forward alredy deleted for $i"
+            else
+      		echo deleting ${i}@$domain in $i/.forward
+      		cat "$realhome/.forward" | sed 's/'$i'@'$domain'$//'| grep -E '^.'  > /tmp/forward
 		cp /tmp/forward "$realhome/.forward"
 		/bin/rm -f /tmp/forward
             fi

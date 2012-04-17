@@ -38,5 +38,5 @@ if [ "$3" ];then
 fi
 
 #delete or modify .forward's
-forwarddel $homeprof $domain
+forwardlocaldel $homeprof $domain
 
