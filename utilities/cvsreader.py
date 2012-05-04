@@ -6,8 +6,9 @@ import sys
 from authors import *
 from groups import *
 from national import *
+from fullnames import *
 import re
-def get_authors_info(dict_ref,dict_authors,dict_groups):
+def get_authors_info(dict_ref,dict_authors,dict_groups,dict_fullnames):
     #initalize strings
     auth_institute=''
     auth_group=''
@@ -24,13 +25,18 @@ def get_authors_info(dict_ref,dict_authors,dict_groups):
     #===================================
     for i in xauthor:
         if int(i)>-1:
+            #fill group of article
             if not dict_groups[i] in auth_group.split('; '):
-                auth_group=auth_group+dict_groups[i]
-            if i!=xauthor[-1]:
-                auth_group=auth_group+'; '
+                auth_group=auth_group+dict_groups[i]+'; '
+            #fill insitutional Authors Full Names
+            auth_institute=auth_institute+dict_fullnames[i]+'; '
         else:
-            auth_group='Null'
-
+            auth_group=''
+            auth_institute=''
+    
+    #remove the last; '; '
+    auth_group=re.sub(r'; $','',auth_group)
+    auth_institute=re.sub(r'; $','',auth_institute)
     return auth_group,auth_institute
 
 
@@ -41,7 +47,9 @@ if __name__ == '__main__':
     f = open('citations_bak.csv', 'rt')
     fw = open('newcitations.csv','w')
     csv_writer=csv.writer(fw)
-    csv_writer.writerow(['Año','Tipo','Autor(es)','Revista','Vol.','Group'])
+    csv_writer.writerow(['Año','Tipo','Autor(es)','Revista','Vol.','Pág.','ISSN',\
+                         'Artículo','Impreso','PDF','Group','Tipo','Proyecto ID',\
+                         'Autores UdeA'])
     try:
         reader = csv.DictReader(f)
         #fix Author fieldname
@@ -51,11 +59,12 @@ if __name__ == '__main__':
         for row in reader:
             x.append(row)
             typepub='Internacional'
-            auth_group,auth_institute=get_authors_info(row,authors,groups)
+            auth_group,auth_institute=get_authors_info(row,authors,groups,fullnames)
             #nal o inal
             if national.has_key(row['Publication']): typepub='Nacional'
             csv_writer.writerow([row['Year'],typepub,row['Authors'],row['Publication'],\
-                                 row['Volume'],auth_group])
+                                 row['Volume'],row['Pages'],'',row['Title'],'','',\
+                                 auth_group,'','',auth_institute])
             print row
     finally:
         f.close()
