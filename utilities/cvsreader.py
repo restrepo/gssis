@@ -3,11 +3,13 @@
 #From http://www.doughellmann.com/PyMOTW/csv/
 import csv
 import sys
+import re
+#python database dictionaries
 from authors import *
 from groups import *
 from national import *
 from fullnames import *
-import re
+
 def get_authors_info(dict_ref,dict_authors,dict_groups,dict_fullnames):
     #initalize strings
     auth_institute=''
