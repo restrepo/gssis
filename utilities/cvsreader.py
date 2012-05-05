@@ -46,7 +46,7 @@ if __name__ == '__main__':
     #generic open
     #f = open(sys.argv[1], 'rt')
     #specific open
-    f = open('citations_bak.csv', 'rt')
+    f = open('citations.csv', 'rt')
     fw = open('newcitations.csv','w')
     csv_writer=csv.writer(fw)
     csv_writer.writerow(['Año','Tipo','Autor(es)','Revista','Vol.','Pág.','ISSN',\
