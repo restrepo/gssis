@@ -1,4 +1,8 @@
-bibtex2csv.py
+cvsreader.py
 
-Convert a BibTeX file in the forma of the spreadsheet for publications
-in Google Docs.
+Convert a cvs file obtained with the export feature of the profiles of
+google scholar into another cvs with additional info about
+Insitutional Research Groups, Insitutional authors and
+National/International type of the publication.
+
+In progress: include also ISSN of the journal
