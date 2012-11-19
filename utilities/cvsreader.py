@@ -63,11 +63,13 @@ def get_issn(journal):
     #The value is entry A2 of cvs; 0,1 in python notation:
     if (issn_string.split('\n')[0]).upper().find('ERROR:')==-1 and issn_string.split('\n')[1]:
         issn_value=eval(issn_string.split('\n')[1].split(',')[0])
+        category_value=eval(issn_string.split('\n')[1].split(',')[1])
     else:
         issn_value='0000-0000'
+        category_value='00'
 
     issn_file.close()
-    return issn_value
+    return issn_value,category_value
 
 if __name__ == '__main__':
     #generic open
@@ -110,9 +112,9 @@ if __name__ == '__main__':
                     issn[journal]='0000-0000'
 
                 if not issn.has_key(journal):
-                    issn_value=get_issn(journal)
-                    issn[journal]=issn_value
-                    fj.write("issn['%s']='%s'\n" %(journal,issn_value))
+                    issn_value,category_value=get_issn(journal)
+                    issn[journal]=[issn_value,category_value]
+                    fj.write("issn['%s']='[%s,%s]'\n" %(journal,issn_value,category_value))
 
                 #===================
                     
@@ -122,8 +124,8 @@ if __name__ == '__main__':
 
 
                 csv_writer.writerow([row['Year'],typepub,row['Authors'],row['Publication'],\
-                                 row['Volume'],row['Pages'],issn[journal],row['Title'],'','',\
-                                 auth_group,'','','',auth_institute])
+                                 row['Volume'],row['Pages'],issn[journal][0],row['Title'],'','',\
+                                 auth_group,'','','',auth_institute,issn[journal][1]])
                 print row
                 fl.write(r"entry['%s']=True" %logkey)
                 fl.write('\n')
