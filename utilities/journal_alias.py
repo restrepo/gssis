@@ -56,3 +56,4 @@ journal_alias['Magnetics, IEEE Transactions on']='IEEE transactions on magnetics
 journal_alias['Rev. EIA. Esc. Ing. Antioq']='Revista EIA'
 journal_alias['Rev. fac. ing. univ. Antioquia']='Revista Facultad de Ingeniería Universidad de Antioquia'
 journal_alias['Dyna-Medellin']='Dyna'
+journal_alias['DYNA']='Dyna'
