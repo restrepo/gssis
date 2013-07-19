@@ -52,3 +52,4 @@ journal_alias['RevMexAA (Serie de Conferencias)']='Revista Mexicana de Astronomi
 journal_alias['REVISTA MEXICANA DE FISICA']='Revista Mexicana de Fisica'
 journal_alias['Acta Physica Hungarica A) Heavy Ion Physics']='Acta Physica Hungarica'
 journal_alias['Acta Physica Hungarica A, 11']='Acta Physica Hungarica'
+journal_alias['Magnetics, IEEE Transactions on']='IEEE transactions on magnetics'
