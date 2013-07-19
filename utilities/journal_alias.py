@@ -3,7 +3,9 @@
 #Don't delete the next line!
 journal_alias={}
 journal_alias['The European Physical Journal C-Particles and Fields']='European Physical Journal C'
+journal_alias['The European Physical Journal C']='European Physical Journal C'
 journal_alias['The European Physical Journal B-Condensed Matter and Complex Systems']='European Physical Journal B'
+journal_alias['The European Physical Journal B']='European Physical Journal B'
 journal_alias['Phys. Rev., D;(United States)']='Physical Review D'
 journal_alias['Physical Review-Section D-Particles and Fields']='Physical Review D'
 journal_alias['Phys. Rev. D;(United States)']='Physical Review D'
@@ -51,7 +53,3 @@ journal_alias['RevMexAA (Serie de Conferencias)']='Revista Mexicana de Astronomi
 journal_alias['REVISTA MEXICANA DE FISICA']='Revista Mexicana de Fisica'
 journal_alias['Acta Physica Hungarica A) Heavy Ion Physics']='Acta Physica Hungarica'
 journal_alias['Acta Physica Hungarica A, 11']='Acta Physica Hungarica'
-journal_alias['']=
-journal_alias['']=
-journal_alias['']=
-journal_alias['']=
