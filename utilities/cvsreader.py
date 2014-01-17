@@ -74,6 +74,16 @@ def read_google_cvs(gss_url="http://spreadsheets.google.com",\
     gfile=urllib.urlopen(issn_url)
     return pd.read_csv(gfile,keep_default_na=gss_keep_default_na)
 
+def out_physics_udea(df):
+    '''
+    Data Frame Output for Insituto de Fisica - Universidad de Antioquia
+    '''
+    df['Impreso']='';df['PDF']='';df['Proyect ID']=''
+    df['Type II']=''
+    return df[['Year','Type','Authors','Publication','Volume','Pages','ISSN',\
+       'Title','Impreso','PDF','Group','DOI','Type II','Proyect ID',\
+       'Institution Authors','Colciencias Clasification']]
+
 if __name__ == '__main__':
     """
     Read an output cvs file from a Google Profile and add
@@ -97,91 +107,98 @@ if __name__ == '__main__':
 
     Output cvs file under cvsfile below. 
     """
-    update=True #TODO: Implement as command line
+    debug=False;disable_publindex=False
+    update=False #TODO: Implement as command line
+    if debug:
+        #WARNING: Just to have the program to run faster in debug mode
+        disable_publindex=True
+        publindex=[]
+        
     csvfile='newcitations'
     if update: 
         fl = open('%slog.py' %csvfile,'a')
 
     fj=open('issn.py','a')
     #Initialize output (empty) pandas DataFrame
-    names=['Año','Tipo','Autor(es)','Revista','Vol.','Pág.','ISSN',\
-       'Artículo','Impreso','PDF','Group','DOI','Type','Proyecto ID',\
-       'Autores UdeA','Clasificación Colciencias']
-    df=pd.DataFrame(pd.np.nan*pd.np.ones((1,len(names))),columns=names)
-    df=df.dropna()
-
+   
     try:
         g=pd.read_csv('citations.csv')
-        print('Loading publindex data base ...')
-        publindex=read_google_cvs(gss_key='0AjqGPI5Q_Ez6dHV5YWY4MEdFNUs0eW1aeEpoNWJKdEE',gss_query="select *")
-        print 'Publindex loaded:',publindex.columns
+        if disable_publindex:
+            print 'WARNING: publindex Data Frame not loaded. Check disable_publindex'
+        else:
+            print('Loading publindex data base ...')
+            publindex=read_google_cvs(gss_key='0AjqGPI5Q_Ez6dHV5YWY4MEdFNUs0eW1aeEpoNWJKdEE',gss_query="select *")
+            print 'Publindex loaded:',publindex.columns
+            
         #remove phantom character from first key of the Google-Scholar profile output file
         g.columns=['Authors']+list(g.columns[1:])
+        #intialize empy columns
+        g['Type']='';g['ISSN']='';g['Group']='';g['Institution Authors']=''
+        g['Colciencias Clasification']='' #Or journal quartile in general
+        g['DOI']='';g['Impact Factor']=''
         for i in range(g.shape[0]):
             auth_group,auth_institute=get_authors_info(g.ix[i],authors,groups,fullnames)
             #check if item already exists
             typepub='Internacional'
             #Convert NaN float to NaN string
-            if g.ix[i]['Publication'] != g.ix[i]['Publication']:
+            if g['Publication'][i] != g['Publication'][i]:
                 g['Publication'][i]=''
 
             if update:
-                logkey=g['Publication'][i].replace(' ','')+'.'+str(g.ix[i]['Volume'])+'.'+str(g.ix[i]['Pages'])
+                logkey=g['Publication'][i].replace(' ','')+'.'+str(g['Volume'][i])+'.'+str(g['Pages'][i])
             else:
                 logkey='NoUpdate'
             
             if not entry.has_key(logkey):
-                if journal_alias.has_key(g.ix[i]['Publication']):
+                if journal_alias.has_key(g['Publication'][i]):
                   #replace specific cell inside a pandas DataFrame  
-                  g['Publication'][i]=journal_alias[g.ix[i]['Publication']]
+                  g['Publication'][i]=journal_alias[g['Publication'][i]]
 
                 #TODO: Colciencias Specific column: move to colciencias plugin
                 #nal o inal
-                if national.has_key(g.ix[i]['Publication']): 
+                if national.has_key(g['Publication'][i]): 
                   typepub='Nacional'
+                  
+                  
 
                 #====  issn information =====
-                journal=g.ix[i]['Publication']
+                journal=g['Publication'][i]
                 if not journal:
                     journal=''
                     issn[journal]=['0000-0000','00']
-
+                    
                 if journal.upper().find('ARXIV')>=0:
-                  journal='Arxiv'
-                  issn[journal]=['0000-0000','00']
-        #
+                    journal='Arxiv'
+                    issn[journal]=['0000-0000','00']
+                    
                 #TODO: Category: Colciencias Specific column: move to colciencias plugin        
                 #      obtain ISSN from crossref
                 if not issn.has_key(journal):
-                  jf=publindex[publindex['NOMBRE'].str.contains(journal.upper())].sort(['CALIFICACION'],ascending=True).reset_index(drop=True)
-                  #TODO: Need to be rewritten: 
-                  #ISSN must be obtained from crossref 
-                  #ISSN required to obtain Impact Factor
-                  if jf.shape[0]>0:
-                      issn_value=jf.ix[0]['ISSN']
-                      category_value=jf.ix[0]['CALIFICACION']
-                  else:    
-                      issn_value='0000-0000'
-                      category_value='00'
+                    jf=publindex[publindex['NOMBRE'].str.contains(journal.upper())].sort(['CALIFICACION'],ascending=True).reset_index(drop=True)
+                    #TODO: Need to be rewritten: 
+                    #ISSN must be obtained from crossref 
+                    #ISSN required to obtain Impact Factor
+                    if jf.shape[0]>0:
+                        issn_value=jf['ISSN'][0]
+                        category_value=jf['CALIFICACION'][0]
+                    else:    
+                        issn_value='0000-0000'
+                        category_value='00'
                             
-                  issn[journal]=[issn_value,category_value]
-                  fj.write("issn['%s']=['%s','%s']\n" %(journal,issn_value,category_value))    
-
-                #if issn[journal][0]=='[':
-                #    print i,journal,issn[journal]
-                #    sys.exit()
-
-        #DEBUG lasf field in repo program
-                df=df.append({'Año':g.ix[i]['Year'],'Tipo':typepub,'Autor(es)':g.ix[i]['Authors'],\
-                  'Revista':g.ix[i]['Publication'],'Vol.':g.ix[i]['Volume'],'Pág.':g.ix[i]['Pages'],\
-                  'ISSN':issn[journal][0],'Artículo':g.ix[i]['Title'],'Impreso':'','PDF':'','Group':auth_group,'DOI':'','Type':'',\
-                  'Proyecto ID':'','Autores UdeA':auth_institute,'Clasificación Colciencias':issn[journal][1]},ignore_index=True)
+                    issn[journal]=[issn_value,category_value]
+                    fj.write("issn['%s']=['%s','%s']\n" %(journal,issn_value,category_value))
+                            
+                g['ISSN'][i]=issn[journal][0]
+                g['Type'][i]=typepub
+                g['Group'][i]=auth_group; g['Institution Authors'][i]=auth_institute
+                g['Colciencias Clasification'][i]=issn[journal][1]
                 if update:
                     fl.write(r"entry['%s']=True" %logkey)
                     fl.write('\n')
 
 
     finally:
+        df=out_physics_udea(g)
         df.to_csv('%s.csv' %csvfile,index=False)
         fj.close()
         if update:
