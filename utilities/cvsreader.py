@@ -50,40 +50,29 @@ def get_authors_info(dict_ref,dict_authors,dict_groups,dict_fullnames):
     auth_institute=re.sub(r'; $','',auth_institute)
     return auth_group,auth_institute
 
-def get_issn(journal=''):
-    """
-      For one specific journal name, their issn and Colciencias Clasification
-      is obtained from the 2011 Publindex Google-Spreadsheet avalaible
-      at http://fisica.udea.edu.co/fisica
-    """
-    if not journal: 
-        return '0000-0000','00'
-    
-    print 'Wating to retrieve issn information for journal: %s' %journal
 
-    gss_url="http://spreadsheets.google.com"
-    gss_format="csv"
-    #B: ISSN and D: CALIFICACION  
-    gss_query="select B,D where (C contains '%s') order by D asc"\
-            %journal.upper()
-    gss_key="0AjqGPI5Q_Ez6dHV5YWY4MEdFNUs0eW1aeEpoNWJKdEE&gid=0"
-    issn_url="%s/tq?tqx=out:%s&tq=%s&key=%s" %(gss_url,\
+def read_google_cvs(gss_url="http://spreadsheets.google.com",\
+    gss_format="csv",\
+    gss_key="0AuLa_xuSIEvxdERYSGVQWDBTX1NCN19QMXVpb0lhWXc",\
+    gss_sheet=0,\
+    gss_query="select B,D,E,F,I where (H contains 'GFIF') order by D desc",\
+    gss_keep_default_na=False
+    ):
+    import urllib
+    import pandas as pd
+    """
+    read a google spreadsheet in cvs format and return a pandas DataFrame object.
+       ....
+       gss_keep_default_na: (False) Blank values are filled with NaN
+    """
+    issn_url="%s/tq?tqx=out:%s&tq=%s&key=%s&gid=%s" %(gss_url,\
                                            gss_format,\
                                            gss_query,\
-                                           gss_key)
+                                           gss_key,\
+                                           str(gss_sheet))
 
-    issn_file=urllib.urlopen(issn_url)
-    jf=pd.read_csv(issn_file)
-    if jf.shape[0]>0:
-        #Already ordered by 'CALIFICACION'
-        issn_value=jf.ix[0]['ISSN']
-        category_value=jf.ix[0]['CALIFICACION']
-    else:    
-        issn_value='0000-0000'
-        category_value='00'
-    
-    issn_file.close()
-    return issn_value,category_value
+    gfile=urllib.urlopen(issn_url)
+    return pd.read_csv(gfile,keep_default_na=gss_keep_default_na)
 
 if __name__ == '__main__':
     """
@@ -109,7 +98,6 @@ if __name__ == '__main__':
     Output cvs file under cvsfile below. 
     """
     csvfile='newcitations'
-    fl = open('%slog.py' %csvfile,'a')
     fj=open('issn.py','a')
     #Initialize output (empty) pandas DataFrame
     names=['Año','Tipo','Autor(es)','Revista','Vol.','Pág.','ISSN',\
@@ -120,6 +108,9 @@ if __name__ == '__main__':
 
     try:
         g=pd.read_csv('citations.csv')
+        print('Loading publindex data base ...')
+        publindex=read_google_cvs(gss_key='0AjqGPI5Q_Ez6dHV5YWY4MEdFNUs0eW1aeEpoNWJKdEE',gss_query="select *")
+        print 'Publindex loaded:',publindex.columns
         #remove phantom character from first key of the Google-Scholar profile output file
         g.columns=['Authors']+list(g.columns[1:])
         for i in range(g.shape[0]):
@@ -130,12 +121,13 @@ if __name__ == '__main__':
             if g.ix[i]['Publication'] != g.ix[i]['Publication']:
                 g['Publication'][i]=''
 
-            logkey=g['Publication'][i].replace(' ','')+'.'+str(g.ix[i]['Volume'])+'.'+str(g.ix[i]['Pages'])
-            if not entry.has_key(logkey):
+            #logkey=g['Publication'][i].replace(' ','')+'.'+str(g.ix[i]['Volume'])+'.'+str(g.ix[i]['Pages'])
+            if True: #not entry.has_key(logkey):
                 if journal_alias.has_key(g.ix[i]['Publication']):
                   #replace specific cell inside a pandas DataFrame  
                   g['Publication'][i]=journal_alias[g.ix[i]['Publication']]
 
+                #TODO: Colciencias Specific column: move to colciencias plugin
                 #nal o inal
                 if national.has_key(g.ix[i]['Publication']): 
                   typepub='Nacional'
@@ -150,8 +142,20 @@ if __name__ == '__main__':
                   journal='Arxiv'
                   issn[journal]=['0000-0000','00']
         #
+                #TODO: Category: Colciencias Specific column: move to colciencias plugin        
+                #      obtain ISSN from crossref
                 if not issn.has_key(journal):
-                  issn_value,category_value=get_issn(journal)
+                  jf=publindex[publindex['NOMBRE'].str.contains(journal.upper())].sort(['CALIFICACION'],ascending=True).reset_index(drop=True)
+                  #TODO: Need to be rewritten: 
+                  #ISSN must be obtained from crossref 
+                  #ISSN required to obtain Impact Factor
+                  if jf.shape[0]>0:
+                      issn_value=jf.ix[0]['ISSN']
+                      category_value=jf.ix[0]['CALIFICACION']
+                  else:    
+                      issn_value='0000-0000'
+                      category_value='00'
+                            
                   issn[journal]=[issn_value,category_value]
                   fj.write("issn['%s']=['%s','%s']\n" %(journal,issn_value,category_value))    
 
@@ -165,11 +169,6 @@ if __name__ == '__main__':
                   'ISSN':issn[journal][0],'Artículo':g.ix[i]['Title'],'Impreso':'','PDF':'','Group':auth_group,'DOI':'','Type':'',\
                   'Proyecto ID':'','Autores UdeA':auth_institute,'Clasificación Colciencias':issn[journal][1]},ignore_index=True)
 
-                fl.write(r"entry['%s']=True" %logkey)
-                fl.write('\n')
-            else:
-                print 'entry:%s, already in %s.csv. Delete entry in %slog.py to uptate' %(logkey,csvfile,csvfile)
     finally:
         df.to_csv('%s.csv' %csvfile,index=False)
-        fl.close()
         fj.close()

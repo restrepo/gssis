@@ -1,5 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
+"""
+The same code must be used in authors.py fullnames.py and groups.py
+"""
 groups={}
 groups['001']='GMC: Grupo de Materia Condensada'
 groups['002']='GMC: Grupo de Materia Condensada'

@@ -1,43 +1,60 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
+"""
+The same code must be used in authors.py fullnames.py and groups.py
+"""
+
 fullnames={}
-fullnames['500']='Arnache Olmos Óscar L.'
-fullnames['600']='Barrera Ramírez John Fredy'
-fullnames['501']='Barrero Meneses César A.'
 fullnames['001']='Carlos Duque Echeverri'
-fullnames['002']='Mora Ramos Miguel'
-fullnames['100']='Ferrín Vázquez Ignacio R.'
-fullnames['800']='Giraldo Cadavid Marco A.'
-fullnames['506']='Girata Doris'
-fullnames['601']='Henao Henao Rodrigo'
-fullnames['701']='Jaramillo Arango Daniel E.'
-fullnames['200']='Mahecha Gómez Jorge E.'
-fullnames['300']='Mazo Zuluaga Johan'
-fullnames['602']='Mira Agudelo Alejandro'
-fullnames['702']='Mira Martínez Jesús María'
-fullnames['502']='Morales Aramburo Álvaro'
-fullnames['708']='Nardi Enrico'
-fullnames['503']='Osorio Guillén Jorge Mario'
-fullnames['504']='Osorio Vélez Jaime'
-fullnames['201']='Pachón Contreras Leonardo' 
-fullnames['603']='Pineda Gaviria Guillermo'
-fullnames['703']='Ponce Gutiérrez William Alberto'
-fullnames['604']='Quintero Rojas Gladys Adriana'
+fullnames['003']='Mora Ramos Miguel'
 fullnames['002']='Raigoza Bohórquez Nicolás F.'
-fullnames['301']='Restrepo Cárdenas Johans'
-fullnames['704']='Restrepo Quintero Diego Alejandro'
-fullnames['505']='Reyes Gómez Ernesto Amador'
-fullnames['202']='Rodríguez Rey Boris Anghelo'
-fullnames['705']='Romano Antonio Enea'
-fullnames['605']='Rueda Muñoz Edgar Alberto'
-fullnames['203']='Sanz Vicario José Luis'
-fullnames['204']='González Augusto'
-fullnames['400']='Tobón Gómez Jorge Enrique'
-fullnames['900']='Valencia Valencia José Patricio'
-fullnames['706']='Vanegas Arbeláez Nelson'
-fullnames['901']='Wu Huachuan'
-fullnames['707']='Zapata Noreña Oscar'
+
+fullnames['100']='Ferrín Vázquez Ignacio R.'
 fullnames['101']='Zuluaga Callejas Jorge Iván'
 fullnames['102']='Pablo Cuartas'
-fullnames['1000']='Zuluaga Quintero John Jairo'
+
+fullnames['200']='Mahecha Gómez Jorge E.'
+fullnames['201']='Pachón Contreras Leonardo' 
+fullnames['202']='Rodríguez Rey Boris Anghelo'
+fullnames['203']='Sanz Vicario José Luis'
+fullnames['204']='González Augusto'
+
+fullnames['300']='Mazo Zuluaga Johan'
+fullnames['301']='Restrepo Cárdenas Johans'
 fullnames['302']='López Mejía José'
+
+fullnames['400']='Tobón Gómez Jorge Enrique'
+
+fullnames['500']='Arnache Olmos Óscar L.'
+fullnames['501']='Barrero Meneses César A.'
+fullnames['502']='Morales Aramburo Álvaro'
+fullnames['503']='Osorio Guillén Jorge Mario'
+fullnames['504']='Osorio Vélez Jaime'
+fullnames['505']='Reyes Gómez Ernesto Amador'
+fullnames['506']='Girata Doris'
+
+fullnames['600']='Barrera Ramírez John Fredy'
+fullnames['601']='Henao Henao Rodrigo'
+
+fullnames['602']='Mira Agudelo Alejandro'
+fullnames['603']='Pineda Gaviria Guillermo'
+fullnames['604']='Quintero Rojas Gladys Adriana'
+fullnames['605']='Rueda Muñoz Edgar Alberto'
+
+fullnames['701']='Jaramillo Arango Daniel E.'
+fullnames['702']='Mira Martínez Jesús María'
+fullnames['703']='Ponce Gutiérrez William Alberto'
+fullnames['704']='Restrepo Quintero Diego Alejandro'
+fullnames['705']='Romano Antonio Enea'
+fullnames['706']='Vanegas Arbeláez Nelson'
+fullnames['707']='Zapata Noreña Oscar'
+fullnames['708']='Nardi Enrico'
+fullnames['709']='José David Ruíz Alvárez'
+
+fullnames['800']='Giraldo Cadavid Marco A.'
+
+fullnames['900']='Valencia Valencia José Patricio'
+fullnames['901']='Wu Huachuan'
+
+fullnames['1000']='Zuluaga Quintero John Jairo'
+

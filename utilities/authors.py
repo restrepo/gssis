@@ -1,5 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
+"""
+The same code must be used in authors.py fullnames.py and groups.py
+"""
 authors={}
 authors['Arnache, O.']        ='500'
 authors['Arnache, O']        ='500'
@@ -27,10 +30,10 @@ authors['Duque, Carlos A']    ='001'
 authors['Duque, Carlos']      ='001' 
 authors['Duque, Carlos Alberto']='001' 
 authors['Carlos Alberto Duque']='001'
-authors['Mora-Ramos, ME']     ='002'
-authors['Mora-Ramos, M']      ='002'
-authors['Mora-Ramos, Miguel E']='002'
-authors['Mora-Ramos, Miguel']  ='002'
+authors['Mora-Ramos, ME']     ='003'
+authors['Mora-Ramos, M']      ='003'
+authors['Mora-Ramos, Miguel E']='003'
+authors['Mora-Ramos, Miguel']  ='003'
 authors['Giraldo, MA']        ='800' 
 authors['Giraldo, M.A.']      ='800'
 authors['Giraldo, Marco A']   ='800'
@@ -182,6 +185,6 @@ authors['Zuluaga, J.J.']      ='1000'
 authors['Mejía-López, José']  ='302'
 authors['Mejía-López, J']  ='302'
 authors['Mejia-Lopez, J']  ='302'
-
+authors['Ruiz-Alvarez, Jose D']='709'
 
 
