@@ -6,9 +6,13 @@ Insitutional Research Groups, Insitutional authors,
 National/International type of the publication, issn, and Colciencias 
 journal ranking.
 
+To just update the output file, set flag update=True in main program
+
 Donwload newcitations.csv and upload to google docs with conversion set on. 
 Copy and paste in Articulos.
 
+
+Check the implementation in the pycitations notebook
 
 
 

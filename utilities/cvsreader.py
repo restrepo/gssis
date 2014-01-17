@@ -97,7 +97,11 @@ if __name__ == '__main__':
 
     Output cvs file under cvsfile below. 
     """
+    update=True #TODO: Implement as command line
     csvfile='newcitations'
+    if update: 
+        fl = open('%slog.py' %csvfile,'a')
+
     fj=open('issn.py','a')
     #Initialize output (empty) pandas DataFrame
     names=['Año','Tipo','Autor(es)','Revista','Vol.','Pág.','ISSN',\
@@ -121,8 +125,12 @@ if __name__ == '__main__':
             if g.ix[i]['Publication'] != g.ix[i]['Publication']:
                 g['Publication'][i]=''
 
-            #logkey=g['Publication'][i].replace(' ','')+'.'+str(g.ix[i]['Volume'])+'.'+str(g.ix[i]['Pages'])
-            if True: #not entry.has_key(logkey):
+            if update:
+                logkey=g['Publication'][i].replace(' ','')+'.'+str(g.ix[i]['Volume'])+'.'+str(g.ix[i]['Pages'])
+            else:
+                logkey='NoUpdate'
+            
+            if not entry.has_key(logkey):
                 if journal_alias.has_key(g.ix[i]['Publication']):
                   #replace specific cell inside a pandas DataFrame  
                   g['Publication'][i]=journal_alias[g.ix[i]['Publication']]
@@ -168,7 +176,13 @@ if __name__ == '__main__':
                   'Revista':g.ix[i]['Publication'],'Vol.':g.ix[i]['Volume'],'Pág.':g.ix[i]['Pages'],\
                   'ISSN':issn[journal][0],'Artículo':g.ix[i]['Title'],'Impreso':'','PDF':'','Group':auth_group,'DOI':'','Type':'',\
                   'Proyecto ID':'','Autores UdeA':auth_institute,'Clasificación Colciencias':issn[journal][1]},ignore_index=True)
+                if update:
+                    fl.write(r"entry['%s']=True" %logkey)
+                    fl.write('\n')
+
 
     finally:
         df.to_csv('%s.csv' %csvfile,index=False)
         fj.close()
+        if update:
+            fl.close()
