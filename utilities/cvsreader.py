@@ -1,55 +1,21 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-import pandas as pd #requires numpy
-#import databases
-import re
+import pandas as pd
 import urllib
+#It recommended to use http://python-requests.org instead
+from pygoogle import pygoogle #From: https://code.google.com/p/pygoogle/
+from bs4 import BeautifulSoup
+import httplib
+import re #, sys, cgi
 import sys
 #python database dictionaries
-from authors import *
-from groups import *
-from national import *
-from fullnames import *
 from issn import *
 from newcitationslog import * #defines dictionay entry
 from journal_alias import *
+pd.set_option('display.max_rows', 800)
+from InsitutoFisicaUdea import *
+
 #functions
-def get_authors_info(dict_ref,dict_authors,dict_groups,dict_fullnames):
-    """
-     The authors of the target insitutution are identified and are associated to
-     a research group (using the dict_groups.py database) and an uniform full name is 
-     given according to the dict_fullnames database
-    """
-    #initalize strings
-    auth_institute=''
-    auth_group=''
-    #==authors from the Institution===
-    xauthor=[]
-    author_id=-1
-    for auth in (dict_ref['Authors']).split(';'):
-      auth=re.sub(r'^\s+','',auth)
-      if dict_authors.has_key(auth):
-          author_id=dict_authors[auth]
-          xauthor.append(author_id)
-
-    if not xauthor: xauthor.append(-1)
-    #===================================
-    for i in xauthor:
-        if int(i)>-1:
-            #fill group of article
-            if not dict_groups[i] in auth_group.split('; '):
-                auth_group=auth_group+dict_groups[i]+'; '
-            #fill insitutional Authors Full Names
-            auth_institute=auth_institute+dict_fullnames[i]+'; '
-        else:
-            auth_group=''
-            auth_institute=''
-    
-    #remove the last; '; '
-    auth_group=re.sub(r'; $','',auth_group)
-    auth_institute=re.sub(r'; $','',auth_institute)
-    return auth_group,auth_institute
-
 
 def read_google_cvs(gss_url="http://spreadsheets.google.com",\
     gss_format="csv",\
@@ -74,15 +40,79 @@ def read_google_cvs(gss_url="http://spreadsheets.google.com",\
     gfile=urllib.urlopen(issn_url)
     return pd.read_csv(gfile,keep_default_na=gss_keep_default_na)
 
-def out_physics_udea(df):
+def catutf8(fileutf8):
+    """
+    Print UTF-8 file.
+    """
+    fo=open(fileutf8,'r')
+    a=fo.read()
+    a=a.decode('utf8')
+    fo.close()
+    print a
+    
+def get_impact_factor_from_issn(issn='1475-7516',debug=False):
     '''
-    Data Frame Output for Insituto de Fisica - Universidad de Antioquia
+      For the input ISSN in the format NNNN-NNNN obtain
+      the headers and the datasets in a nested list
+      equivalent to an array of (# headers)*[4 (years)]
     '''
-    df['Impreso']='';df['PDF']='';df['Proyect ID']=''
-    df['Type II']=''
-    return df[['Year','Type','Authors','Publication','Volume','Pages','ISSN',\
-       'Title','Impreso','PDF','Group','DOI','Type II','Proyect ID',\
-       'Institution Authors','Colciencias Clasification']]
+    g = pygoogle('site:http://www.bioxbio.com/if/html '+issn)
+    g.pages = 1
+    if g.get_urls():
+        if_file=urllib.urlopen(g.get_urls()[0])
+        html=if_file.read()
+        if_file.close()
+    else:
+        return [],[]
+
+    if debug: print(html)
+    soup = BeautifulSoup(html)
+    table = soup.find("table")
+
+    # The first tr contains the field names.
+    headings = [th.get_text().strip() for th in table.find("tr").find_all("td")]
+
+    datasets = []
+    for row in table.find_all("tr")[1:]:
+        dataset = [eval(td.get_text().replace('-','0')) for td in row.find_all("td")]
+        datasets.append(dataset)
+        
+    return headings,datasets
+
+def getIF(issn='1475-7516'):
+    h,c=get_impact_factor_from_issn(issn)
+    if h:
+        return pd.DataFrame(c,columns=h)
+    else:
+        return []
+    
+#Adapted from http://tex.stackexchange.com/questions/6810/automatically-adding-doi-fields-to-a-hand-made-bibliography
+#see also https://github.com/torfbolt/DOI-finder
+#which uses http://www.crossref.org/guestquery (Form2)
+def searchdoi(title='a model of  leptons', author='Weinberg'):
+  """
+  Search for the DOI given a title; e.g.  "A model of  leptons" (case insensitive), 
+                     and the Surname (only) for the first author, e.g. Weinberg
+  """
+  params = urllib.urlencode({"titlesearch":"titlesearch", "auth2" : author, "atitle2" : title, "multi_hit" : "on", "article_title_search" : "Search", "queryType" : "author-title"})
+  headers = {"User-Agent": "Mozilla/5.0" , "Accept": "text/html", "Content-Type" : "application/x-www-form-urlencoded", "Host" : "www.crossref.org"}
+  conn = httplib.HTTPConnection("www.crossref.org:80")
+  conn.request("POST", "/guestquery/", params, headers)
+  response = conn.getresponse()
+  # print response.status, response.reason
+  data = response.read()
+  conn.close()
+  result = re.findall(r"\<table cellspacing=1 cellpadding=1 width=600 border=0\>.*?\<\/table\>" ,data, re.DOTALL)
+  if (len(result) > 0):
+    doitmp=urllib.unquote_plus(result[0])
+    #print doitmp
+    doi=re.sub('.*dx.doi.org\/(.*)<\/a>.*','\\1',doitmp)
+    if re.search('No DOI found',doi):
+       doi=''
+  else:
+    doi=''
+    
+  return doi
 
 if __name__ == '__main__':
     """
@@ -96,7 +126,7 @@ if __name__ == '__main__':
              journal_alias.py. Or finally try to obtain this 
              from the journal Publindex name by querying  a google 
              scholar spreadsheet with and SQL-like syntax.
-       * Colciencias Publindex Clasification
+       * Colciencias Publindex Clasification or in general quartile information
        * Authors from the profile as defined in fullnames.py dictionary 
                or the others forms of the name as defined in the 
                author alias dictionary at authors.py
@@ -107,12 +137,15 @@ if __name__ == '__main__':
 
     Output cvs file under cvsfile below. 
     """
+    #===OUTPUT FORMAT====
+    IF_UdeA=True
+    #====================
     debug=False;disable_publindex=False
     update=False #TODO: Implement as command line
     if debug:
         #WARNING: Just to have the program to run faster in debug mode
         disable_publindex=True
-        publindex=[]
+        publindex=[]    
         
     csvfile='newcitations'
     if update: 
@@ -123,24 +156,23 @@ if __name__ == '__main__':
    
     try:
         g=pd.read_csv('citations.csv')
-        if disable_publindex:
+        #remove phantom character from first key of the Google-Scholar profile output file
+        g.columns=['Authors']+list(g.columns[1:])
+        #intialize empty columns
+        g['ISSN']=''
+        g['Colciencias Clasification']='' #Or journal quartile in general
+        g['DOI']='';g['Impact Factor']=''
+        if IF_UdeA:
+            g['Type']='';g['Group']='';g['Institution Authors']=''
+            
+        if disable_publindex or not IF_UdeA:
             print 'WARNING: publindex Data Frame not loaded. Check disable_publindex'
         else:
             print('Loading publindex data base ...')
             publindex=read_google_cvs(gss_key='0AjqGPI5Q_Ez6dHV5YWY4MEdFNUs0eW1aeEpoNWJKdEE',gss_query="select *")
             print 'Publindex loaded:',publindex.columns
-            
-        #remove phantom character from first key of the Google-Scholar profile output file
-        g.columns=['Authors']+list(g.columns[1:])
-        #intialize empy columns
-        g['Type']='';g['ISSN']='';g['Group']='';g['Institution Authors']=''
-        g['Colciencias Clasification']='' #Or journal quartile in general
-        g['DOI']='';g['Impact Factor']=''
         for i in range(g.shape[0]):
-            auth_group,auth_institute=get_authors_info(g.ix[i],authors,groups,fullnames)
-            #check if item already exists
-            typepub='Internacional'
-            #Convert NaN float to NaN string
+            #Convert NaN float to empty string
             if g['Publication'][i] != g['Publication'][i]:
                 g['Publication'][i]=''
 
@@ -149,19 +181,13 @@ if __name__ == '__main__':
             else:
                 logkey='NoUpdate'
             
+            #check if item already exists
             if not entry.has_key(logkey):
                 if journal_alias.has_key(g['Publication'][i]):
                   #replace specific cell inside a pandas DataFrame  
                   g['Publication'][i]=journal_alias[g['Publication'][i]]
 
-                #TODO: Colciencias Specific column: move to colciencias plugin
-                #nal o inal
-                if national.has_key(g['Publication'][i]): 
-                  typepub='Nacional'
-                  
-                  
-
-                #====  issn information =====
+                #journal defintion necessary for proper treatment of empty and arXiv entries
                 journal=g['Publication'][i]
                 if not journal:
                     journal=''
@@ -169,37 +195,40 @@ if __name__ == '__main__':
                     
                 if journal.upper().find('ARXIV')>=0:
                     journal='Arxiv'
-                    issn[journal]=['0000-0000','00']
+                    issn[journal]=['0000-0000','00']                
                     
-                #TODO: Category: Colciencias Specific column: move to colciencias plugin        
-                #      obtain ISSN from crossref
-                if not issn.has_key(journal):
-                    jf=publindex[publindex['NOMBRE'].str.contains(journal.upper())].sort(['CALIFICACION'],ascending=True).reset_index(drop=True)
-                    #TODO: Need to be rewritten: 
-                    #ISSN must be obtained from crossref 
-                    #ISSN required to obtain Impact Factor
-                    if jf.shape[0]>0:
-                        issn_value=jf['ISSN'][0]
-                        category_value=jf['CALIFICACION'][0]
-                    else:    
-                        issn_value='0000-0000'
-                        category_value='00'
-                            
+                #general function to obtain: TODO: category_value (no yet necessary)
+                #doi,issn_value,category_value=in_general()          
+                #NOT UPDATE issn DICTIONARY!
+                
+                #Update ISSN column: 
+                #if IF_UdeA: 
+                issn_value,category_value,auth_group,auth_institute,typepub=in_physcs_udea(g.ix[i],issn,debug)
+                if not issn.has_key(journal):            
                     issn[journal]=[issn_value,category_value]
                     fj.write("issn['%s']=['%s','%s']\n" %(journal,issn_value,category_value))
-                            
+                    
+
+                #g['DOI']=
                 g['ISSN'][i]=issn[journal][0]
-                g['Type'][i]=typepub
-                g['Group'][i]=auth_group; g['Institution Authors'][i]=auth_institute
                 g['Colciencias Clasification'][i]=issn[journal][1]
+                if IF_UdeA:
+                    g['Type'][i]=typepub
+                    g['Group'][i]=auth_group; g['Institution Authors'][i]=auth_institute
+
                 if update:
                     fl.write(r"entry['%s']=True" %logkey)
                     fl.write('\n')
 
 
     finally:
-        df=out_physics_udea(g)
+        if IF_UdeA:
+            df=out_physics_udea(g)
+        else:
+            df=g
+            
         df.to_csv('%s.csv' %csvfile,index=False)
         fj.close()
         if update:
             fl.close()
+
