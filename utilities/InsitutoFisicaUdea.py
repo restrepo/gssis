@@ -19,7 +19,8 @@ def in_physcs_udea(input_dict,issn_dict,publindex):
     """
      Input
     """
-    journal=input_dict['Publication']
+    journal=str(input_dict['Publication'])
+
     if journal.upper().find('ARXIV')>=0:
         journal='Arxiv'
         #already have issn='0000-0000'
@@ -28,7 +29,10 @@ def in_physcs_udea(input_dict,issn_dict,publindex):
         issn_value=issn_dict[journal][0]
         category_value=issn_dict[journal][1]
     else:
-        jf=publindex[publindex['NOMBRE'].str.contains(journal.upper())].sort(['CALIFICACION'],ascending=True).reset_index(drop=True)
+        jf=pd.np.asarray([])
+        if len(publindex[publindex['NOMBRE'].str.contains(journal.upper())])>0:
+            jf=publindex[publindex['NOMBRE'].str.contains(journal.upper())].sort(['CALIFICACION'],ascending=True).reset_index(drop=True)
+
         if jf.shape[0]>0:
             issn_value=jf['ISSN'][0]
             category_value=jf['CALIFICACION'][0]
@@ -88,4 +92,4 @@ def out_physics_udea(df):
     df['Type II']=''
     return df[['Year','Type','Authors','Publication','Volume','Pages','ISSN',\
        'Title','Impreso','PDF','Group','DOI','Type II','Proyect ID',\
-       'Institution Authors','Colciencias Clasification']]
+       'Institution Authors','Colciencias Clasification','Impact Factor']]
