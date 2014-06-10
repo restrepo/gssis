@@ -15,7 +15,6 @@ from journal_alias import *
 import pickle #http://stackoverflow.com/questions/11218477/how-to-use-pickle-to-save-a-dict
 #Plugins
 from InsitutoFisicaUdea import *
-pd.set_option('display.max_rows', 800)    
 
 #TODO; move al tha databases to pickle
 #  SUPER_TODO: move to sqlite: See discussion at:
