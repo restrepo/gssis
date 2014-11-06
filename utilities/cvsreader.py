@@ -190,7 +190,7 @@ if __name__ == '__main__':
     IF_UdeA=True
     #====================
     debug=False;disable_publindex=False
-    update=False #TODO: Implement as command line
+    update=True #TODO: Implement as command line
     if debug:
         #WARNING: Just to have the program to run faster in debug mode
         disable_publindex=True
