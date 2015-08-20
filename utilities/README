@@ -11,6 +11,11 @@ To just update the output file, set flag update=True in main program
 Donwload newcitations.csv and upload to google docs with conversion set on. 
 Copy and paste in Articulos.
 
+From now on, it could be enough to export the articles form google scholar only for the last year,
+delete all that year lines in the indicadores google spreadsheet and copy the new them.
+
+The last update log is in newcitationslog_2015_08.py
+
 
 Check the implementation in the pycitations notebook
 

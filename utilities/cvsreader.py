@@ -8,6 +8,8 @@ from bs4 import BeautifulSoup
 import httplib
 import re #, sys, cgi
 import sys
+import os.path
+import commands
 #python database dictionaries
 from issn import *
 from newcitationslog import * #defines dictionay entry
@@ -115,7 +117,7 @@ def searchdoi(title='a model of  leptons', surname='Weinberg'):
        ['Article Title','Author','ISSN','Volume','Persistent Link','Year',
         'Issue','Page','Journal Title'],
 
-       where 'Auhthor' is really the surname of the first author
+       where 'Author' is really the surname of the first author
     """
     title = re.sub(r"\$.*?\$","",title) # better remove all math expressions
     title = re.sub(r"[^a-zA-Z0-9 ]", " ", title) #remove non standard characters
@@ -189,7 +191,7 @@ if __name__ == '__main__':
     #===OUTPUT FORMAT====
     IF_UdeA=True
     #====================
-    debug=False;disable_publindex=False
+    debug=False;disable_publindex=False;publindex_pandas=True
     update=True #TODO: Implement as command line
     if debug:
         #WARNING: Just to have the program to run faster in debug mode
@@ -202,17 +204,30 @@ if __name__ == '__main__':
         impact_factors={}
     
     csvfile='newcitations'
-    fl = open('%slog.py' %csvfile,'a')
+    csvfilelog='%slog.py' %csvfile
+   
+    if not os.path.isfile(csvfilelog) or os.path.getsize(csvfilelog) == 0:
+        fl = open(csvfilelog,'w')
+        fl.write("#!/usr/bin/env python\n# -*- coding: utf-8 -*-\n#Don't delete the next line!\nentry={}\n")
+        fl.close()
+    
+    
+    fl = open(csvfilelog,'a')
     fj=open('issn.py','a')
     
     #Initialize output (empty) pandas DataFrame
-   
+  
     try:
+        #prepare citations.csv
+        #DEBUG: check missing number
+        #tmp=commands.getoutput("cat citations.csv | grep -v ',,,' |  grep -Ev '[A-Za-z\)],,[0-9]*[a-zA-Z],[0-9]*' |  grep -Ev '[A-Za-z\)],[0-9]*,,[0-9]*' > kk && mv kk citations.csv")
+        tmp=commands.getoutput("cat citations.csv | grep -v ',,,' |  grep -Ev '[A-Za-z\)],,[0-9]*[a-zA-Z],[0-9]*' > kk && mv kk citations.csv")
         g=pd.read_csv('citations.csv')
-        #remove phantom character from first key of the Google-Scholar profile output file
+        ##remove phantom character from first key of the Google-Scholar profile output file
         g.columns=['Authors']+list(g.columns[1:])
+        g=g[~g.Publication.str.lower().str.contains('arxiv')].reset_index(True)
         #remove nan
-        g=g.fillna(0)
+        g=g.fillna(value='')
         #intialize empty columns
         g['ISSN']=''
         g['Colciencias Clasification']='' #Or journal quartile in general
@@ -224,7 +239,13 @@ if __name__ == '__main__':
             print 'WARNING: publindex Data Frame not loaded. Check disable_publindex'
         else:
             print('Loading publindex data base ...')
-            publindex=read_google_cvs(gss_key='0AjqGPI5Q_Ez6dHV5YWY4MEdFNUs0eW1aeEpoNWJKdEE',gss_query="select *")
+            if publindex_pandas and os.path.isfile('publindex.csv'):
+		print('From pandas DataFrame. Check publindex_pandas')
+                publindex=pd.read_csv('publindex.csv')
+            else:
+            	publindex=read_google_cvs(gss_key='0AjqGPI5Q_Ez6dHV5YWY4MEdFNUs0eW1aeEpoNWJKdEE',gss_query="select *")
+                publindex.to_csv('publindex.csv',index=False)
+
             print 'Publindex loaded:',publindex.columns
             
         #Dictionary with keys: issn, and values: panda Data Frames with IF info
@@ -350,7 +371,7 @@ if __name__ == '__main__':
         else:
             df=g
         #save pandas data frame: http://goo.gl/eZm6pi
-        g.save('newcitations.df')
+        g.to_pickle('newcitations.df')
         #load as 
         #g=pd.load('newcitations.df')
         df.to_csv('%s.csv' %csvfile,index=False)

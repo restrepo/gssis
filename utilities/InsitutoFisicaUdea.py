@@ -1,8 +1,8 @@
 #!/usr/bin/env python
-# -*- coding: utf-8 -*-
 #python database dictionaries
 ##
 import pandas as pd
+import numpy as np
 import urllib
 #It recommended to use http://python-requests.org instead
 from pygoogle import pygoogle #From: https://code.google.com/p/pygoogle/
@@ -29,7 +29,7 @@ def in_physcs_udea(input_dict,issn_dict,publindex):
         issn_value=issn_dict[journal][0]
         category_value=issn_dict[journal][1]
     else:
-        jf=pd.np.asarray([])
+        jf=pd.DataFrame()
         if len(publindex[publindex['NOMBRE'].str.contains(journal.upper())])>0:
             jf=publindex[publindex['NOMBRE'].str.contains(journal.upper())].sort(['CALIFICACION'],ascending=True).reset_index(drop=True)
 
