@@ -229,6 +229,7 @@ if __name__ == '__main__':
         #remove nan
         g=g.fillna(value='')
         #intialize empty columns
+        g['New_entry']=False
         g['ISSN']=''
         g['Colciencias Clasification']='' #Or journal quartile in general
         g['DOI']='';g['Impact Factor']=''
@@ -263,6 +264,7 @@ if __name__ == '__main__':
             
             #check if item already exists
             if not entry.has_key(logkey):
+                g['New_entry'][i]=True
                 if not update: #recover logkey
                     logkey=logkeybak
             
@@ -366,15 +368,21 @@ if __name__ == '__main__':
 
 
     finally:
+        if update:
+           g=g[g['New_entry']]
         if IF_UdeA:
-            df=out_physics_udea(g)
+           df=out_physics_udea(g)
         else:
-            df=g
+           df=g[['Year','Authors','Publication','Volume','Pages','ISSN'\
+                'Title','DOI','Type II','Colciencias Clasification','Impact Factor']]
         #save pandas data frame: http://goo.gl/eZm6pi
         g.to_pickle('newcitations.df')
         #load as 
         #g=pd.load('newcitations.df')
-        df.to_csv('%s.csv' %csvfile,index=False)
+        if df.shape[0]>0:
+           df.to_csv('%s.csv' %csvfile,index=False)
+        else:
+           print 'No new references to update'
         fj.close()
         fl.close()
         #Save dictionaries with pickle
