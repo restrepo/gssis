@@ -2,8 +2,37 @@
 from cvsreader import *
 #entry={}
 if __name__=='__main__':
+    """
+    DEBUG: Year broken, RCF as Internacional
+    Options to run:
+       --no-update: generate file from schratch
+    Read an output cvs file from a Google Profile and add
+    the following information 
+       * Type if nacional or Internacional, according to dictionay at
+             national.py
+       * ISSN: First check if the issn is Already defined in the 
+             dictionary at issn.py. If not obtain it from the 
+             from the journal dictionary aliases dictionary at 
+             journal_alias.py. Or finally try to obtain this 
+             from the journal Publindex name by querying  a google 
+             scholar spreadsheet with and SQL-like syntax.
+       * Colciencias Publindex Clasification or in general quartile information
+       * Authors from the profile as defined in fullnames.py dictionary 
+               or the others forms of the name as defined in the 
+               author alias dictionary at authors.py
+       * Groups at which the authors belong as defined in dictionary at 
+               groups.py  
+    TODO:
+      * DOI
+
+    Output cvs file under cvsfile below. 
+    """ 
+
+    update=True
+    if sys.argv[1]=='--no-update':
+        update=False
     debug=False;disable_publindex=False;publindex_pandas=True
-    update=True #TODO: Implement as command line
+     #TODO: Implement as command line
     if not update:
         entry={}
     
@@ -44,6 +73,8 @@ if __name__=='__main__':
     
     
     for i in range(gg.shape[0]):
+        if i%100==0:
+            print i
         g=pd.Series(gg.ix[i])
         g['DOI']='';g['ISSN']=''
         if g.Publication != g.Publication:
@@ -105,6 +136,8 @@ if __name__=='__main__':
         if g.Year=='' or g.Year == 'null':
             g.Year=0 #'null'
             g.Year=int(g.Year)
+        print g.Year
+
                     
         if not impact_factors.has_key(g.ISSN):
             impact_factors[g.ISSN]=getIF(g.ISSN)
@@ -136,8 +169,10 @@ if __name__=='__main__':
             
         #To the end
         c=c.append(g,ignore_index=True)
+        print g.Year,c.Year[i]
 
     fl.close();fj.close()
+    c[['Year']] = c[['Year']].astype(int)
     if update:
         c=c[c['New_entry']]
     df=out_physics_udea(c)
