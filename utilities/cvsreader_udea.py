@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+# -*- coding: utf-8 -*-
 from cvsreader import *
 #entry={}
 if __name__=='__main__':
@@ -136,7 +137,6 @@ if __name__=='__main__':
         if g.Year=='' or g.Year == 'null':
             g.Year=0 #'null'
             g.Year=int(g.Year)
-        print g.Year
 
                     
         if not impact_factors.has_key(g.ISSN):
@@ -169,7 +169,6 @@ if __name__=='__main__':
             
         #To the end
         c=c.append(g,ignore_index=True)
-        print g.Year,c.Year[i]
 
     fl.close();fj.close()
     c[['Year']] = c[['Year']].astype(int)

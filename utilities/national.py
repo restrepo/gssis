@@ -4,6 +4,7 @@ national={}
 national['Revista de la Academia Colombiana de Ciencias']='1'
 national['Revista de la Academia colombiana de ciencias exactes, físicas y naturales']='1'
 national['Revista de la Sociedad Colombiana de Física']='2'
+national['Revista Colombiana de Física']='2'
 national['Revista colombiana de Física']='2'
 national['REVISTA COLOMBIANA DE FÍSICA']='2'
 national['REVISTA COLOMBIANA DE FISICA']='2'

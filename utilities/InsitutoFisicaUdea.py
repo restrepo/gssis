@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+# -*- coding: utf-8 -*-
 #python database dictionaries
 ##
 import pandas as pd
