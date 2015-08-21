@@ -30,8 +30,9 @@ if __name__=='__main__':
     """ 
 
     update=True
-    if sys.argv[1]=='--no-update':
-        update=False
+    if len(sys.argv)>1:
+        if sys.argv[1]=='--no-update':
+            update=False
     debug=False;disable_publindex=False;publindex_pandas=True
      #TODO: Implement as command line
     if not update:
@@ -172,6 +173,8 @@ if __name__=='__main__':
 
     fl.close();fj.close()
     c[['Year']] = c[['Year']].astype(int)
+    c[['Volume']]=c[['Volume']].replace('',0)
+    c[['Volume']] = c[['Volume']].astype(int)
     if update:
         c=c[c['New_entry']]
     df=out_physics_udea(c)
