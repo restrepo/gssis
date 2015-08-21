@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 from cvsreader import *
-entry={}
+#entry={}
 if __name__=='__main__':
     debug=False;disable_publindex=False;publindex_pandas=True
     update=True #TODO: Implement as command line
