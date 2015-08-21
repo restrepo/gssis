@@ -1,0 +1,150 @@
+#!/usr/bin/env python
+from cvsreader import *
+entry={}
+if __name__=='__main__':
+    debug=False;disable_publindex=False;publindex_pandas=True
+    update=True #TODO: Implement as command line
+    if not update:
+        entry={}
+    
+    csvfile='newcitations'
+    csvfilelog='%slog.py' %csvfile
+   
+    if not os.path.isfile(csvfilelog) or os.path.getsize(csvfilelog) == 0:
+        fl = open(csvfilelog,'w')
+        fl.write("#!/usr/bin/env python\n# -*- coding: utf-8 -*-\n#Don't delete the next line!\nentry={}\n")
+        fl.close()
+    
+    
+    fl = open(csvfilelog,'a')
+    fj = open('issn.py','a')
+    tmp=commands.getoutput("cat citations.csv | grep -v ',,,' |  grep -Ev '[A-Za-z\)],,[0-9]*[a-zA-Z],[0-9]*' > kk && mv kk citations.csv")
+    gg=pd.read_csv('citations.csv')
+    ##remove phantom character from first key of the Google-Scholar profile output file
+    gg.columns=['Authors']+list(gg.columns[1:])
+    gg=gg[~gg.Publication.str.lower().str.contains('arxiv')].reset_index(True)
+    #remove nan
+    gg=gg.fillna(value='')
+    
+    if disable_publindex:
+        print 'WARNING: publindex Data Frame not loaded. Check disable_publindex'
+    else:
+        print('Loading publindex data base ...')
+        if publindex_pandas and os.path.isfile('publindex.csv'):
+            print('From pandas DataFrame. Check publindex_pandas')
+            publindex=pd.read_csv('publindex.csv')
+        else:
+            publindex=read_google_cvs(gss_key='0AjqGPI5Q_Ez6dHV5YWY4MEdFNUs0eW1aeEpoNWJKdEE',gss_query="select *")
+            publindex.to_csv('publindex.csv',index=False)
+
+            print 'Publindex loaded:',publindex.columns
+            
+    
+    c=pd.DataFrame()
+    
+    
+    for i in range(gg.shape[0]):
+        g=pd.Series(gg.ix[i])
+        g['DOI']='';g['ISSN']=''
+        if g.Publication != g.Publication:
+                g.Publication=''
+
+        #remove all non-standard characters
+        logkey=(re.sub(r"[^a-zA-Z0-9 ]","",str(g.Publication)).replace(' ','')+'.'+str(g.Volume)+'.'+str(g.Pages))
+            
+        #check if item already exists
+        if entry.has_key(logkey):
+            g['New_entry']=False
+        else:
+            g['New_entry']=True
+            
+        #WARNING: Only Surname of first author
+        if not entry.has_key(logkey):
+            surname=g.Authors.split(';')[0].split(',')[-2].strip()
+            #If several surnames pick the last one
+            surname=re.sub('.*\s(.*)','\\1',surname) 
+            doi=searchdoi(g.Title,surname)
+            if doi.has_key('Persistent Link'):
+                g['ISSN']= doi['ISSN']
+                g['DOI'] = doi['Persistent Link']
+        
+               #journal_alias DB is still manually generated
+               #TODO: Obtain official journal name
+               #   from -> def searchdoi(title,surname)
+               #      and update journal_alias databases        
+        else:
+            g['ISSN']= entry[logkey][0]
+            g['DOI'] = entry[logkey][1]  
+            
+        if journal_alias.has_key(g.Publication):
+            g.Publication=journal_alias[g.Publication]
+
+        journal=str(g.Publication)
+        if not journal:
+            journal=''
+                    
+        if journal.upper().find('ARXIV')>=0:
+            journal='Arxiv'
+            issn[journal]=['0000-0000','00']    
+                        
+        issn_value,category_value,auth_group,auth_institute,typepub=in_physcs_udea(g,issn,publindex)
+        if not issn.has_key(journal):            
+            issn[journal]=[issn_value,category_value]
+            fj.write("issn['%s']=['%s','%s']\n" %(journal,issn_value,category_value))
+
+        #overwrite ISSN
+        if issn[journal][0]:
+            g['ISSN']=issn[journal][0]
+            
+        g['Colciencias Clasification']=issn[journal][1]
+        g['Type']=typepub
+        g['Group']=auth_group; g['Institution Authors']=auth_institute
+
+        #Impact factor
+        #Convierta Anyo a entero
+        if g.Year=='' or g.Year == 'null':
+            g.Year=0 #'null'
+            g.Year=int(g.Year)
+                    
+        if not impact_factors.has_key(g.ISSN):
+            impact_factors[g.ISSN]=getIF(g.ISSN)
+ 
+            
+        IF=impact_factors[g.ISSN]
+        #If (Published_year-1) in range of Impact_Factor Years, set IF, else
+        #If (Published_year-1) in range  too old (too new) -> set to older IF (newer IF)
+        if len(IF)>0:
+            if g.Year-1 < IF['Year'][4]:
+                g['Impact Factor']=IF['Impact Factor (IF)'][4]
+            elif g.Year-1 > IF['Year'][0]:
+                g['Impact Factor']=IF['Impact Factor (IF)'][0]
+            else:
+                g['Impact Factor']=IF[IF['Year']==(g.Year-1)]['Impact Factor (IF)'].values[0]
+        else:
+            g['Impact Factor']=-1
+
+
+        if not entry.has_key(logkey):
+            if not g['DOI']:
+                g['DOI']='Not DOI'
+            if not g['DOI']:
+                g['ISSN']='0000-0000'
+                    
+            #WARNING: the last obtained ISSN will be used
+            fl.write(r"entry['%s']=['%s','%s']" %(logkey,g.ISSN,g.DOI))
+            fl.write('\n')
+            
+        #To the end
+        c=c.append(g,ignore_index=True)
+
+    fl.close();fj.close()
+    if update:
+        c=c[c['New_entry']]
+    df=out_physics_udea(c)
+    if df.shape[0]>0:
+        df.to_csv('%s.csv' %csvfile,index=False)
+    else:
+        print 'No new references to update'
+    #Save dictionaries with pickle
+    with open('impactfactors.pickle', 'wb') as handle:
+        pickle.dump(impact_factors, handle)    

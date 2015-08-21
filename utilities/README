@@ -1,4 +1,4 @@
-cvsreader.py
+cvsreader_udea.py
 
 Convert a cvs file obtained with the export feature of the profiles of
 google scholar into another cvs with additional info about
@@ -18,7 +18,6 @@ The last update log is in newcitationslog_2015_08.py
 
 
 Check the implementation in the pycitations notebook
-
 
 
 

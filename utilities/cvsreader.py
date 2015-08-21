@@ -217,7 +217,7 @@ if __name__ == '__main__':
     
     #Initialize output (empty) pandas DataFrame
   
-    try:
+    if 1==1:
         #prepare citations.csv
         #DEBUG: check missing number
         #tmp=commands.getoutput("cat citations.csv | grep -v ',,,' |  grep -Ev '[A-Za-z\)],,[0-9]*[a-zA-Z],[0-9]*' |  grep -Ev '[A-Za-z\)],[0-9]*,,[0-9]*' > kk && mv kk citations.csv")
@@ -231,6 +231,7 @@ if __name__ == '__main__':
         #intialize empty columns
         g['New_entry']=False
         g['ISSN']=''
+        g['NEWISSN']=''
         g['Colciencias Clasification']='' #Or journal quartile in general
         g['DOI']='';g['Impact Factor']=''
         if IF_UdeA:
@@ -264,6 +265,7 @@ if __name__ == '__main__':
             
             #check if item already exists
             if not entry.has_key(logkey):
+
                 g['New_entry'][i]=True
                 if not update: #recover logkey
                     logkey=logkeybak
@@ -280,7 +282,7 @@ if __name__ == '__main__':
                     surname=re.sub('.*\s(.*)','\\1',surname) 
                     doi=searchdoi(g['Title'][i],surname)
                     if doi.has_key('Persistent Link'):
-                        g['ISSN'][i]= doi['ISSN']
+                        g['NEWISSN'][i]= doi['ISSN']
                         g['DOI'][i] = doi['Persistent Link']
                         doi={} #reset values
                     #journal_alias DB is still manually generated
@@ -288,7 +290,7 @@ if __name__ == '__main__':
                     #      from -> def searchdoi(title,surname)
                     #      and update journal_alias databases
                 else:
-                    g['ISSN'][i]= entry[logkey][0]
+                    g['NEWISSN'][i]= entry[logkey][0]
                     g['DOI'][i] = entry[logkey][1]
                 
                 if journal_alias.has_key(g['Publication'][i]):
@@ -313,21 +315,20 @@ if __name__ == '__main__':
                         journal='Arxiv'
                         issn[journal]=['0000-0000','00']                
                         
-                    issn_value,category_value,auth_group,auth_institute,typepub=in_physcs_udea(g.ix[i],issn,publindex)
+                    issn_value,category_value,auth_group,auth_institute,typepub=in_physcs_udea(g.ix[i].to_dict(),issn,publindex)
                     if not issn.has_key(journal):            
                         issn[journal]=[issn_value,category_value]
                         fj.write("issn['%s']=['%s','%s']\n" %(journal,issn_value,category_value))
                     
 
-                    if g['ISSN'][i]:
-                        if issn[journal][0]!=g['ISSN'][i]:  
-                            print "WARNING: ISSNs don't macth:",issn[journal][0],g['ISSN'][i]  
-                        
-                    g['ISSN'][i]=issn[journal][0]
+
+                    g['NEWISSN'][i]=issn[journal][0]
+                    g['ISSN'][i]=g['NEWISSN'][i] #issn[journal][0]
                     g['Colciencias Clasification'][i]=issn[journal][1]
                     g['Type'][i]=typepub
                     g['Group'][i]=auth_group; g['Institution Authors'][i]=auth_institute
-                    
+                else:
+                    g['ISSN'][i]=g['NEWISSN'][i]
                 #Impact factor
                 #Convierta Anyo a entero
                 if g['Year'][i]=='':
@@ -367,7 +368,7 @@ if __name__ == '__main__':
                         fl.write('\n')
 
 
-    finally:
+#    finally:
         if update:
            g=g[g['New_entry']]
         if IF_UdeA:
