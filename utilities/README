@@ -16,7 +16,7 @@ Copy and paste in Articulos.
 From now on, it could be enough to export the articles form google scholar only for the last year,
 only the new citations will be updated.
 
-The last update log is in newcitationslog_2015_08.py
+The last update log is in newcitationslog_2016_01.py
 
 
 Check the implementation in the pycitations notebook and specially in cvsreader_udea.ipynb
