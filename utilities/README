@@ -1,3 +1,5 @@
+GOTO: ~/prog/google_apps_accounts/gssis/utilities
+MAIN FILE:
 cvsreader_udea.py
 
 Convert a cvs file obtained with the export feature of the profiles of

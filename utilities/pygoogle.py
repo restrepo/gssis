@@ -128,10 +128,13 @@ class pygoogle:
     def get_urls(self):
         """Returns list of result URLs"""
         results = []
+        i=0
         for data in self.__search__():
-            for result in  data['responseData']['results']:
-                if result:
-                    results.append(urllib.unquote(result['unescapedUrl']))
+            if type(data['responseData']) is dict:
+                for result in  data['responseData']['results']:
+                    if result:
+                        results.append(urllib.unquote(result['unescapedUrl']))
+                        
         return results
 
     def get_result_count(self):

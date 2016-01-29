@@ -148,6 +148,11 @@ if __name__=='__main__':
         #If (Published_year-1) in range of Impact_Factor Years, set IF, else
         #If (Published_year-1) in range  too old (too new) -> set to older IF (newer IF)
         if len(IF)>0:
+            if not 'Impact Factor (IF)' in IF:
+                if 'IF' in IF:
+                    IF['Impact Factor (IF)']=IF['IF']
+                else:
+                    IF['Impact Factor (IF)']=-1
             if g.Year-1 < IF['Year'][4]:
                 g['Impact Factor']=IF['Impact Factor (IF)'][4]
             elif g.Year-1 > IF['Year'][0]:
