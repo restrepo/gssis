@@ -2,6 +2,18 @@
 # -*- coding: utf-8 -*-
 from cvsreader import *
 #entry={}
+def savecsv(c,csvfile,update,out_type='udea',partial=False):
+    df=pd.DataFrame()
+    if update:
+        c=c[c['New_entry']]
+    if out_type=='udea':
+        df=out_physics_udea(c)
+    if df.shape[0]>0:
+        df.to_csv('%s.csv' %csvfile,index=False)
+    else:
+        if not partial:
+            print 'No new references to update'
+
 if __name__=='__main__':
     """
     DEBUG: Year broken, RCF as Internacional
@@ -98,8 +110,10 @@ if __name__=='__main__':
             surname=re.sub('.*\s(.*)','\\1',surname) 
             doi=searchdoi(g.Title,surname)
             if doi.has_key('Persistent Link'):
-                g['ISSN']= doi['ISSN']
                 g['DOI'] = doi['Persistent Link']
+            if doi.has_key('ISSN'):
+                g['ISSN']= doi['ISSN']
+
         
                #journal_alias DB is still manually generated
                #TODO: Obtain official journal name
@@ -175,18 +189,10 @@ if __name__=='__main__':
             
         #To the end
         c=c.append(g,ignore_index=True)
+        savecsv(c,csvfile+'_partial',update,out_type='udea',partial=True)
 
-    fl.close();fj.close()
-    c[['Year']] = c[['Year']].astype(int)
-    c[['Volume']]=c[['Volume']].replace('',0)
-    c[['Volume']] = c[['Volume']].astype(int)
-    if update:
-        c=c[c['New_entry']]
-    df=out_physics_udea(c)
-    if df.shape[0]>0:
-        df.to_csv('%s.csv' %csvfile,index=False)
-    else:
-        print 'No new references to update'
+    fl.close();fj.close()        
     #Save dictionaries with pickle
+    savecsv(c,csvfile,update,out_type='udea')
     with open('impactfactors.pickle', 'wb') as handle:
         pickle.dump(impact_factors, handle)    

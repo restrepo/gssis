@@ -11,7 +11,9 @@ fullnames['002']='Raigoza Bohórquez Nicolás F.'
 
 fullnames['100']='Ferrín Vázquez Ignacio R.'
 fullnames['101']='Zuluaga Callejas Jorge Iván'
-fullnames['102']='Pablo Cuartas'
+fullnames['102']='Cuartas Restrepo Pablo '
+fullnames['103']='Muñoz Cuartas Juan Carlos'
+fullnames['104']='Silva Villa Esteban'
 
 fullnames['200']='Mahecha Gómez Jorge E.'
 fullnames['201']='Pachón Contreras Leonardo' 
@@ -52,6 +54,7 @@ fullnames['708']='Nardi Enrico'
 fullnames['709']='José David Ruíz Alvárez'
 
 fullnames['800']='Giraldo Cadavid Marco A.'
+fullnames['801']='Giordani Cristiano'
 
 fullnames['900']='Valencia Valencia José Patricio'
 fullnames['901']='Wu Huachuan'

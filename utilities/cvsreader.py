@@ -106,6 +106,44 @@ def getIF(issn='1475-7516'):
 #Adapted from http://tex.stackexchange.com/questions/6810/automatically-adding-doi-fields-to-a-hand-made-bibliography
 #see also https://github.com/torfbolt/DOI-finder
 #which uses http://www.crossref.org/guestquery (Form2)
+lower_first_char = lambda s: s[:1].lower() + s[1:] if s else ''
+def search_doi(surname='Florez',\
+    title=r'Baryonic violation of R-parity from anomalous $U(1)_H$',other=''):
+    '''
+    Search doi from http://search.crossref.org/ 
+    '''
+    import re
+    import requests
+    doi={}
+    search=''
+    if surname:
+        search=surname
+    if title:
+        if len(search)>0:
+            search=search+', '+title
+    if other:
+        if len(search)>0:
+            search=search+', '+other
+            
+    r=requests.get('http://search.crossref.org/?q=%s' %search)
+    urldoi='http://dx.doi.org/'
+    doitmp=''
+    if len(r.text.split(urldoi))>1:
+       doitmp=r.text.split(urldoi)[1].split("\'>")[0].replace('&lt;','<').replace('&gt;','>')
+    #check doi is right by searching for all words in doi -> output title
+    if doitmp:
+        json='https://api.crossref.org/v1/works/'
+        rr=requests.get( json+urldoi+doitmp )
+        if rr.status_code==200:
+           if rr.json().has_key('message'):
+              chktitle = re.sub(r"\$.*?\$","",title) # better remove all math expressions
+              chktitle = re.sub(r"[^a-zA-Z0-9 ]", " ", chktitle).split(' ')
+              if chktitle:
+                 if not -1 in [(rr.json()["message"]['title'][0]).find(w)  for w in chktitle]:
+                    doi=rr.json()["message"]
+                    
+    return doi
+
 def searchdoi(title='a model of  leptons', surname='Weinberg'):
     """
     Search for the metadata of given a title; e.g.  "A model of  leptons" 
@@ -119,26 +157,29 @@ def searchdoi(title='a model of  leptons', surname='Weinberg'):
 
        where 'Author' is really the surname of the first author
     """
-    title = re.sub(r"\$.*?\$","",title) # better remove all math expressions
-    title = re.sub(r"[^a-zA-Z0-9 ]", " ", title) #remove non standard characters
-    surname = re.sub(r"[{}'\\]","", surname) #remove non standard characters
-    params = urllib.urlencode({"titlesearch":"titlesearch", "auth2" : surname, "atitle2" : title, "multi_hit" : "on", "article_title_search" : "Search", "queryType" : "author-title"})
-    headers = {"User-Agent": "Mozilla/5.0" , "Accept": "text/html", "Content-Type" : "application/x-www-form-urlencoded", "Host" : "www.crossref.org"}
-    conn = httplib.HTTPConnection("www.crossref.org:80")
-    conn.request("POST", "/guestquery/", params, headers)
-    response = conn.getresponse()
-    # print response.status, response.reason
-    data = response.read()
-    conn.close()
-    result = re.findall(r"\<table cellspacing=1 cellpadding=1 width=600 border=0\>.*?\<\/table\>" ,data, re.DOTALL)
-    if (len(result) > 0):
-        html=urllib.unquote_plus(result[0])
+    import mechanize
+    import re
+    from bs4 import BeautifulSoup
+    
+    browser = mechanize.Browser()
+    browser.set_handle_robots(False)
+    browser.addheaders = [('User-agent', 'Firefox')] 
+    browser.open("http://www.crossref.org/guestquery/")
+    assert browser.viewing_html()
+    browser.select_form(name="form2")
+    # use only surname of first author
+    browser["auth2"] =  surname
+    browser["atitle2"] = title
+    response = browser.submit()
+    sourcecode = response.get_data()
+    result = re.findall(r"\<table cellspacing=1 cellpadding=1 width=600 border=0\>.*?\<\/table\>" ,sourcecode, re.DOTALL)
+    if len(result) > 0:
+        html=result[0] 
         #doi=re.sub('.*dx.doi.org\/(.*)<\/a>.*','\\1',doitmp)
         if re.search('No DOI found',html):
             html='<table><tr><td>No DOI found<td></tr></table>'
     else:
-        doi={}
-        #return {}         
+        html=''
 
     soup = BeautifulSoup(html)
     table = soup.find("table")
@@ -152,9 +193,15 @@ def searchdoi(title='a model of  leptons', surname='Weinberg'):
         headings=dataset[:9]
         datasets=dataset[10:-1]
         doi=dict(zip(headings,datasets))
+        print '=> ',doi['Persistent Link'].replace('http://dx.doi.org/','')
         
     else:
-        doi={}
+        doi=search_doi(surname,title)
+        if doi.has_key('DOI'):
+           print '... ',doi['DOI']
+           doi['Persistent Link']=doi['DOI']
+        if doi.has_key('ISSN'):
+           doi['ISSN']=doi['ISSN'][0]
         
     if doi:
         if doi.has_key('ISSN') and doi.has_key('Persistent Link'):

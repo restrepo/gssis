@@ -186,5 +186,7 @@ authors['Mejía-López, José']  ='302'
 authors['Mejía-López, J']  ='302'
 authors['Mejia-Lopez, J']  ='302'
 authors['Ruiz-Alvarez, Jose D']='709'
-
-
+authors['Silva-Villa, E']='104'
+authors['Muñoz-Cuartas, JC']='103'
+authors['Giordani, Cristiano']='801'
+authors['Giordani, C']='801'

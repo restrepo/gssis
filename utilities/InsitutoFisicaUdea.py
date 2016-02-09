@@ -85,12 +85,33 @@ def get_authors_info(dict_ref,dict_authors,dict_groups,dict_fullnames):
     auth_institute=re.sub(r'; $','',auth_institute)
     return auth_group,auth_institute
 
+def meval1(s):
+    if s:
+        return -eval(s)+1 # -1 when len(str.split('-'))<2
+    else:
+        return s
+    
 def out_physics_udea(df):
     '''
     Data Frame Output for Insituto de Fisica - Universidad de Antioquia
     '''
     df['Impreso']='';df['PDF']='';df['Proyect ID']=''
     df['Type II']=''
+    df['Proyecto']=''
+    df['Pages']=(df['Pages'].astype(str)).str.replace(r'_','')
+    df['Pages']=df['Pages'].str.replace(r'[a-zA-Z \.]','')
+    df['NPages']=df['Pages'] 
+    df['Pages']=df['Pages'].str.replace(r'-[0-9]+','')
+    df['NPages']=df['NPages'].str.replace(r'^[0-9]+$','2')
+    df['NPages']=(df['NPages'].str.replace(r'^0','')).str.replace(r'-0','')
+    df['Year']         = df['Year'].astype(int)
+    df['Volume']       = df['Volume'].replace('',0)
+    df['Volume']       = df['Volume'].astype(int)
+    df['Impact Factor']= df['Impact Factor'].astype(str).str.replace('.',',')
+
+
+    df['NPages']=df['NPages'].apply(meval1)
     return df[['Year','Type','Authors','Publication','Volume','Pages','ISSN',\
        'Title','Impreso','PDF','Group','DOI','Type II','Proyect ID',\
-       'Institution Authors','Colciencias Clasification','Impact Factor']]
+               'Institution Authors','Colciencias Clasification','Impact Factor',\
+               'Proyecto','NPages']]
