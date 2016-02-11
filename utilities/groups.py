@@ -65,6 +65,7 @@ groups['803']='Biofísica'
 groups['900']='FN: Física Nuclear'
 groups['901']='FN: Física Nuclear'
 groups['902']='FN: Física Nuclear'
+groups['903']='FN: Física Nuclear'
 groups['1000']='FIR: Física Industrial y de la Radiación'
 groups['1001']='FIR: Física Industrial y de la Radiación'
 

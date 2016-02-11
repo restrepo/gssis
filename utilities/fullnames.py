@@ -55,9 +55,11 @@ fullnames['709']='José David Ruíz Alvárez'
 
 fullnames['800']='Giraldo Cadavid Marco A.'
 fullnames['801']='Giordani Cristiano'
+fullnames['802']='Ricaurte Gernán'
 
 fullnames['900']='Valencia Valencia José Patricio'
 fullnames['901']='Wu Huachuan'
+fullnames['902']='Páez Manuel'
 
 fullnames['1000']='Zuluaga Quintero John Jairo'
 
