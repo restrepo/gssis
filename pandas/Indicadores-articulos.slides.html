@@ -214,11 +214,8 @@ div.output_prompt {
 <body>
 <div class="reveal">
 <div class="slides">
-<style type="text/css">
-.input, .output_prompt {
-display:none !important;
-}
-</style><div style=display:none>
+<section>
+    <section>
     
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
@@ -228,8 +225,9 @@ display:none !important;
 <h1 id="Ayuda-slides">Ayuda slides<a class="anchor-link" href="#Ayuda-slides">&#182;</a></h1>
 </div>
 </div>
-</div>
-    </div><div style=display:none>
+</div></section>
+    </section><section>
+    <section>
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
@@ -269,16 +267,15 @@ display:none !important;
 </div>
 </div>
 
-</div>
-    </div><div style=display:none>
+</div><div class="fragment" data-fragment-index="2">
     
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>b to hide presentation
-Links:</p>
+<p>'b' to hide presentation</p>
+<p>Links:</p>
 <ul>
 <li><a href="http://stackoverflow.com/questions/20441848/how-do-i-separate-slides-when-exporting-an-ipython-notebook-to-reveal-js">http://stackoverflow.com/questions/20441848/how-do-i-separate-slides-when-exporting-an-ipython-notebook-to-reveal-js</a>    </li>
 <li><a href="http://www.slideviper.oquanta.info/tutorial/slideshow_tutorial_slides.html#/7">http://www.slideviper.oquanta.info/tutorial/slideshow_tutorial_slides.html#/7</a>  </li>
@@ -290,7 +287,25 @@ Links:</p>
 </div>
 </div>
 </div>
-    </div><div style=display:none>
+    </div><div class="fragment" data-fragment-index="3">
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre>%%bash
+ipython nbconvert Indicadores-articulos.ipynb --to slides --reveal-prefix <span class="s2">&quot;http://cdn.jsdelivr.net/reveal.js/2.6.2&quot;</span> <span class="o">&amp;&amp;</span> cp Indicadores-articulos.slides.html /var/www/downloads
+git commit -am <span class="s2">&quot;Slides update&quot;</span>
+git push origin master
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+    </div><div class="fragment" data-fragment-index="4">
     
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
@@ -13528,13 +13543,10 @@ mf8PkTVoDIkVWiYAAAAASUVORK5CYII=
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[64]:</div>
+<div class="prompt input_prompt">In&nbsp;[65]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre>%%bash
-ipython nbconvert Indicadores-articulos.ipynb --to slides --reveal-prefix <span class="s2">&quot;http://cdn.jsdelivr.net/reveal.js/2.6.2&quot;</span> <span class="o">&amp;&amp;</span> cp Indicadores-articulos.slides.html /var/www/downloads
-git commit -am <span class="s2">&quot;Slides update&quot;</span>
-git push origin master
+<div class=" highlight hl-ipython2"><pre> 
 </pre></div>
 
 </div>
@@ -13547,8 +13559,8 @@ git push origin master
 
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>[master fa8dba7] Slides update
- 2 files changed, 20 insertions(+), 24 deletions(-)
+<pre>[master 80f7de4] Slides update
+ 2 files changed, 157 insertions(+), 174 deletions(-)
 </pre>
 </div>
 </div>
@@ -13559,11 +13571,11 @@ git push origin master
 [NbConvertApp] Converting notebook Indicadores-articulos.ipynb to slides
 [NbConvertApp] Support files will be in Indicadores-articulos_files/
 [NbConvertApp] Loaded template slides_reveal.tpl
-[NbConvertApp] Writing 1182286 bytes to Indicadores-articulos.slides.html
+[NbConvertApp] Writing 1182058 bytes to Indicadores-articulos.slides.html
 remote: This repository moved. Please use the new location:        
 remote:   https://github.com/restrepo/gssis.git        
 To git@github.com:rescolo/gssis.git
-   78bf477..fa8dba7  master -&gt; master
+   da7c9c7..80f7de4  master -&gt; master
 </pre>
 </div>
 </div>
@@ -13586,7 +13598,8 @@ To git@github.com:rescolo/gssis.git
 </div>
 
 </div>
-        </div>
+        </div></section>
+    </section>
 </div>
 </div>
 
