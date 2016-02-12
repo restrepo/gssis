@@ -4,6 +4,7 @@
 journal_alias={}
 journal_alias['The European Physical Journal C-Particles and Fields']='European Physical Journal C'
 journal_alias['The European Physical Journal C']='European Physical Journal C'
+journal_alias['Eur. Phys. J. C']='European Physical Journal C'
 journal_alias['The European Physical Journal B-Condensed Matter and Complex Systems']='European Physical Journal B'
 journal_alias['The European Physical Journal B']='European Physical Journal B'
 journal_alias['Phys. Rev., D;(United States)']='Physical Review D'
@@ -25,6 +26,7 @@ journal_alias['physica status solidi (b)']='Physica Status Solidi B-Basic Resear
 journal_alias['Physica status solidi. B. Basic research']='Physica Status Solidi B-Basic Research'
 journal_alias['Physica Status Solidi-B-Basic Research']='Physica Status Solidi B-Basic Research'
 journal_alias['phys. stat. sol.(b)']='Physica Status Solidi B-Basic Research'
+journal_alias['Phys. Status Solidi B']='Physica Status Solidi B-Basic Research'
 journal_alias['EPL (Europhysics Letters)']='EPL'
 journal_alias['Zeitschrift für Physik C Particles and Fields']='Zeitschrift für Physik C'
 journal_alias['Revista Mexicana de Física']='Revista Mexicana de Fisica'
@@ -75,3 +77,5 @@ journal_alias['Int. J. Mod. Phys. B']='International Journal of Modern Physics B
 journal_alias['Phys. Lett. B']='Physics Letters B'
 journal_alias['Journal of physics: Condensed matter']='Journal of Physics-Condensed Matter'
 journal_alias['JHEP']='Journal of High Energy Physics'
+journal_alias['J. Cosmol. Astropart. Phys.']='Journal of Cosmology and Astroparticle Physics'
+

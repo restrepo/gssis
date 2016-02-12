@@ -26,6 +26,7 @@ fullnames['301']='Restrepo Cárdenas Johans'
 fullnames['302']='López Mejía José'
 
 fullnames['400']='Tobón Gómez Jorge Enrique'
+fullnames['401']='Trujillo Mario'
 
 fullnames['500']='Arnache Olmos Óscar L.'
 fullnames['501']='Barrero Meneses César A.'
