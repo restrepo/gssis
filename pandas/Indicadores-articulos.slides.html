@@ -291,7 +291,7 @@ display:none !important;
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[66]:</div>
+<div class="prompt input_prompt">In&nbsp;[67]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre>%%bash
@@ -310,8 +310,8 @@ git push origin master
 
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>[master 05e90ed] Slides update
- 2 files changed, 65 insertions(+), 49 deletions(-)
+<pre>[master f293f13] Slides update
+ 2 files changed, 58 insertions(+), 111 deletions(-)
 </pre>
 </div>
 </div>
@@ -322,11 +322,11 @@ git push origin master
 [NbConvertApp] Converting notebook Indicadores-articulos.ipynb to slides
 [NbConvertApp] Support files will be in Indicadores-articulos_files/
 [NbConvertApp] Loaded template slides_reveal.tpl
-[NbConvertApp] Writing 1182390 bytes to Indicadores-articulos.slides.html
+[NbConvertApp] Writing 1181718 bytes to Indicadores-articulos.slides.html
 remote: This repository moved. Please use the new location:        
 remote:   https://github.com/restrepo/gssis.git        
 To git@github.com:rescolo/gssis.git
-   80f7de4..05e90ed  master -&gt; master
+   05e90ed..f293f13  master -&gt; master
 </pre>
 </div>
 </div>
@@ -705,11 +705,110 @@ To git@github.com:rescolo/gssis.git
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Including-citations...">Including citations...<a class="anchor-link" href="#Including-citations...">&#182;</a></h2><p>To include in official code cvsreader_udea.py</p>
+<p>Expected 12994 (Feb. 2016)</p>
 
 </div>
 </div>
 </div><div class="fragment" data-fragment-index="25">
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="n">df</span><span class="o">.</span><span class="n">Cites</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[10]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>12657</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    </div><div class="fragment" data-fragment-index="25">
+        
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Primer autor UdeA</p>
+
+</div>
+</div>
+</div>
+        </div><div class="fragment" data-fragment-index="25">
+        
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[68]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="n">df</span><span class="p">[</span><span class="s">&#39;First_UdeA_Author&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s">&#39;Institution Authors&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="s">&#39;NN&#39;</span><span class="p">)</span>\
+<span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">&#39;Mora Ramos Miguel; &#39;</span><span class="p">,</span><span class="s">&#39;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">&#39;;.*&#39;</span><span class="p">,</span><span class="s">&#39;&#39;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+        </div><div class="fragment" data-fragment-index="25">
+        
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="&#193;rea">&#193;rea<a class="anchor-link" href="#&#193;rea">&#182;</a></h3>
+</div>
+</div>
+</div>
+        </div><div class="fragment" data-fragment-index="25">
+        
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="n">df</span><span class="p">[</span><span class="s">&#39;Area&#39;</span><span class="p">]</span><span class="o">=</span><span class="s">&#39;Desconocida&#39;</span>
+<span class="n">df</span><span class="o">.</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+        </div></section>
+    </section><section>
+    <section>
+    
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Including-citations...">Including citations...<a class="anchor-link" href="#Including-citations...">&#182;</a></h2><p>To include in official code cvsreader_udea.py</p>
+
+</div>
+</div>
+</div><div class="fragment" data-fragment-index="31">
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
@@ -724,7 +823,7 @@ To git@github.com:rescolo/gssis.git
 </div>
 
 </div>
-    </div><div class="fragment" data-fragment-index="26">
+    </div><div class="fragment" data-fragment-index="32">
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
@@ -759,56 +858,12 @@ To git@github.com:rescolo/gssis.git
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Expected 12994 (Feb. 2016)</p>
-
-</div>
-</div>
-</div><div class="fragment" data-fragment-index="28">
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[10]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">df</span><span class="o">.</span><span class="n">Cites</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt output_prompt">Out[10]:</div>
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>12657</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-    </div></section>
-    </section><section>
-    <section>
-    
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Filtramos-las-publicadas">Filtramos las publicadas<a class="anchor-link" href="#Filtramos-las-publicadas">&#182;</a></h3><p>Las que tienen ISSN o el DOI.</p>
 <p>Se muestran algunos resultados...</p>
 
 </div>
 </div>
-</div><div class="fragment" data-fragment-index="30">
+</div><div class="fragment" data-fragment-index="34">
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
@@ -818,8 +873,8 @@ To git@github.com:rescolo/gssis.git
 <div class=" highlight hl-ipython2"><pre><span class="n">publicadas</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="o">~</span><span class="n">np</span><span class="o">.</span><span class="n">logical_and</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s">&#39;ISSN&#39;</span><span class="p">]</span><span class="o">==</span><span class="s">&#39;0000-0000&#39;</span><span class="p">,</span><span class="n">df</span><span class="p">[</span><span class="s">&#39;DOI&#39;</span><span class="p">]</span><span class="o">==</span><span class="s">&#39;Not DOI&#39;</span><span class="p">)]</span>
 <span class="n">publicadas</span><span class="o">=</span><span class="n">publicadas</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
 <span class="n">publicadas</span><span class="o">=</span><span class="n">publicadas</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">&#39;&#39;</span><span class="p">,</span><span class="s">&#39;Desconocido&#39;</span><span class="p">)</span>
-<span class="n">publicadas</span><span class="p">[</span><span class="s">&#39;First_UdeA_Author&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">publicadas</span><span class="p">[</span><span class="s">&#39;Institution Authors&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="s">&#39;NN&#39;</span><span class="p">)</span>\
-<span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">&#39;Mora Ramos Miguel; &#39;</span><span class="p">,</span><span class="s">&#39;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">&#39;;.*&#39;</span><span class="p">,</span><span class="s">&#39;&#39;</span><span class="p">)</span>
+<span class="c">#publicadas[&#39;First_UdeA_Author&#39;]=publicadas[&#39;Institution Authors&#39;].fillna(&#39;NN&#39;)\</span>
+<span class="c">#.str.replace(&#39;Mora Ramos Miguel; &#39;,&#39;&#39;).str.replace(&#39;;.*&#39;,&#39;&#39;)</span>
 
 <span class="c">#Ejemplo visualización</span>
 <span class="n">publicadas</span><span class="p">[[</span><span class="s">&#39;Año&#39;</span><span class="p">,</span><span class="s">&#39;Autor(es)&#39;</span><span class="p">,</span><span class="s">&#39;Artículo&#39;</span><span class="p">,</span><span class="s">&#39;Vol.&#39;</span><span class="p">,</span><span class="s">&#39;pág.&#39;</span><span class="p">,</span><span class="s">&#39;ISSN&#39;</span><span class="p">,</span><span class="s">&#39;Revista&#39;</span><span class="p">,</span><span class="s">&#39;Grupo&#39;</span><span class="p">,</span><span class="s">&#39;DOI&#39;</span><span class="p">,</span><span class="s">&#39;Clasificación Colciencias&#39;</span><span class="p">,</span><span class="s">&#39;Factor de Impacto&#39;</span><span class="p">,</span><span class="s">&#39;First_UdeA_Author&#39;</span><span class="p">]][</span><span class="n">publicadas</span><span class="p">[</span><span class="s">&#39;DOI&#39;</span><span class="p">]</span><span class="o">!=</span><span class="s">&#39;Not DOI&#39;</span><span class="p">][</span><span class="o">-</span><span class="mi">5</span><span class="p">:]</span>
@@ -1012,7 +1067,7 @@ To git@github.com:rescolo/gssis.git
 </div>
 
 </div>
-    </div><div class="fragment" data-fragment-index="34">
+    </div><div class="fragment" data-fragment-index="38">
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
@@ -1039,7 +1094,7 @@ To git@github.com:rescolo/gssis.git
 <h3 id="Datos-a-analizar-del-TOTAL-en-Google-Scholar:">Datos a analizar del TOTAL en Google Scholar:<a class="anchor-link" href="#Datos-a-analizar-del-TOTAL-en-Google-Scholar:">&#182;</a></h3>
 </div>
 </div>
-</div><div class="fragment" data-fragment-index="36">
+</div><div class="fragment" data-fragment-index="40">
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
@@ -1115,7 +1170,7 @@ To git@github.com:rescolo/gssis.git
 <h2 id="Estudiantes">Estudiantes<a class="anchor-link" href="#Estudiantes">&#182;</a></h2>
 </div>
 </div>
-</div><div class="fragment" data-fragment-index="39">
+</div><div class="fragment" data-fragment-index="43">
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
@@ -1131,7 +1186,7 @@ To git@github.com:rescolo/gssis.git
 </div>
 
 </div>
-    </div><div class="fragment" data-fragment-index="40">
+    </div><div class="fragment" data-fragment-index="44">
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
@@ -1198,7 +1253,7 @@ To git@github.com:rescolo/gssis.git
 <h3 id="Estudiantes-admitidos-y-matriculados">Estudiantes admitidos y matriculados<a class="anchor-link" href="#Estudiantes-admitidos-y-matriculados">&#182;</a></h3>
 </div>
 </div>
-</div><div class="fragment" data-fragment-index="43">
+</div><div class="fragment" data-fragment-index="47">
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
@@ -1227,7 +1282,7 @@ To git@github.com:rescolo/gssis.git
 <h3 id="Art&#237;culos-con-participaci&#243;n-de-estudiantes">Art&#237;culos con participaci&#243;n de estudiantes<a class="anchor-link" href="#Art&#237;culos-con-participaci&#243;n-de-estudiantes">&#182;</a></h3>
 </div>
 </div>
-</div><div class="fragment" data-fragment-index="45">
+</div><div class="fragment" data-fragment-index="49">
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
@@ -1279,7 +1334,7 @@ To git@github.com:rescolo/gssis.git
 </div>
 
 </div>
-    </div><div class="fragment" data-fragment-index="46">
+    </div><div class="fragment" data-fragment-index="50">
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
@@ -1297,7 +1352,7 @@ To git@github.com:rescolo/gssis.git
 </div>
 
 </div>
-    </div><div class="fragment" data-fragment-index="47">
+    </div><div class="fragment" data-fragment-index="51">
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
@@ -1328,7 +1383,7 @@ To git@github.com:rescolo/gssis.git
 
 </div>
 </div>
-</div><div class="fragment" data-fragment-index="49">
+</div><div class="fragment" data-fragment-index="53">
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
@@ -1704,7 +1759,7 @@ To git@github.com:rescolo/gssis.git
 
 </div>
 </div>
-</div><div class="fragment" data-fragment-index="52">
+</div><div class="fragment" data-fragment-index="56">
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
@@ -2464,7 +2519,7 @@ ERERaaDgUEREREQaKDgUERERkQYKDkVERESkgYJDEREREWnwf0dagjFuzUvxAAAAAElFTkSuQmCC
 
 </div>
 </div>
-</div><div class="fragment" data-fragment-index="54">
+</div><div class="fragment" data-fragment-index="58">
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
@@ -3216,7 +3271,7 @@ IlJFwaGIiIiIVFFwKCIiIiJVFByKiIiISJX/Bz1s9x4hbApSAAAAAElFTkSuQmCC
 
 </div>
 </div>
-</div><div class="fragment" data-fragment-index="56">
+</div><div class="fragment" data-fragment-index="60">
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
@@ -3979,7 +4034,7 @@ iEgVBYciIiIiUkXBoYiIiIhU+X8OsDG9AvOOUwAAAABJRU5ErkJggg==
 
 </div>
 </div>
-</div><div class="fragment" data-fragment-index="58">
+</div><div class="fragment" data-fragment-index="62">
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
@@ -4080,7 +4135,7 @@ dtype: object</pre>
 
 </div>
 </div>
-</div><div class="fragment" data-fragment-index="62">
+</div><div class="fragment" data-fragment-index="66">
     
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
@@ -4091,7 +4146,7 @@ dtype: object</pre>
 </div>
 </div>
 </div>
-    </div><div class="fragment" data-fragment-index="63">
+    </div><div class="fragment" data-fragment-index="67">
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
@@ -4882,7 +4937,7 @@ WQ/9f6pWK42hohWNAAAAAElFTkSuQmCC
 <h4 id="&#218;ltimos-cinco-a&#241;os">&#218;ltimos cinco a&#241;os<a class="anchor-link" href="#&#218;ltimos-cinco-a&#241;os">&#182;</a></h4>
 </div>
 </div>
-</div><div class="fragment" data-fragment-index="65">
+</div><div class="fragment" data-fragment-index="69">
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
@@ -5727,7 +5782,7 @@ WJmZmZmZmfWREyszMzMzM7M+cmJlZmZmZmbWR06szMzMzMzM+siJlZmZmZmZWR85sTIzMzMzM+uj
 </div>
 </div>
 </div>
-    </div><div class="fragment" data-fragment-index="69">
+    </div><div class="fragment" data-fragment-index="73">
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
@@ -6490,7 +6545,7 @@ AAAASUVORK5CYII=
 <h3 id="&#218;ltimos-cinco-a&#241;os">&#218;ltimos cinco a&#241;os<a class="anchor-link" href="#&#218;ltimos-cinco-a&#241;os">&#182;</a></h3>
 </div>
 </div>
-</div><div class="fragment" data-fragment-index="71">
+</div><div class="fragment" data-fragment-index="75">
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
@@ -7323,7 +7378,7 @@ IqHeeQAAAABJRU5ErkJggg==
 </div>
 </div>
 </div>
-    </div><div class="fragment" data-fragment-index="74">
+    </div><div class="fragment" data-fragment-index="78">
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
@@ -8042,7 +8097,7 @@ YII=
 <h2 id="Citaciones">Citaciones<a class="anchor-link" href="#Citaciones">&#182;</a></h2>
 </div>
 </div>
-</div><div class="fragment" data-fragment-index="76">
+</div><div class="fragment" data-fragment-index="80">
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
@@ -10828,7 +10883,7 @@ zOqQk0AzMzOzOuQk0MzMzKwOOQk0MzMzq0NOAs3MzMzq0P8DbaZOhvuvlfMAAAAASUVORK5CYII=
 </div>
 </div>
 
-</div><div class="fragment" data-fragment-index="82">
+</div><div class="fragment" data-fragment-index="86">
     
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
@@ -10852,7 +10907,7 @@ zOqQk0AzMzOzOuQk0MzMzKwOOQk0MzMzq0NOAs3MzMzq0P8DbaZOhvuvlfMAAAAASUVORK5CYII=
 <h3 id="Clasificaci&#243;n-Colciencias">Clasificaci&#243;n Colciencias<a class="anchor-link" href="#Clasificaci&#243;n-Colciencias">&#182;</a></h3>
 </div>
 </div>
-</div><div class="fragment" data-fragment-index="84">
+</div><div class="fragment" data-fragment-index="88">
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
@@ -10882,7 +10937,7 @@ zOqQk0AzMzOzOuQk0MzMzKwOOQk0MzMzq0NOAs3MzMzq0P8DbaZOhvuvlfMAAAAASUVORK5CYII=
 </div>
 
 </div>
-    </div><div class="fragment" data-fragment-index="85">
+    </div><div class="fragment" data-fragment-index="89">
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
@@ -11112,7 +11167,7 @@ V0dhBN/9EAAAAABJRU5ErkJggg==
 <h4 id="&#218;ltimos-cinco--a&#241;os">&#218;ltimos cinco  a&#241;os<a class="anchor-link" href="#&#218;ltimos-cinco--a&#241;os">&#182;</a></h4>
 </div>
 </div>
-</div><div class="fragment" data-fragment-index="87">
+</div><div class="fragment" data-fragment-index="91">
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
@@ -11142,7 +11197,7 @@ V0dhBN/9EAAAAABJRU5ErkJggg==
 </div>
 
 </div>
-    </div><div class="fragment" data-fragment-index="88">
+    </div><div class="fragment" data-fragment-index="92">
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
@@ -11408,7 +11463,7 @@ FmKSJEmFWIhJkiQV8v8Bwp0yL1FC7SQAAAAASUVORK5CYII=
 
 </div>
 </div>
-</div><div class="fragment" data-fragment-index="92">
+</div><div class="fragment" data-fragment-index="96">
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
@@ -12124,7 +12179,7 @@ mZmZVZwTOjMzM7OKc0JnZmZmVnFO6MzMzMwq7v8BonvOil/M3dUAAAAASUVORK5CYII=
 <h3 id="&#218;ltimos-cinco-a&#241;os">&#218;ltimos cinco a&#241;os<a class="anchor-link" href="#&#218;ltimos-cinco-a&#241;os">&#182;</a></h3>
 </div>
 </div>
-</div><div class="fragment" data-fragment-index="95">
+</div><div class="fragment" data-fragment-index="99">
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
