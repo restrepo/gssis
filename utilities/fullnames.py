@@ -6,7 +6,6 @@ The same code must be used in authors.py fullnames.py and groups.py
 
 fullnames={}
 fullnames['001']='Carlos Duque Echeverri'
-fullnames['003']='Mora Ramos Miguel'
 fullnames['002']='Raigoza Bohórquez Nicolás F.'
 
 fullnames['100']='Ferrín Vázquez Ignacio R.'
@@ -23,7 +22,6 @@ fullnames['204']='González Augusto'
 
 fullnames['300']='Mazo Zuluaga Johan'
 fullnames['301']='Restrepo Cárdenas Johans'
-fullnames['302']='López Mejía José'
 
 fullnames['400']='Tobón Gómez Jorge Enrique'
 fullnames['401']='Trujillo Mario'

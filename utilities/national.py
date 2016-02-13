@@ -1,9 +1,11 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
+#TODO: Use journal alias
 national={}
 national['Revista de la Academia Colombiana de Ciencias']='1'
 national['Revista de la Academia colombiana de ciencias exactes, físicas y naturales']='1'
 national['Revistas de la Academia Colombiana de Ciencias Exactas, Físicas y Naturales']='1'
+national['Revista de la Academia Colombiana de Ciencias Exactas, Físicas y Naturales']='1'
 national['Revista de la Sociedad Colombiana de Física']='2'
 national['Revista Colombiana de Física']='2'
 national['Revista colombiana de Física']='2'
@@ -20,3 +22,7 @@ national['Ingeniería y Ciencia']='8'
 national['Revista Colombiana de Computación-RCC']='9'
 national['Revista Universidad de Antioquia']='10'
 national['Revista CINTEX']='11'
+national['MOMENTO-Revista de Física']='12'
+national['Unipluriversidad']='13'
+national['Scientia et Technica']='14'
+national['Universitas Scientiarum']='15'
