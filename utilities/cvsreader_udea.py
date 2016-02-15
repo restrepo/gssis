@@ -5,7 +5,7 @@ from cvsreader import *
 def savecsv(c,csvfile,update,out_type='udea',partial=False):
     df=pd.DataFrame()
     if update:
-        c=c[c['New_entry']]
+        c=c[c['New_entry'].astype(bool)]
     if out_type=='udea':
         df=out_physics_udea(c)
     if df.shape[0]>0:
