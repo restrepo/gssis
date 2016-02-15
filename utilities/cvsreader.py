@@ -21,16 +21,17 @@ from InsitutoFisicaUdea import *
 #TODO; move al tha databases to pickle
 #  SUPER_TODO: move to sqlite: See discussion at:
 #  http://stackoverflow.com/questions/14029077/pickle-to-file-instead-of-using-database
-with open('impactfactors.pickle', 'rb') as handle:
-   impact_factors= pickle.load(handle)
+#with open('impactfactors.pickle', 'rb') as handle:
+impact_factors= pd.read_pickle('impactfactors.pickle')
 
 #functions
 
 def clean_dictionaries(dictionary=impact_factors,filename='impactfactors.pickle'):
     import pickle
     dictionary={}
-    with open('impactfactors.pickle', 'wb') as handle:
-        pickle.dump(dictionary, handle)
+    #with open('impactfactors.pickle', 'wb') as handle:
+    #    pickle.dump(dictionary, handle)
+    pd.to_pickle(dictionary,file)
     
 
 def read_google_cvs(gss_url="http://spreadsheets.google.com",\
@@ -434,8 +435,9 @@ if __name__ == '__main__':
         fj.close()
         fl.close()
         #Save dictionaries with pickle
-        with open('impactfactors.pickle', 'wb') as handle:
-            pickle.dump(impact_factors, handle)
+        #with open('impactfactors.pickle', 'wb') as handle:
+        #    pickle.dump(impact_factors, handle)
+        pd.to_pickle(impact_factors,'impactfactors.pickle')
 
             
 

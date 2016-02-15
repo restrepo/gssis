@@ -196,5 +196,6 @@ if __name__=='__main__':
     fl.close();fj.close()        
     #Save dictionaries with pickle
     savecsv(c,csvfile,update,out_type='udea')
-    with open('impactfactors.pickle', 'wb') as handle:
-        pickle.dump(impact_factors, handle)    
+    #with open('impactfactors.pickle', 'wb') as handle:
+    #    pickle.dump(impact_factors, handle)
+    pd.to_pickle(impact_factors,'impactfactors.pickle')
