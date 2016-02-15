@@ -1,9 +1,9 @@
 GOTO: ~/prog/google_apps_accounts/gssis/utilities
 MAIN FILE:
-cvsreader_udea.py
+csvreader_udea.py
 
-Convert a cvs file obtained with the export feature of the profiles of
-google scholar into another cvs with additional info about
+Convert a csv file obtained with the export feature of the profiles of
+google scholar into another csv with additional info about
 Insitutional Research Groups, Insitutional authors,
 National/International type of the publication, issn, and Colciencias 
 journal ranking.
@@ -19,6 +19,6 @@ only the new citations will be updated.
 The last update log is in newcitationslog_2016_01.py
 
 
-Check the implementation in the pycitations notebook and specially in cvsreader_udea.ipynb
+Check the implementation in the pycitations notebook and specially in csvreader_udea.ipynb
 
 

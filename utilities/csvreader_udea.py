@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-from cvsreader import *
+from csvreader import *
 #entry={}
 def savecsv(c,csvfile,update,out_type='udea',partial=False):
     df=pd.DataFrame()
