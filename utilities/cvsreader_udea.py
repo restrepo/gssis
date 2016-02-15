@@ -184,6 +184,8 @@ if __name__=='__main__':
                 g['ISSN']='0000-0000'
                     
             #WARNING: the last obtained ISSN will be used
+            if i>1000:
+                print i,logkey,g.ISSN,g.DOI
             fl.write(r"entry['%s']=['%s','%s']" %(logkey,g.ISSN,g.DOI))
             fl.write('\n')
             
