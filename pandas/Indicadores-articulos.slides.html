@@ -214,7 +214,12 @@ div.output_prompt {
 <body>
 <div class="reveal">
 <div class="slides">
-<section>
+<style type="text/css">
+.input, .output_prompt {
+display:none !important;
+}
+</style></section>
+    </section><section>
     <section>
     
 <div class="cell border-box-sizing text_cell rendered">
@@ -234,7 +239,7 @@ div.output_prompt {
 <div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="nb">print</span> <span class="s">&#39;&#39;&#39;Copy the next code into a first Raw NBconvert Cell to avoid display the commands</span>
+<div class=" highlight hl-ipython2"><pre><span class="k">print</span> <span class="s">&#39;&#39;&#39;Copy the next code into a first Raw NBconvert Cell to avoid display the commands</span>
 <span class="s">&lt;style type=&quot;text/css&quot;&gt;</span>
 <span class="s">.input, .output_prompt {</span>
 <span class="s">display:none !important;</span>
@@ -267,7 +272,7 @@ display:none !important;
 </div>
 </div>
 
-</div><div class="fragment" data-fragment-index="2">
+</div><div class="fragment" data-fragment-index="3">
     
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
@@ -294,7 +299,7 @@ display:none !important;
 <div class="prompt input_prompt">In&nbsp;[74]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre>%%bash
+<div class=" highlight hl-ipython2"><pre>%%bash
 ipython nbconvert Indicadores-articulos.ipynb --to slides --reveal-prefix <span class="s2">&quot;http://cdn.jsdelivr.net/reveal.js/2.6.2&quot;</span> <span class="o">&amp;&amp;</span> cp Indicadores-articulos.slides.html /var/www/downloads
 <span class="c">#git commit -am &quot;Slides update&quot;</span>
 <span class="c">#git push origin master</span>
@@ -383,7 +388,7 @@ El análisis de datos se ha realizado con procesos automáticos propensos a erro
 
 </div>
 </div>
-</div><div class="fragment" data-fragment-index="8">
+</div><div class="fragment" data-fragment-index="9">
     
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
@@ -397,7 +402,7 @@ El análisis de datos se ha realizado con procesos automáticos propensos a erro
 </div>
 </div>
 </div>
-    </div><div class="fragment" data-fragment-index="9">
+    </div><div class="fragment" data-fragment-index="10">
     
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
@@ -411,7 +416,7 @@ El análisis de datos se ha realizado con procesos automáticos propensos a erro
 </div>
 </div>
 </div>
-    </div><div class="fragment" data-fragment-index="10">
+    </div><div class="fragment" data-fragment-index="11">
     
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
@@ -425,7 +430,7 @@ El análisis de datos se ha realizado con procesos automáticos propensos a erro
 </div>
 </div>
 </div>
-    </div><div class="fragment" data-fragment-index="11">
+    </div><div class="fragment" data-fragment-index="12">
     
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
@@ -452,7 +457,7 @@ El análisis de datos se ha realizado con procesos automáticos propensos a erro
 
 </div>
 </div>
-</div><div class="fragment" data-fragment-index="13">
+</div><div class="fragment" data-fragment-index="14">
     
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
@@ -477,14 +482,14 @@ El análisis de datos se ha realizado con procesos automáticos propensos a erro
 <h2 id="Preparaci&#243;n-de-datos">Preparaci&#243;n de datos<a class="anchor-link" href="#Preparaci&#243;n-de-datos">&#182;</a></h2>
 </div>
 </div>
-</div><div class="fragment" data-fragment-index="15">
+</div><div class="fragment" data-fragment-index="16">
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="o">%</span><span class="k">pylab</span> inline
+<div class=" highlight hl-ipython2"><pre><span class="o">%</span><span class="k">pylab</span> inline
 <span class="n">pylab</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s">&#39;figure.figsize&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
 <span class="n">matplotlib</span><span class="o">.</span><span class="n">rcParams</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s">&#39;font.size&#39;</span><span class="p">:</span> <span class="mi">15</span><span class="p">})</span>
 </pre></div>
@@ -515,8 +520,8 @@ El análisis de datos se ha realizado con procesos automáticos propensos a erro
 <div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class=" highlight hl-ipython2"><pre><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">datetime</span>
 <span class="kn">import</span> <span class="nn">re</span>
 
@@ -528,7 +533,7 @@ El análisis de datos se ha realizado con procesos automáticos propensos a erro
     <span class="n">gss_key</span><span class="o">=</span><span class="s">&quot;0AuLa_xuSIEvxdERYSGVQWDBTX1NCN19QMXVpb0lhWXc&quot;</span><span class="p">,</span>\
     <span class="n">gss_sheet</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>\
     <span class="n">gss_query</span><span class="o">=</span><span class="s">&quot;select B,D,E,F,I where (H contains &#39;GFIF&#39;) order by D desc&quot;</span><span class="p">,</span>\
-    <span class="n">gss_keep_default_na</span><span class="o">=</span><span class="k">False</span>
+    <span class="n">gss_keep_default_na</span><span class="o">=</span><span class="bp">False</span>
     <span class="p">):</span>
     <span class="kn">import</span> <span class="nn">urllib</span>
     <span class="sd">&quot;&quot;&quot;</span>
@@ -536,7 +541,7 @@ El análisis de datos se ha realizado con procesos automáticos propensos a erro
 <span class="sd">       ....</span>
 <span class="sd">       gss_keep_default_na: (False) Blank values are filled with NaN</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">issn_url</span><span class="o">=</span><span class="s">&quot;%s/tq?tqx=out:%s&amp;tq=%s&amp;key=%s&amp;gid=%s&quot;</span> <span class="o">%</span><span class="p">(</span><span class="n">gss_url</span><span class="p">,</span>\
+    <span class="n">issn_url</span><span class="o">=</span><span class="s">&quot;</span><span class="si">%s</span><span class="s">/tq?tqx=out:</span><span class="si">%s</span><span class="s">&amp;tq=</span><span class="si">%s</span><span class="s">&amp;key=</span><span class="si">%s</span><span class="s">&amp;gid=</span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span><span class="p">(</span><span class="n">gss_url</span><span class="p">,</span>\
                                            <span class="n">gss_format</span><span class="p">,</span>\
                                            <span class="n">gss_query</span><span class="p">,</span>\
                                            <span class="n">gss_key</span><span class="p">,</span>\
@@ -567,14 +572,14 @@ El análisis de datos se ha realizado con procesos automáticos propensos a erro
 
 </div>
 </div>
-</div><div class="fragment" data-fragment-index="18">
+</div><div class="fragment" data-fragment-index="19">
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">df</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s">&#39;https://raw.githubusercontent.com/restrepo/gssis/master/utilities/newcitations.csv&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython2"><pre><span class="n">df</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s">&#39;https://raw.githubusercontent.com/restrepo/gssis/master/utilities/newcitations.csv&#39;</span><span class="p">)</span>
 <span class="n">df</span><span class="o">.</span><span class="n">columns</span>
 </pre></div>
 
@@ -618,7 +623,7 @@ El análisis de datos se ha realizado con procesos automáticos propensos a erro
 <div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">df</span><span class="o">.</span><span class="n">Group</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">Group</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="s">&#39;Unknown&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython2"><pre><span class="n">df</span><span class="o">.</span><span class="n">Group</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">Group</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="s">&#39;Unknown&#39;</span><span class="p">)</span>
 <span class="n">jdr</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">Group</span><span class="o">==</span><span class="s">&#39;Unknown&#39;</span><span class="p">]</span>
 <span class="n">jdri</span><span class="o">=</span><span class="n">jdr</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">logical_or</span><span class="p">(</span><span class="n">jdr</span><span class="o">.</span><span class="n">ISSN</span><span class="o">==</span><span class="s">&#39;1126-6708&#39;</span><span class="p">,</span><span class="n">jdr</span><span class="o">.</span><span class="n">ISSN</span><span class="o">==</span><span class="s">&#39;1550-7998&#39;</span><span class="p">)]</span><span class="o">.</span><span class="n">index</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">jdri</span><span class="p">:</span>
@@ -638,7 +643,7 @@ El análisis de datos se ha realizado con procesos automáticos propensos a erro
 <div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">i</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">Publication</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s">&#39;nature&#39;</span><span class="p">)]</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<div class=" highlight hl-ipython2"><pre><span class="n">i</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">Publication</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s">&#39;nature&#39;</span><span class="p">)]</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 <span class="n">df</span><span class="o">.</span><span class="n">Group</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="s">&#39;GFAM: Grupo de Física Atómica y Molecular&#39;</span>
 <span class="n">df</span><span class="p">[</span><span class="s">&#39;Institution Authors&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="s">&#39;Sanz Vicario José Luis&#39;</span>
 <span class="n">df</span><span class="p">[</span><span class="s">&#39;Impact Factor&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="s">&#39;41,456&#39;</span>
@@ -661,14 +666,14 @@ El análisis de datos se ha realizado con procesos automáticos propensos a erro
 <h3 id="Compatibilidad-con-la-carpeta-de-Indicadores-de-Google-Spread-Sheet">Compatibilidad con la carpeta de Indicadores de Google Spread Sheet<a class="anchor-link" href="#Compatibilidad-con-la-carpeta-de-Indicadores-de-Google-Spread-Sheet">&#182;</a></h3>
 </div>
 </div>
-</div><div class="fragment" data-fragment-index="23">
+</div><div class="fragment" data-fragment-index="24">
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">df</span><span class="p">[</span><span class="s">&#39;Año&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">Year</span>
+<div class=" highlight hl-ipython2"><pre><span class="n">df</span><span class="p">[</span><span class="s">&#39;Año&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">Year</span>
 <span class="n">df</span><span class="p">[</span><span class="s">&#39;Tipo&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">Type</span>
 <span class="n">df</span><span class="p">[</span><span class="s">&#39;Autor(es)&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">Authors</span>
 <span class="n">df</span><span class="p">[</span><span class="s">&#39;Artículo&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">Title</span>
@@ -697,14 +702,14 @@ El análisis de datos se ha realizado con procesos automáticos propensos a erro
 <h3 id="Primer-autor-UdeA">Primer autor UdeA<a class="anchor-link" href="#Primer-autor-UdeA">&#182;</a></h3>
 </div>
 </div>
-</div><div class="fragment" data-fragment-index="25">
+</div><div class="fragment" data-fragment-index="26">
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[9]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">df</span><span class="p">[</span><span class="s">&#39;First_UdeA_Author&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s">&#39;Institution Authors&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="s">&#39;NN&#39;</span><span class="p">)</span>\
+<div class=" highlight hl-ipython2"><pre><span class="n">df</span><span class="p">[</span><span class="s">&#39;First_UdeA_Author&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s">&#39;Institution Authors&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="s">&#39;NN&#39;</span><span class="p">)</span>\
 <span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">&#39;Mora Ramos Miguel; &#39;</span><span class="p">,</span><span class="s">&#39;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">&#39;;.*&#39;</span><span class="p">,</span><span class="s">&#39;&#39;</span><span class="p">)</span>
 </pre></div>
 
@@ -725,14 +730,14 @@ El análisis de datos se ha realizado con procesos automáticos propensos a erro
 <h3 id="&#193;rea">&#193;rea<a class="anchor-link" href="#&#193;rea">&#182;</a></h3>
 </div>
 </div>
-</div><div class="fragment" data-fragment-index="27">
+</div><div class="fragment" data-fragment-index="28">
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[10]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">df</span><span class="p">[</span><span class="s">&#39;Area&#39;</span><span class="p">]</span><span class="o">=</span><span class="s">&#39;Desconocida&#39;</span>
+<div class=" highlight hl-ipython2"><pre><span class="n">df</span><span class="p">[</span><span class="s">&#39;Area&#39;</span><span class="p">]</span><span class="o">=</span><span class="s">&#39;Desconocida&#39;</span>
 <span class="k">for</span> <span class="n">G</span> <span class="ow">in</span> <span class="p">[</span><span class="s">&#39;GMC&#39;</span><span class="p">,</span><span class="s">&#39;FACOM&#39;</span><span class="p">,</span><span class="s">&#39;GFAM&#39;</span><span class="p">,</span><span class="s">&#39;MS&#39;</span><span class="p">,</span><span class="s">&#39;GFIF&#39;</span><span class="p">,</span><span class="s">&#39;FN&#39;</span><span class="p">]:</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">Grupo</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="n">G</span><span class="p">)]</span><span class="o">.</span><span class="n">index</span><span class="p">:</span>
         <span class="n">df</span><span class="o">.</span><span class="n">Area</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="s">&#39;Teórica&#39;</span>
@@ -776,14 +781,14 @@ El análisis de datos se ha realizado con procesos automáticos propensos a erro
 </div>
 </div>
 </div>
-    </div><div class="fragment" data-fragment-index="30">
+    </div><div class="fragment" data-fragment-index="31">
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[11]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">pc</span><span class="o">=</span><span class="n">read_google_cvs</span><span class="p">(</span><span class="n">gss_key</span><span class="o">=</span><span class="s">&#39;1yQXdQdzsX9zBeui52bMcnN-JMt87ofHDjA58kwGJsdI&#39;</span><span class="p">,</span><span class="n">gss_query</span><span class="o">=</span><span class="s">&quot;select *&quot;</span><span class="p">)</span>
+<div class=" highlight hl-ipython2"><pre><span class="n">pc</span><span class="o">=</span><span class="n">read_google_cvs</span><span class="p">(</span><span class="n">gss_key</span><span class="o">=</span><span class="s">&#39;1yQXdQdzsX9zBeui52bMcnN-JMt87ofHDjA58kwGJsdI&#39;</span><span class="p">,</span><span class="n">gss_query</span><span class="o">=</span><span class="s">&quot;select *&quot;</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -791,14 +796,14 @@ El análisis de datos se ha realizado con procesos automáticos propensos a erro
 </div>
 
 </div>
-    </div><div class="fragment" data-fragment-index="31">
+    </div><div class="fragment" data-fragment-index="32">
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[12]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">df</span><span class="p">[</span><span class="s">&#39;Cites&#39;</span><span class="p">]</span><span class="o">=</span><span class="mi">0</span>
+<div class=" highlight hl-ipython2"><pre><span class="n">df</span><span class="p">[</span><span class="s">&#39;Cites&#39;</span><span class="p">]</span><span class="o">=</span><span class="mi">0</span>
 <span class="n">df</span><span class="p">[</span><span class="s">&#39;Simple&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">Title</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">r&quot;[^a-zA-Z0-9 ]&quot;</span><span class="p">,</span> <span class="s">&quot; &quot;</span><span class="p">)</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">&#39;\s+&#39;</span><span class="p">,</span><span class="s">&#39;&#39;</span><span class="p">)</span>
 <span class="n">pc</span><span class="p">[</span><span class="s">&#39;Simple&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">pc</span><span class="o">.</span><span class="n">Article</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">r&quot;[^a-zA-Z0-9 ]&quot;</span><span class="p">,</span> <span class="s">&quot; &quot;</span><span class="p">)</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">&#39;\s+&#39;</span><span class="p">,</span><span class="s">&#39;&#39;</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
@@ -830,14 +835,14 @@ El análisis de datos se ha realizado con procesos automáticos propensos a erro
 
 </div>
 </div>
-</div><div class="fragment" data-fragment-index="33">
+</div><div class="fragment" data-fragment-index="34">
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[13]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">df</span><span class="o">.</span><span class="n">Cites</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<div class=" highlight hl-ipython2"><pre><span class="n">df</span><span class="o">.</span><span class="n">Cites</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
 </pre></div>
 
 </div>
@@ -875,15 +880,15 @@ El análisis de datos se ha realizado con procesos automáticos propensos a erro
 
 </div>
 </div>
-</div><div class="fragment" data-fragment-index="35">
+</div><div class="fragment" data-fragment-index="36">
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[14]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">publicadas</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="o">~</span><span class="n">np</span><span class="o">.</span><span class="n">logical_and</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s">&#39;ISSN&#39;</span><span class="p">]</span><span class="o">==</span><span class="s">&#39;0000-0000&#39;</span><span class="p">,</span><span class="n">df</span><span class="p">[</span><span class="s">&#39;DOI&#39;</span><span class="p">]</span><span class="o">==</span><span class="s">&#39;Not DOI&#39;</span><span class="p">)]</span>
-<span class="n">publicadas</span><span class="o">=</span><span class="n">publicadas</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="k">True</span><span class="p">)</span>
+<div class=" highlight hl-ipython2"><pre><span class="n">publicadas</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="o">~</span><span class="n">np</span><span class="o">.</span><span class="n">logical_and</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s">&#39;ISSN&#39;</span><span class="p">]</span><span class="o">==</span><span class="s">&#39;0000-0000&#39;</span><span class="p">,</span><span class="n">df</span><span class="p">[</span><span class="s">&#39;DOI&#39;</span><span class="p">]</span><span class="o">==</span><span class="s">&#39;Not DOI&#39;</span><span class="p">)]</span>
+<span class="n">publicadas</span><span class="o">=</span><span class="n">publicadas</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
 <span class="n">publicadas</span><span class="o">=</span><span class="n">publicadas</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">&#39;&#39;</span><span class="p">,</span><span class="s">&#39;Desconocido&#39;</span><span class="p">)</span>
 <span class="c">#publicadas[&#39;First_UdeA_Author&#39;]=publicadas[&#39;Institution Authors&#39;].fillna(&#39;NN&#39;)\</span>
 <span class="c">#.str.replace(&#39;Mora Ramos Miguel; &#39;,&#39;&#39;).str.replace(&#39;;.*&#39;,&#39;&#39;)</span>
@@ -1024,7 +1029,7 @@ El análisis de datos se ha realizado con procesos automáticos propensos a erro
 <div class="prompt input_prompt">In&nbsp;[15]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">publicadas</span><span class="p">[</span><span class="s">&#39;Factor de Impacto&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">publicadas</span><span class="p">[</span><span class="s">&#39;Factor de Impacto&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">&#39;Desconocido&#39;</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<div class=" highlight hl-ipython2"><pre><span class="n">publicadas</span><span class="p">[</span><span class="s">&#39;Factor de Impacto&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">publicadas</span><span class="p">[</span><span class="s">&#39;Factor de Impacto&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">&#39;Desconocido&#39;</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">publicadas</span><span class="p">[</span><span class="s">&#39;Factor de Impacto&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">publicadas</span><span class="p">[</span><span class="s">&#39;Factor de Impacto&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">&#39;,&#39;</span><span class="p">,</span><span class="s">&#39;.&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
 <span class="n">publicadas</span><span class="p">[</span><span class="s">&#39;Grupo&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">publicadas</span><span class="p">[</span><span class="s">&#39;Grupo&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="s">&#39;Unknown&#39;</span><span class="p">)</span>
 </pre></div>
@@ -1054,7 +1059,7 @@ El análisis de datos se ha realizado con procesos automáticos propensos a erro
 <div class="prompt input_prompt">In&nbsp;[16]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">year</span><span class="o">-</span><span class="mi">5</span>
+<div class=" highlight hl-ipython2"><pre><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">year</span><span class="o">-</span><span class="mi">5</span>
 </pre></div>
 
 </div>
@@ -1078,14 +1083,14 @@ El análisis de datos se ha realizado con procesos automáticos propensos a erro
 </div>
 
 </div>
-    </div><div class="fragment" data-fragment-index="39">
+    </div><div class="fragment" data-fragment-index="40">
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[17]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">publicadas5</span><span class="o">=</span><span class="n">publicadas</span><span class="p">[</span><span class="n">publicadas</span><span class="p">[</span><span class="s">&#39;Año&#39;</span><span class="p">]</span><span class="o">&gt;</span><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">year</span><span class="o">-</span><span class="mi">6</span><span class="p">]</span>
+<div class=" highlight hl-ipython2"><pre><span class="n">publicadas5</span><span class="o">=</span><span class="n">publicadas</span><span class="p">[</span><span class="n">publicadas</span><span class="p">[</span><span class="s">&#39;Año&#39;</span><span class="p">]</span><span class="o">&gt;</span><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">year</span><span class="o">-</span><span class="mi">6</span><span class="p">]</span>
 </pre></div>
 
 </div>
@@ -1105,16 +1110,16 @@ El análisis de datos se ha realizado con procesos automáticos propensos a erro
 <h3 id="Datos-a-analizar-del-TOTAL-en-Google-Scholar:">Datos a analizar del TOTAL en Google Scholar:<a class="anchor-link" href="#Datos-a-analizar-del-TOTAL-en-Google-Scholar:">&#182;</a></h3>
 </div>
 </div>
-</div><div class="fragment" data-fragment-index="41">
+</div><div class="fragment" data-fragment-index="42">
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[18]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">dfp</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+<div class=" highlight hl-ipython2"><pre><span class="n">dfp</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
 <span class="n">dfp</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s">&#39;TOTAL&#39;</span><span class="p">:</span><span class="n">df</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="s">&#39;Publicadas&#39;</span><span class="p">:</span><span class="n">publicadas</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>\
-            <span class="s">&#39;Publicadas últimos 5 años&#39;</span><span class="p">:</span><span class="n">publicadas5</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]},</span><span class="n">ignore_index</span><span class="o">=</span><span class="k">True</span><span class="p">)</span>
+            <span class="s">&#39;Publicadas últimos 5 años&#39;</span><span class="p">:</span><span class="n">publicadas5</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]},</span><span class="n">ignore_index</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -1181,14 +1186,14 @@ El análisis de datos se ha realizado con procesos automáticos propensos a erro
 <h3 id="Estudiantes">Estudiantes<a class="anchor-link" href="#Estudiantes">&#182;</a></h3>
 </div>
 </div>
-</div><div class="fragment" data-fragment-index="44">
+</div><div class="fragment" data-fragment-index="45">
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[19]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">config_inf</span><span class="o">=</span><span class="p">{</span><span class="s">&#39;DEBUG&#39;</span><span class="p">:</span><span class="k">False</span><span class="p">}</span> <span class="c">#Development mode</span>
+<div class=" highlight hl-ipython2"><pre><span class="n">config_inf</span><span class="o">=</span><span class="p">{</span><span class="s">&#39;DEBUG&#39;</span><span class="p">:</span><span class="bp">False</span><span class="p">}</span> <span class="c">#Development mode</span>
 <span class="n">config_inf</span><span class="p">[</span><span class="s">&#39;Years&#39;</span><span class="p">]</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="mi">1995</span><span class="p">,</span><span class="mi">2016</span><span class="p">)</span>
 </pre></div>
 
@@ -1197,14 +1202,14 @@ El análisis de datos se ha realizado con procesos automáticos propensos a erro
 </div>
 
 </div>
-    </div><div class="fragment" data-fragment-index="45">
+    </div><div class="fragment" data-fragment-index="46">
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[20]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">dfd</span><span class="o">=</span><span class="n">read_google_cvs</span><span class="p">(</span><span class="n">gss_key</span><span class="o">=</span><span class="s">&quot;0AuLa_xuSIEvxdERYSGVQWDBTX1NCN19QMXVpb0lhWXc&quot;</span><span class="p">,</span><span class="n">gss_query</span><span class="o">=</span><span class="s">&quot;select *&quot;</span><span class="p">,</span><span class="n">gss_sheet</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<div class=" highlight hl-ipython2"><pre><span class="n">dfd</span><span class="o">=</span><span class="n">read_google_cvs</span><span class="p">(</span><span class="n">gss_key</span><span class="o">=</span><span class="s">&quot;0AuLa_xuSIEvxdERYSGVQWDBTX1NCN19QMXVpb0lhWXc&quot;</span><span class="p">,</span><span class="n">gss_query</span><span class="o">=</span><span class="s">&quot;select *&quot;</span><span class="p">,</span><span class="n">gss_sheet</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 <span class="n">dfd</span><span class="p">[</span><span class="s">&#39;PROGRAMA&#39;</span><span class="p">]</span><span class="o">=</span><span class="s">&#39;Doctorado&#39;</span>
 <span class="n">dfm</span><span class="o">=</span><span class="n">read_google_cvs</span><span class="p">(</span><span class="n">gss_key</span><span class="o">=</span><span class="s">&quot;0AuLa_xuSIEvxdERYSGVQWDBTX1NCN19QMXVpb0lhWXc&quot;</span><span class="p">,</span><span class="n">gss_query</span><span class="o">=</span><span class="s">&quot;select *&quot;</span><span class="p">,</span><span class="n">gss_sheet</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">dfm</span><span class="p">[</span><span class="s">&#39;PROGRAMA&#39;</span><span class="p">]</span><span class="o">=</span><span class="s">&#39;Maestría&#39;</span>
@@ -1244,18 +1249,18 @@ El análisis de datos se ha realizado con procesos automáticos propensos a erro
 
 </div>
 </div>
-</div><div class="fragment" data-fragment-index="47">
+</div><div class="fragment" data-fragment-index="48">
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[21]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">dfe</span><span class="p">[</span><span class="s">&#39;Año de ingreso&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">dfe</span><span class="p">[</span><span class="s">&#39;Fecha de ingreso&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">&#39;&#39;</span><span class="p">,</span><span class="s">&#39;0&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">&#39;null&#39;</span><span class="p">,</span><span class="s">&#39;0&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">&#39;-1&#39;</span><span class="p">,</span><span class="s">&#39;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">&#39;-2&#39;</span><span class="p">,</span><span class="s">&#39;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s">&#39;int&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython2"><pre><span class="n">dfe</span><span class="p">[</span><span class="s">&#39;Año de ingreso&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">dfe</span><span class="p">[</span><span class="s">&#39;Fecha de ingreso&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">&#39;&#39;</span><span class="p">,</span><span class="s">&#39;0&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">&#39;null&#39;</span><span class="p">,</span><span class="s">&#39;0&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">&#39;-1&#39;</span><span class="p">,</span><span class="s">&#39;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">&#39;-2&#39;</span><span class="p">,</span><span class="s">&#39;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s">&#39;int&#39;</span><span class="p">)</span>
 <span class="n">dfe</span><span class="p">[</span><span class="s">&#39;Año de graduación&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">dfe</span><span class="p">[</span><span class="s">&#39;Fecha de graduación&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">&#39;&#39;</span><span class="p">,</span><span class="s">&#39;0&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">&#39;null&#39;</span><span class="p">,</span><span class="s">&#39;0&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">&#39;-1&#39;</span><span class="p">,</span><span class="s">&#39;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">&#39;-2&#39;</span><span class="p">,</span><span class="s">&#39;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s">&#39;int&#39;</span><span class="p">)</span><span class="c">#.values</span>
 <span class="c">#dfe[&#39;Año de graduación&#39;].values</span>
-<span class="n">dfei</span><span class="o">=</span><span class="n">dfe</span><span class="p">[</span><span class="n">dfe</span><span class="p">[</span><span class="s">&#39;Año de ingreso&#39;</span><span class="p">]</span><span class="o">&gt;=</span><span class="n">config_inf</span><span class="p">[</span><span class="s">&#39;Years&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]]</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="k">True</span><span class="p">)</span>
-<span class="n">dfeg</span><span class="o">=</span><span class="n">dfe</span><span class="p">[</span><span class="n">dfe</span><span class="p">[</span><span class="s">&#39;Año de graduación&#39;</span><span class="p">]</span><span class="o">&gt;=</span><span class="n">config_inf</span><span class="p">[</span><span class="s">&#39;Years&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]]</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="k">True</span><span class="p">)</span>
+<span class="n">dfei</span><span class="o">=</span><span class="n">dfe</span><span class="p">[</span><span class="n">dfe</span><span class="p">[</span><span class="s">&#39;Año de ingreso&#39;</span><span class="p">]</span><span class="o">&gt;=</span><span class="n">config_inf</span><span class="p">[</span><span class="s">&#39;Years&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]]</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">dfeg</span><span class="o">=</span><span class="n">dfe</span><span class="p">[</span><span class="n">dfe</span><span class="p">[</span><span class="s">&#39;Año de graduación&#39;</span><span class="p">]</span><span class="o">&gt;=</span><span class="n">config_inf</span><span class="p">[</span><span class="s">&#39;Years&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]]</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -1275,14 +1280,14 @@ El análisis de datos se ha realizado con procesos automáticos propensos a erro
 <h5 id="Estudiantes--matriculados">Estudiantes  matriculados<a class="anchor-link" href="#Estudiantes--matriculados">&#182;</a></h5>
 </div>
 </div>
-</div><div class="fragment" data-fragment-index="49">
+</div><div class="fragment" data-fragment-index="50">
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[22]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">dfeit</span><span class="o">=</span><span class="n">dfei</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">logical_or</span><span class="p">(</span><span class="n">dfei</span><span class="p">[</span><span class="s">&#39;Estado&#39;</span><span class="p">]</span><span class="o">==</span><span class="s">&#39;Activo&#39;</span><span class="p">,</span><span class="n">dfei</span><span class="p">[</span><span class="s">&#39;Estado&#39;</span><span class="p">]</span><span class="o">==</span><span class="s">&#39;Graduado&#39;</span><span class="p">)]</span>
+<div class=" highlight hl-ipython2"><pre><span class="n">dfeit</span><span class="o">=</span><span class="n">dfei</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">logical_or</span><span class="p">(</span><span class="n">dfei</span><span class="p">[</span><span class="s">&#39;Estado&#39;</span><span class="p">]</span><span class="o">==</span><span class="s">&#39;Activo&#39;</span><span class="p">,</span><span class="n">dfei</span><span class="p">[</span><span class="s">&#39;Estado&#39;</span><span class="p">]</span><span class="o">==</span><span class="s">&#39;Graduado&#39;</span><span class="p">)]</span>
 <span class="n">dfeit</span><span class="p">[[</span><span class="s">&#39;Año de ingreso&#39;</span><span class="p">,</span><span class="s">&#39;Estado&#39;</span><span class="p">]]</span>
 <span class="n">nuevos</span><span class="o">=</span><span class="n">dfei</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s">&#39;Año de ingreso&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">count</span><span class="p">()[</span><span class="s">&#39;ASESOR&#39;</span><span class="p">][::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
 </pre></div>
@@ -1304,20 +1309,20 @@ El análisis de datos se ha realizado con procesos automáticos propensos a erro
 <h5 id="Art&#237;culos-con-participaci&#243;n-de-estudiantes">Art&#237;culos con participaci&#243;n de estudiantes<a class="anchor-link" href="#Art&#237;culos-con-participaci&#243;n-de-estudiantes">&#182;</a></h5>
 </div>
 </div>
-</div><div class="fragment" data-fragment-index="51">
+</div><div class="fragment" data-fragment-index="52">
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[23]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">dfei</span><span class="o">=</span><span class="n">dfei</span><span class="p">[</span><span class="n">dfei</span><span class="o">.</span><span class="n">Estado</span><span class="o">!=</span><span class="s">&#39;Desertor&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="k">True</span><span class="p">)</span>
+<div class=" highlight hl-ipython2"><pre><span class="n">dfei</span><span class="o">=</span><span class="n">dfei</span><span class="p">[</span><span class="n">dfei</span><span class="o">.</span><span class="n">Estado</span><span class="o">!=</span><span class="s">&#39;Desertor&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
 <span class="c">#Estudiantes</span>
 <span class="n">student_coauthor</span><span class="o">=</span><span class="mi">1</span> <span class="c">#until 2 years after graduation date</span>
 <span class="n">dfd</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">()</span>
 <span class="n">art_est</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">()</span>
-<span class="n">dfd</span><span class="p">[</span><span class="s">&#39;D&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">dfei</span><span class="p">[</span><span class="n">dfei</span><span class="o">.</span><span class="n">PROGRAMA</span><span class="o">==</span><span class="s">&#39;Doctorado&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="k">True</span><span class="p">)</span>
-<span class="n">dfd</span><span class="p">[</span><span class="s">&#39;M&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">dfei</span><span class="p">[</span><span class="n">dfei</span><span class="o">.</span><span class="n">PROGRAMA</span><span class="o">==</span><span class="s">&#39;Maestría&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="k">True</span><span class="p">)</span>
+<span class="n">dfd</span><span class="p">[</span><span class="s">&#39;D&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">dfei</span><span class="p">[</span><span class="n">dfei</span><span class="o">.</span><span class="n">PROGRAMA</span><span class="o">==</span><span class="s">&#39;Doctorado&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">dfd</span><span class="p">[</span><span class="s">&#39;M&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">dfei</span><span class="p">[</span><span class="n">dfei</span><span class="o">.</span><span class="n">PROGRAMA</span><span class="o">==</span><span class="s">&#39;Maestría&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
 <span class="n">dfd</span><span class="p">[</span><span class="s">&#39;P&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">dfei</span>
 <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">dfd</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
     <span class="n">art_est</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
@@ -1327,13 +1332,13 @@ El análisis de datos se ha realizado con procesos automáticos propensos a erro
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">dfd</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
         <span class="n">est</span><span class="o">=</span><span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s">&#39;\s+$&#39;</span><span class="p">,</span><span class="s">&#39;&#39;</span><span class="p">,</span><span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s">&#39;^\s+&#39;</span><span class="p">,</span><span class="s">&#39;&#39;</span><span class="p">,</span><span class="n">dfd</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="s">&#39;ESTUDIANTE&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">]))</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">&#39;  &#39;</span><span class="p">,</span><span class="s">&#39; &#39;</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">&#39; &#39;</span><span class="p">)</span>
         <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">est</span><span class="p">)</span><span class="o">==</span><span class="mi">4</span><span class="p">:</span>
-            <span class="n">dfd</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="s">&#39;Author&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="s">&#39;%s, %s&#39;</span> <span class="o">%</span><span class="p">(</span><span class="n">plainstr</span><span class="p">(</span><span class="n">est</span><span class="p">[</span><span class="mi">2</span><span class="p">]),</span><span class="n">est</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
+            <span class="n">dfd</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="s">&#39;Author&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="s">&#39;</span><span class="si">%s</span><span class="s">, </span><span class="si">%s</span><span class="s">&#39;</span> <span class="o">%</span><span class="p">(</span><span class="n">plainstr</span><span class="p">(</span><span class="n">est</span><span class="p">[</span><span class="mi">2</span><span class="p">]),</span><span class="n">est</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
         <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">est</span><span class="p">)</span><span class="o">==</span><span class="mi">3</span><span class="p">:</span>        
-            <span class="n">dfd</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="s">&#39;Author&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="s">&#39;%s, %s&#39;</span> <span class="o">%</span><span class="p">(</span><span class="n">plainstr</span><span class="p">(</span><span class="n">est</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span><span class="n">est</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
+            <span class="n">dfd</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="s">&#39;Author&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="s">&#39;</span><span class="si">%s</span><span class="s">, </span><span class="si">%s</span><span class="s">&#39;</span> <span class="o">%</span><span class="p">(</span><span class="n">plainstr</span><span class="p">(</span><span class="n">est</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span><span class="n">est</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
         <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">est</span><span class="p">)</span><span class="o">==</span><span class="mi">2</span><span class="p">:</span>
-            <span class="n">dfd</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="s">&#39;Author&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="s">&#39;%s, %s&#39;</span> <span class="o">%</span><span class="p">(</span><span class="n">plainstr</span><span class="p">(</span><span class="n">est</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span><span class="n">est</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
+            <span class="n">dfd</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="s">&#39;Author&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="s">&#39;</span><span class="si">%s</span><span class="s">, </span><span class="si">%s</span><span class="s">&#39;</span> <span class="o">%</span><span class="p">(</span><span class="n">plainstr</span><span class="p">(</span><span class="n">est</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span><span class="n">est</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="n">dfd</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="s">&#39;Author&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="s">&#39;%s, %s&#39;</span> <span class="o">%</span><span class="p">(</span><span class="n">plainstr</span><span class="p">(</span><span class="n">est</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]),</span><span class="n">est</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
+            <span class="n">dfd</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="s">&#39;Author&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="s">&#39;</span><span class="si">%s</span><span class="s">, </span><span class="si">%s</span><span class="s">&#39;</span> <span class="o">%</span><span class="p">(</span><span class="n">plainstr</span><span class="p">(</span><span class="n">est</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]),</span><span class="n">est</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
         <span class="c">#special cases</span>
         <span class="k">if</span> <span class="n">dfd</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="s">&#39;Author&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">]</span><span class="o">==</span><span class="s">&#39;Duque, C&#39;</span><span class="p">:</span>
             <span class="n">dfd</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="s">&#39;Author&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="s">&#39;Duque, CM&#39;</span>
@@ -1354,7 +1359,7 @@ El análisis de datos se ha realizado con procesos automáticos propensos a erro
         <span class="n">art_est</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">=</span><span class="n">art_est</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ma</span><span class="p">)</span>
 
     <span class="k">if</span> <span class="n">k</span><span class="o">==</span><span class="s">&#39;P&#39;</span><span class="p">:</span><span class="n">est_p</span><span class="o">=</span><span class="n">art_est</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()</span>    
-    <span class="n">art_est</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">=</span><span class="n">art_est</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="k">True</span><span class="p">)</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="s">&#39;Año&#39;</span><span class="p">,</span><span class="n">ascending</span><span class="o">=</span><span class="k">False</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="k">True</span><span class="p">)</span>
+    <span class="n">art_est</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">=</span><span class="n">art_est</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="bp">True</span><span class="p">)</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="s">&#39;Año&#39;</span><span class="p">,</span><span class="n">ascending</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
     <span class="n">art_est</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">=</span><span class="n">art_est</span><span class="p">[</span><span class="n">k</span><span class="p">][[</span><span class="s">&#39;Tipo&#39;</span><span class="p">,</span><span class="s">&#39;Artículo&#39;</span><span class="p">,</span><span class="s">&#39;Autor(es)&#39;</span><span class="p">,</span><span class="s">&#39;Año Graduación&#39;</span><span class="p">,</span><span class="s">&#39;Año&#39;</span><span class="p">,</span><span class="s">&#39;Revista&#39;</span><span class="p">,</span><span class="s">&#39;ISSN&#39;</span><span class="p">,</span><span class="s">&#39;Estudiante&#39;</span><span class="p">]]</span>
 </pre></div>
 
@@ -1382,7 +1387,7 @@ El análisis de datos se ha realizado con procesos automáticos propensos a erro
 <div class="prompt input_prompt">In&nbsp;[24]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="c">#est_p.sort(&#39;Año Graduación&#39;,ascending=False)[&#39;Año Graduación&#39;][i]</span>
+<div class=" highlight hl-ipython2"><pre><span class="c">#est_p.sort(&#39;Año Graduación&#39;,ascending=False)[&#39;Año Graduación&#39;][i]</span>
 </pre></div>
 
 </div>
@@ -1390,14 +1395,14 @@ El análisis de datos se ha realizado con procesos automáticos propensos a erro
 </div>
 
 </div>
-    </div><div class="fragment" data-fragment-index="51">
+    </div><div class="fragment" data-fragment-index="52">
         
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[25]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">publicadas</span><span class="p">[</span><span class="s">&#39;Estudiantes&#39;</span><span class="p">]</span><span class="o">=</span><span class="s">&#39;&#39;</span>
+<div class=" highlight hl-ipython2"><pre><span class="n">publicadas</span><span class="p">[</span><span class="s">&#39;Estudiantes&#39;</span><span class="p">]</span><span class="o">=</span><span class="s">&#39;&#39;</span>
 <span class="n">publicadas</span><span class="p">[</span><span class="s">&#39;Año Graduación&#39;</span><span class="p">]</span><span class="o">=</span><span class="mi">0</span> 
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">est_p</span><span class="o">.</span><span class="n">index</span><span class="p">:</span>
     <span class="n">lst</span><span class="o">=</span><span class="nb">sorted</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">est_p</span><span class="p">[</span><span class="s">&#39;Estudiante_full&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">]))</span>
@@ -1430,14 +1435,14 @@ El análisis de datos se ha realizado con procesos automáticos propensos a erro
 
 </div>
 </div>
-</div><div class="fragment" data-fragment-index="56">
+</div><div class="fragment" data-fragment-index="57">
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[26]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">G</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">()</span>
+<div class=" highlight hl-ipython2"><pre><span class="n">G</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">()</span>
 <span class="n">grupos</span><span class="o">=</span><span class="p">[</span><span class="s">&#39;GFIF&#39;</span><span class="p">,</span><span class="s">&#39;GES&#39;</span><span class="p">,</span><span class="s">&#39;GFAM&#39;</span><span class="p">,</span><span class="s">&#39;GMC&#39;</span><span class="p">,</span><span class="s">&#39;GOF&#39;</span><span class="p">,</span><span class="s">&#39;MS&#39;</span><span class="p">,</span><span class="s">&#39;FACOM&#39;</span><span class="p">]</span>
 <span class="n">t</span><span class="o">=</span><span class="n">publicadas</span><span class="p">[</span><span class="s">&#39;Año&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
 <span class="n">i</span><span class="o">=</span><span class="n">publicadas</span><span class="p">[</span><span class="n">publicadas</span><span class="o">.</span><span class="n">Tipo</span><span class="o">==</span><span class="s">&#39;Internacional&#39;</span><span class="p">][</span><span class="s">&#39;Año&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
@@ -1452,14 +1457,14 @@ El análisis de datos se ha realizado con procesos automáticos propensos a erro
 </div>
 
 </div>
-    </div><div class="fragment" data-fragment-index="57">
+    </div><div class="fragment" data-fragment-index="58">
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[27]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">autor</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">()</span>
+<div class=" highlight hl-ipython2"><pre><span class="n">autor</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">()</span>
 <span class="n">autor</span><span class="p">[</span><span class="s">&#39;Posgrado&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">art_est</span><span class="o">.</span><span class="n">P</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s">&#39;Año&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">count</span><span class="p">()</span><span class="o">.</span><span class="n">Tipo</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
 <span class="n">autor</span><span class="p">[</span><span class="s">&#39;Doctorado&#39;</span><span class="p">]</span>  <span class="o">=</span><span class="n">art_est</span><span class="o">.</span><span class="n">D</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s">&#39;Año&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">count</span><span class="p">()</span><span class="o">.</span><span class="n">Tipo</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
 <span class="n">autor</span><span class="p">[</span><span class="s">&#39;Master&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">art_est</span><span class="o">.</span><span class="n">M</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s">&#39;Año&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">count</span><span class="p">()</span><span class="o">.</span><span class="n">Tipo</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
@@ -1483,17 +1488,17 @@ El análisis de datos se ha realizado con procesos automáticos propensos a erro
 
 </div>
 </div>
-</div><div class="fragment" data-fragment-index="59">
+</div><div class="fragment" data-fragment-index="60">
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[28]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">rdf</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+<div class=" highlight hl-ipython2"><pre><span class="n">rdf</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
 <span class="n">ng</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">()</span>
 <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1995</span><span class="p">,</span><span class="mi">2016</span><span class="p">)[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]:</span>
-    <span class="n">year</span><span class="o">=</span><span class="k">False</span>
+    <span class="n">year</span><span class="o">=</span><span class="bp">False</span>
     <span class="k">if</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">t</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
         <span class="n">na</span><span class="o">=</span><span class="n">t</span><span class="p">[</span><span class="n">y</span><span class="p">]</span>
     <span class="k">else</span><span class="p">:</span> <span class="n">na</span><span class="o">=</span><span class="mi">0</span>
@@ -1529,7 +1534,7 @@ El análisis de datos se ha realizado con procesos automáticos propensos a erro
                     <span class="s">&#39;GOF&#39;</span><span class="p">:</span><span class="n">ng</span><span class="p">[</span><span class="s">&#39;GOF&#39;</span><span class="p">],</span><span class="s">&#39;MS&#39;</span><span class="p">:</span><span class="n">ng</span><span class="p">[</span><span class="s">&#39;MS&#39;</span><span class="p">],</span><span class="s">&#39;FACOM&#39;</span><span class="p">:</span><span class="n">ng</span><span class="p">[</span><span class="s">&#39;FACOM&#39;</span><span class="p">],</span>\
                     <span class="s">&#39;first_UdeA_author&#39;</span><span class="p">:</span><span class="n">FAudea</span><span class="p">,</span><span class="s">&#39;UdeA_author&#39;</span><span class="p">:</span><span class="n">Audea</span><span class="p">,</span>\
                    <span class="s">&#39;art_posgrado&#39;</span><span class="p">:</span><span class="n">autor</span><span class="o">.</span><span class="n">Posgrado</span><span class="p">[</span><span class="n">y</span><span class="p">],</span><span class="s">&#39;art_master&#39;</span><span class="p">:</span><span class="n">autor</span><span class="o">.</span><span class="n">Master</span><span class="p">[</span><span class="n">y</span><span class="p">],</span>\
-                    <span class="s">&#39;art_doctorado&#39;</span><span class="p">:</span><span class="n">autor</span><span class="o">.</span><span class="n">Doctorado</span><span class="p">[</span><span class="n">y</span><span class="p">],</span><span class="s">&#39;UdeA_estudiante&#39;</span><span class="p">:</span><span class="n">Eudea</span><span class="p">},</span><span class="n">ignore_index</span><span class="o">=</span><span class="k">True</span><span class="p">)</span>
+                    <span class="s">&#39;art_doctorado&#39;</span><span class="p">:</span><span class="n">autor</span><span class="o">.</span><span class="n">Doctorado</span><span class="p">[</span><span class="n">y</span><span class="p">],</span><span class="s">&#39;UdeA_estudiante&#39;</span><span class="p">:</span><span class="n">Eudea</span><span class="p">},</span><span class="n">ignore_index</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
 
 <span class="n">rdf</span>
 </pre></div>
@@ -2067,14 +2072,14 @@ El análisis de datos se ha realizado con procesos automáticos propensos a erro
 
 </div>
 </div>
-</div><div class="fragment" data-fragment-index="63">
+</div><div class="fragment" data-fragment-index="64">
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[29]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">rdf</span><span class="o">.</span><span class="n">year</span><span class="p">,</span><span class="n">rdf</span><span class="o">.</span><span class="n">articles</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s">&#39;TOTAL&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython2"><pre><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">rdf</span><span class="o">.</span><span class="n">year</span><span class="p">,</span><span class="n">rdf</span><span class="o">.</span><span class="n">articles</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s">&#39;TOTAL&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">rdf</span><span class="o">.</span><span class="n">year</span><span class="p">,</span><span class="n">rdf</span><span class="o">.</span><span class="n">articles</span><span class="p">,</span><span class="s">&#39;bo&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s">&#39;First author&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">rdf</span><span class="o">.</span><span class="n">year</span><span class="p">,</span><span class="n">rdf</span><span class="o">.</span><span class="n">isi_o_scopus</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s">&#39;ISI o Scopus&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">rdf</span><span class="o">.</span><span class="n">year</span><span class="p">,</span><span class="n">rdf</span><span class="o">.</span><span class="n">nacional</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s">&#39;Nacional&#39;</span><span class="p">)</span>
@@ -2845,14 +2850,14 @@ RU5ErkJggg==
 
 </div>
 </div>
-</div><div class="fragment" data-fragment-index="66">
+</div><div class="fragment" data-fragment-index="67">
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[30]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">rdf</span><span class="o">.</span><span class="n">year</span><span class="p">,</span><span class="n">rdf</span><span class="o">.</span><span class="n">articles</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s">&#39;TOTAL&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython2"><pre><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">rdf</span><span class="o">.</span><span class="n">year</span><span class="p">,</span><span class="n">rdf</span><span class="o">.</span><span class="n">articles</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s">&#39;TOTAL&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">rdf</span><span class="o">.</span><span class="n">year</span><span class="p">,</span><span class="n">rdf</span><span class="o">.</span><span class="n">articles</span><span class="p">,</span><span class="s">&#39;bo&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s">&#39;Author&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">rdf</span><span class="o">.</span><span class="n">year</span><span class="p">,</span><span class="n">rdf</span><span class="o">.</span><span class="n">isi_o_scopus</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s">&#39;ISI o Scopus&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">rdf</span><span class="o">.</span><span class="n">year</span><span class="p">,</span><span class="n">rdf</span><span class="o">.</span><span class="n">nacional</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s">&#39;Nacional&#39;</span><span class="p">)</span>
@@ -3605,14 +3610,14 @@ oYiIiIjUUXAoIiIiInX+HxVL76hMNhm/AAAAAElFTkSuQmCC
 
 </div>
 </div>
-</div><div class="fragment" data-fragment-index="68">
+</div><div class="fragment" data-fragment-index="69">
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[31]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">y</span><span class="o">=</span><span class="mi">2009</span>
+<div class=" highlight hl-ipython2"><pre><span class="n">y</span><span class="o">=</span><span class="mi">2009</span>
 <span class="n">values</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">publicadas</span><span class="p">[</span><span class="n">publicadas</span><span class="p">[</span><span class="s">&#39;Año&#39;</span><span class="p">]</span><span class="o">==</span><span class="n">y</span><span class="p">][</span><span class="s">&#39;Institution Authors&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="s">&#39;NN&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">&#39;; &#39;</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
 <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">values</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="n">values</span><span class="p">)))</span>
 </pre></div>
@@ -3679,14 +3684,14 @@ dtype: object</pre>
 
 </div>
 </div>
-</div><div class="fragment" data-fragment-index="70">
+</div><div class="fragment" data-fragment-index="71">
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[32]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">rdf</span><span class="o">.</span><span class="n">year</span><span class="p">,</span><span class="n">rdf</span><span class="o">.</span><span class="n">articles</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s">&#39;TOTAL&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython2"><pre><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">rdf</span><span class="o">.</span><span class="n">year</span><span class="p">,</span><span class="n">rdf</span><span class="o">.</span><span class="n">articles</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s">&#39;TOTAL&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">rdf</span><span class="o">.</span><span class="n">year</span><span class="p">,</span><span class="n">rdf</span><span class="o">.</span><span class="n">isi_o_scopus</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s">&#39;ISI o Scopus&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">rdf</span><span class="o">.</span><span class="n">year</span><span class="p">,</span><span class="n">rdf</span><span class="o">.</span><span class="n">nacional</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s">&#39;Nacional&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">rdf</span><span class="o">.</span><span class="n">year</span><span class="p">,</span><span class="n">rdf</span><span class="o">.</span><span class="n">art_posgrado</span><span class="p">,</span><span class="s">&#39;y-&#39;</span><span class="p">,</span><span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s">u&#39;Artículos Posgrado&#39;</span><span class="p">)</span>
@@ -4514,7 +4519,7 @@ x3Ecx3EcJx8Xh47jOI7jOE4+Lg4dx3Ecx3GcfP4fm1j/4vtH5CAAAAAASUVORK5CYII=
 <div class="prompt input_prompt">In&nbsp;[33]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">y</span><span class="o">=</span><span class="mi">2009</span>
+<div class=" highlight hl-ipython2"><pre><span class="n">y</span><span class="o">=</span><span class="mi">2009</span>
 <span class="n">values</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">publicadas</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">logical_and</span><span class="p">(</span><span class="n">publicadas</span><span class="o">.</span><span class="n">Year</span><span class="o">==</span><span class="n">y</span><span class="p">,</span><span class="n">publicadas</span><span class="o">.</span><span class="n">Estudiantes</span><span class="o">!=</span><span class="s">&#39;&#39;</span><span class="p">)]</span><span class="o">.</span><span class="n">Estudiantes</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">&#39;; &#39;</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
 <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">values</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="n">values</span><span class="p">)))</span>
 </pre></div>
@@ -4574,12 +4579,12 @@ dtype: object</pre>
 <div class="prompt input_prompt">In&nbsp;[73]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">rdf</span><span class="o">.</span><span class="n">year</span><span class="p">,</span><span class="n">rdf</span><span class="o">.</span><span class="n">articles</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s">&#39;TOTAL&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython2"><pre><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">rdf</span><span class="o">.</span><span class="n">year</span><span class="p">,</span><span class="n">rdf</span><span class="o">.</span><span class="n">articles</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s">&#39;TOTAL&#39;</span><span class="p">)</span>
 <span class="c">#plt.plot(rdf.year,rdf.articles,&#39;bo&#39;)</span>
 <span class="n">GT</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">21</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">g</span> <span class="ow">in</span> <span class="n">grupos</span><span class="p">:</span>
     <span class="n">GT</span><span class="o">=</span><span class="n">GT</span><span class="o">+</span><span class="n">rdf</span><span class="p">[</span><span class="n">g</span><span class="p">]</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">semilogy</span><span class="p">(</span><span class="n">rdf</span><span class="o">.</span><span class="n">year</span><span class="p">,</span><span class="n">rdf</span><span class="p">[</span><span class="n">g</span><span class="p">],</span><span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s">u&#39;%s&#39;</span> <span class="o">%</span><span class="k">g</span>)    
+    <span class="n">plt</span><span class="o">.</span><span class="n">semilogy</span><span class="p">(</span><span class="n">rdf</span><span class="o">.</span><span class="n">year</span><span class="p">,</span><span class="n">rdf</span><span class="p">[</span><span class="n">g</span><span class="p">],</span><span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s">u&#39;</span><span class="si">%s</span><span class="s">&#39;</span> <span class="o">%</span><span class="k">g</span>)    
     <span class="c">#plt.semilogy(rdf.year,rdf[g],&#39;k.&#39;,lw=2)    </span>
     
 <span class="c">#plt.semilogy(rdf.year,GT ,label=&#39;Suma&#39;)    #crosscheck</span>
@@ -5825,14 +5830,14 @@ A4D/B6GwVopwJFhhAAAAAElFTkSuQmCC
 <h4 id="Hist&#243;rico">Hist&#243;rico<a class="anchor-link" href="#Hist&#243;rico">&#182;</a></h4>
 </div>
 </div>
-</div><div class="fragment" data-fragment-index="76">
+</div><div class="fragment" data-fragment-index="77">
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[35]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">publicadas</span><span class="p">[</span><span class="s">&#39;Grupo&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()[:</span><span class="mi">10</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s">&#39;barh&#39;</span><span class="p">,</span> <span class="n">rot</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">grid</span><span class="o">=</span><span class="k">True</span><span class="p">)</span>
+<div class=" highlight hl-ipython2"><pre><span class="n">publicadas</span><span class="p">[</span><span class="s">&#39;Grupo&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()[:</span><span class="mi">10</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s">&#39;barh&#39;</span><span class="p">,</span> <span class="n">rot</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">grid</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s">u&#39;Número de artículos&#39;</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
 </pre></div>
 
@@ -6587,14 +6592,14 @@ mVWKgxlmZmZmZmZmVikOZpiZmZmZmZlZpfwb2xRLFUN5G5AAAAAASUVORK5CYII=
 <h4 id="&#218;ltimos-cinco-a&#241;os">&#218;ltimos cinco a&#241;os<a class="anchor-link" href="#&#218;ltimos-cinco-a&#241;os">&#182;</a></h4>
 </div>
 </div>
-</div><div class="fragment" data-fragment-index="78">
+</div><div class="fragment" data-fragment-index="79">
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[36]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">publicadas5</span><span class="p">[</span><span class="s">&#39;Grupo&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()[:</span><span class="mi">10</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s">&#39;barh&#39;</span><span class="p">,</span> <span class="n">rot</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">grid</span><span class="o">=</span><span class="k">True</span><span class="p">)</span>
+<div class=" highlight hl-ipython2"><pre><span class="n">publicadas5</span><span class="p">[</span><span class="s">&#39;Grupo&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()[:</span><span class="mi">10</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s">&#39;barh&#39;</span><span class="p">,</span> <span class="n">rot</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">grid</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s">u&#39;Número de artículos&#39;</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
 </pre></div>
 
@@ -7435,7 +7440,7 @@ zMzMrFb+H3Smyr1hOrruAAAAAElFTkSuQmCC
 <h2 id="Resultados-por--&#193;reas">Resultados por  &#193;reas<a class="anchor-link" href="#Resultados-por--&#193;reas">&#182;</a></h2>
 </div>
 </div>
-</div><div class="fragment" data-fragment-index="78">
+</div><div class="fragment" data-fragment-index="79">
         
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
@@ -7446,20 +7451,20 @@ zMzMrFb+H3Smyr1hOrruAAAAAElFTkSuQmCC
 </div>
 </div>
 </div>
-        </div><div class="fragment" data-fragment-index="83">
+        </div><div class="fragment" data-fragment-index="84">
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[37]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">Tot</span><span class="o">=</span><span class="n">publicadas</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">publicadas</span><span class="p">[</span><span class="s">&#39;Institution Authors&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="s">&#39;NN&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">&#39;; &#39;</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<div class=" highlight hl-ipython2"><pre><span class="n">Tot</span><span class="o">=</span><span class="n">publicadas</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">publicadas</span><span class="p">[</span><span class="s">&#39;Institution Authors&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="s">&#39;NN&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">&#39;; &#39;</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 <span class="n">p</span><span class="o">=</span><span class="n">publicadas</span><span class="p">[</span><span class="s">&#39;Area&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
 <span class="n">at</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">publicadas</span><span class="p">[</span><span class="n">publicadas</span><span class="o">.</span><span class="n">Area</span><span class="o">==</span><span class="s">&#39;Teórica&#39;</span><span class="p">][</span><span class="s">&#39;Institution Authors&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="s">&#39;NN&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">&#39;; &#39;</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 <span class="n">ae</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">publicadas</span><span class="p">[</span><span class="n">publicadas</span><span class="o">.</span><span class="n">Area</span><span class="o">==</span><span class="s">&#39;Experimental&#39;</span><span class="p">][</span><span class="s">&#39;Institution Authors&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="s">&#39;NN&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">&#39;; &#39;</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 <span class="n">gmc</span><span class="o">=</span><span class="n">publicadas</span><span class="p">[</span><span class="n">publicadas</span><span class="o">.</span><span class="n">Grupo</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s">&#39;GMC&#39;</span><span class="p">)]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-<span class="n">publicadas</span><span class="p">[</span><span class="s">&#39;Area&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s">&#39;barh&#39;</span><span class="p">,</span> <span class="n">rot</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">grid</span><span class="o">=</span><span class="k">True</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s">u&#39;Artículos/Autores_UdeA: Tot:%0.1f; Exp:%0.1f; Teo:%0.1f; Teo(sin GMC):%0.1f&#39;</span> <span class="o">%</span><span class="p">(</span><span class="n">Tot</span><span class="p">,</span> <span class="n">p</span><span class="o">.</span><span class="n">Experimental</span><span class="o">/</span><span class="nb">float</span><span class="p">(</span><span class="n">ae</span><span class="p">),</span><span class="n">p</span><span class="p">[</span><span class="s">&#39;Teórica&#39;</span><span class="p">]</span><span class="o">/</span><span class="nb">float</span><span class="p">(</span><span class="n">ae</span><span class="p">),</span>\
+<span class="n">publicadas</span><span class="p">[</span><span class="s">&#39;Area&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s">&#39;barh&#39;</span><span class="p">,</span> <span class="n">rot</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">grid</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s">u&#39;Artículos/Autores_UdeA: Tot:</span><span class="si">%0.1f</span><span class="s">; Exp:</span><span class="si">%0.1f</span><span class="s">; Teo:</span><span class="si">%0.1f</span><span class="s">; Teo(sin GMC):</span><span class="si">%0.1f</span><span class="s">&#39;</span> <span class="o">%</span><span class="p">(</span><span class="n">Tot</span><span class="p">,</span> <span class="n">p</span><span class="o">.</span><span class="n">Experimental</span><span class="o">/</span><span class="nb">float</span><span class="p">(</span><span class="n">ae</span><span class="p">),</span><span class="n">p</span><span class="p">[</span><span class="s">&#39;Teórica&#39;</span><span class="p">]</span><span class="o">/</span><span class="nb">float</span><span class="p">(</span><span class="n">ae</span><span class="p">),</span>\
                                                                <span class="p">(</span><span class="n">p</span><span class="p">[</span><span class="s">&#39;Teórica&#39;</span><span class="p">]</span><span class="o">-</span><span class="n">gmc</span><span class="p">)</span><span class="o">/</span><span class="nb">float</span><span class="p">(</span><span class="n">ae</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span> <span class="p">)</span> <span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s">u&#39;Número de artículos&#39;</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
 </pre></div>
@@ -7872,20 +7877,20 @@ gg==
 <h4 id="&#218;ltimos-5-a&#241;os:">&#218;ltimos 5 a&#241;os:<a class="anchor-link" href="#&#218;ltimos-5-a&#241;os:">&#182;</a></h4>
 </div>
 </div>
-</div><div class="fragment" data-fragment-index="85">
+</div><div class="fragment" data-fragment-index="86">
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[38]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">Tot</span><span class="o">=</span><span class="n">publicadas5</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">publicadas5</span><span class="p">[</span><span class="s">&#39;Institution Authors&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="s">&#39;NN&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">&#39;; &#39;</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<div class=" highlight hl-ipython2"><pre><span class="n">Tot</span><span class="o">=</span><span class="n">publicadas5</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">publicadas5</span><span class="p">[</span><span class="s">&#39;Institution Authors&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="s">&#39;NN&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">&#39;; &#39;</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 <span class="n">p</span><span class="o">=</span><span class="n">publicadas5</span><span class="p">[</span><span class="s">&#39;Area&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
 <span class="n">at</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">publicadas5</span><span class="p">[</span><span class="n">publicadas5</span><span class="o">.</span><span class="n">Area</span><span class="o">==</span><span class="s">&#39;Teórica&#39;</span><span class="p">][</span><span class="s">&#39;Institution Authors&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="s">&#39;NN&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">&#39;; &#39;</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 <span class="n">ae</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">publicadas5</span><span class="p">[</span><span class="n">publicadas5</span><span class="o">.</span><span class="n">Area</span><span class="o">==</span><span class="s">&#39;Experimental&#39;</span><span class="p">][</span><span class="s">&#39;Institution Authors&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="s">&#39;NN&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">&#39;; &#39;</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 <span class="n">gmc</span><span class="o">=</span><span class="n">publicadas5</span><span class="p">[</span><span class="n">publicadas5</span><span class="o">.</span><span class="n">Grupo</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s">&#39;GMC&#39;</span><span class="p">)]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-<span class="n">publicadas5</span><span class="p">[</span><span class="s">&#39;Area&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s">&#39;barh&#39;</span><span class="p">,</span> <span class="n">rot</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">grid</span><span class="o">=</span><span class="k">True</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s">u&#39;Artículos/Autores_UdeA: Tot:%0.1f; Exp:%0.1f; Teo:%0.1f; Teo(sin GMC):%0.1f&#39;</span> <span class="o">%</span><span class="p">(</span><span class="n">Tot</span><span class="p">,</span> <span class="n">p</span><span class="o">.</span><span class="n">Experimental</span><span class="o">/</span><span class="nb">float</span><span class="p">(</span><span class="n">ae</span><span class="p">),</span><span class="n">p</span><span class="p">[</span><span class="s">&#39;Teórica&#39;</span><span class="p">]</span><span class="o">/</span><span class="nb">float</span><span class="p">(</span><span class="n">ae</span><span class="p">),</span>\
+<span class="n">publicadas5</span><span class="p">[</span><span class="s">&#39;Area&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s">&#39;barh&#39;</span><span class="p">,</span> <span class="n">rot</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">grid</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s">u&#39;Artículos/Autores_UdeA: Tot:</span><span class="si">%0.1f</span><span class="s">; Exp:</span><span class="si">%0.1f</span><span class="s">; Teo:</span><span class="si">%0.1f</span><span class="s">; Teo(sin GMC):</span><span class="si">%0.1f</span><span class="s">&#39;</span> <span class="o">%</span><span class="p">(</span><span class="n">Tot</span><span class="p">,</span> <span class="n">p</span><span class="o">.</span><span class="n">Experimental</span><span class="o">/</span><span class="nb">float</span><span class="p">(</span><span class="n">ae</span><span class="p">),</span><span class="n">p</span><span class="p">[</span><span class="s">&#39;Teórica&#39;</span><span class="p">]</span><span class="o">/</span><span class="nb">float</span><span class="p">(</span><span class="n">ae</span><span class="p">),</span>\
                                                                <span class="p">(</span><span class="n">p</span><span class="p">[</span><span class="s">&#39;Teórica&#39;</span><span class="p">]</span><span class="o">-</span><span class="n">gmc</span><span class="p">)</span><span class="o">/</span><span class="nb">float</span><span class="p">(</span><span class="n">ae</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span> <span class="p">)</span> <span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s">u&#39;Número de artículos&#39;</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
 </pre></div>
@@ -8295,7 +8300,7 @@ QgghGpDTLIQQQgghRANymoUQQgghhGjg/0dpfhOgU8yHAAAAAElFTkSuQmCC
 
 </div>
 </div>
-</div><div class="fragment" data-fragment-index="88">
+</div><div class="fragment" data-fragment-index="89">
     
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
@@ -8306,14 +8311,14 @@ QgghGpDTLIQQQgghRANymoUQQgghhGjg/0dpfhOgU8yHAAAAAElFTkSuQmCC
 </div>
 </div>
 </div>
-    </div><div class="fragment" data-fragment-index="89">
+    </div><div class="fragment" data-fragment-index="90">
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[39]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">publicadas</span><span class="p">[</span><span class="s">&#39;First_UdeA_Author&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()[:</span><span class="mi">15</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s">&#39;barh&#39;</span><span class="p">,</span> <span class="n">rot</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">grid</span><span class="o">=</span><span class="k">True</span><span class="p">)</span>
+<div class=" highlight hl-ipython2"><pre><span class="n">publicadas</span><span class="p">[</span><span class="s">&#39;First_UdeA_Author&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()[:</span><span class="mi">15</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s">&#39;barh&#39;</span><span class="p">,</span> <span class="n">rot</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">grid</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s">u&#39;Número de artículos&#39;</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
 </pre></div>
 
@@ -9087,14 +9092,14 @@ MzMzsx5yYGVmZmZmZtZDDqzMzMzMzMx66P8AWwAca4G5UTAAAAAASUVORK5CYII=
 <h4 id="&#218;ltimos-cinco-a&#241;os">&#218;ltimos cinco a&#241;os<a class="anchor-link" href="#&#218;ltimos-cinco-a&#241;os">&#182;</a></h4>
 </div>
 </div>
-</div><div class="fragment" data-fragment-index="91">
+</div><div class="fragment" data-fragment-index="92">
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[40]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">publicadas5</span><span class="p">[</span><span class="s">&#39;First_UdeA_Author&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()[:</span><span class="mi">15</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s">&#39;barh&#39;</span><span class="p">,</span> <span class="n">rot</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">grid</span><span class="o">=</span><span class="k">True</span><span class="p">)</span><span class="c">#</span>
+<div class=" highlight hl-ipython2"><pre><span class="n">publicadas5</span><span class="p">[</span><span class="s">&#39;First_UdeA_Author&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()[:</span><span class="mi">15</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s">&#39;barh&#39;</span><span class="p">,</span> <span class="n">rot</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">grid</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span><span class="c">#</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s">u&#39;Número de artículos&#39;</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
 </pre></div>
 
@@ -9952,12 +9957,12 @@ l5xYmZmZmZmZ9ZITKzMzMzMzs176/zchgh/n6r+AAAAAAElFTkSuQmCC
 <div class="prompt input_prompt">In&nbsp;[41]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">tipo5</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">publicadas5</span><span class="p">[</span><span class="s">&#39;Tipo&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s">&#39;Internacional&#39;</span><span class="p">),</span><span class="s">&#39;Internacional&#39;</span><span class="p">,</span> <span class="s">&#39;Nacional&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython2"><pre><span class="n">tipo5</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">publicadas5</span><span class="p">[</span><span class="s">&#39;Tipo&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s">&#39;Internacional&#39;</span><span class="p">),</span><span class="s">&#39;Internacional&#39;</span><span class="p">,</span> <span class="s">&#39;Nacional&#39;</span><span class="p">)</span>
 <span class="n">by_group_tipo5</span> <span class="o">=</span> <span class="n">publicadas5</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s">&#39;Grupo&#39;</span><span class="p">,</span> <span class="n">tipo5</span><span class="p">])</span>
 <span class="n">gt_counts</span> <span class="o">=</span> <span class="n">by_group_tipo5</span><span class="o">.</span><span class="n">size</span><span class="p">()</span><span class="o">.</span><span class="n">unstack</span><span class="p">()</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 <span class="n">indexer</span> <span class="o">=</span> <span class="n">gt_counts</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">argsort</span><span class="p">()</span>
 <span class="n">count_subset</span> <span class="o">=</span> <span class="n">gt_counts</span><span class="o">.</span><span class="n">take</span><span class="p">(</span><span class="n">indexer</span><span class="p">)</span>
-<span class="n">count_subset</span><span class="p">[</span><span class="mi">4</span><span class="p">:]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s">&#39;barh&#39;</span><span class="p">,</span> <span class="n">stacked</span><span class="o">=</span><span class="k">True</span><span class="p">,</span><span class="n">grid</span><span class="o">=</span><span class="k">True</span><span class="p">)</span>
+<span class="n">count_subset</span><span class="p">[</span><span class="mi">4</span><span class="p">:]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s">&#39;barh&#39;</span><span class="p">,</span> <span class="n">stacked</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span><span class="n">grid</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s">u&#39;Número de artículos&#39;</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
 </pre></div>
 
@@ -10665,14 +10670,14 @@ AElFTkSuQmCC
 <h2 id="Resultados-por-citaciones-a-los-art&#237;culos">Resultados por citaciones a los art&#237;culos<a class="anchor-link" href="#Resultados-por-citaciones-a-los-art&#237;culos">&#182;</a></h2>
 </div>
 </div>
-</div><div class="fragment" data-fragment-index="98">
+</div><div class="fragment" data-fragment-index="99">
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[42]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">publicadas</span><span class="p">[[</span><span class="s">&#39;Cites&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">bins</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+<div class=" highlight hl-ipython2"><pre><span class="n">publicadas</span><span class="p">[[</span><span class="s">&#39;Cites&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">bins</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
 <span class="c">#plt.ylabel(u&#39;Número de artículos&#39;,size=20)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s">u&#39;Citas&#39;</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s">u&#39;Número de artículos&#39;</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
@@ -10955,7 +10960,7 @@ FoOSJElzzGJQkiRpjlkMSpIkzTGLQUmSpDlmMShJkjTH/h/2GmK+EbARlQAAAABJRU5ErkJggg==
 <div class="prompt input_prompt">In&nbsp;[43]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">publicadas</span><span class="p">[[</span><span class="s">&#39;Cites&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">bins</span><span class="o">=</span><span class="mi">400</span><span class="p">)</span>
+<div class=" highlight hl-ipython2"><pre><span class="n">publicadas</span><span class="p">[[</span><span class="s">&#39;Cites&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">bins</span><span class="o">=</span><span class="mi">400</span><span class="p">)</span>
 <span class="c">#plt.ylabel(u&#39;Número de artículos&#39;,size=20)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s">u&#39;Citas&#39;</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s">u&#39;Número de artículos&#39;</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
@@ -11229,7 +11234,7 @@ JEkaYxaDkiRJY8xiUJIkaYxZDEqSJI0xi0FJkqQx9v8BTnBj342mjAYAAAAASUVORK5CYII=
 </div>
 </div>
 
-</div><div class="fragment" data-fragment-index="98">
+</div><div class="fragment" data-fragment-index="99">
         
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
@@ -11253,14 +11258,14 @@ JEkaYxaDkiRJY8xiUJIkaYxZDEqSJI0xi0FJkqQx9v8BTnBj342mjAYAAAAASUVORK5CYII=
 <h4 id="Global">Global<a class="anchor-link" href="#Global">&#182;</a></h4>
 </div>
 </div>
-</div><div class="fragment" data-fragment-index="102">
+</div><div class="fragment" data-fragment-index="103">
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[44]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="k">def</span> <span class="nf">h_index</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">):</span>
+<div class=" highlight hl-ipython2"><pre><span class="k">def</span> <span class="nf">h_index</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">):</span>
     <span class="n">ax</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
     <span class="n">ay</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">ax</span><span class="p">[</span><span class="n">ax</span><span class="o">&gt;</span><span class="n">ay</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
@@ -11268,13 +11273,13 @@ JEkaYxaDkiRJY8xiUJIkaYxZDEqSJI0xi0FJkqQx9v8BTnBj342mjAYAAAAASUVORK5CYII=
 <span class="n">x</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">publicadas</span><span class="o">.</span><span class="n">Cites</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">y</span><span class="o">=</span><span class="p">[</span><span class="n">publicadas</span><span class="p">[</span><span class="n">publicadas</span><span class="o">.</span><span class="n">Cites</span><span class="o">&gt;=</span><span class="n">c</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">x</span><span class="p">]</span>
 <span class="n">h</span><span class="o">=</span><span class="n">h_index</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="n">h</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1000</span><span class="p">,</span><span class="n">linestyles</span><span class="o">=</span><span class="s">&#39;dashed&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s">&#39;h-index=%d&#39;</span> <span class="o">%</span><span class="k">h</span>)
+<span class="n">plt</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="n">h</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1000</span><span class="p">,</span><span class="n">linestyles</span><span class="o">=</span><span class="s">&#39;dashed&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s">&#39;h-index=</span><span class="si">%d</span><span class="s">&#39;</span> <span class="o">%</span><span class="k">h</span>)
 <span class="n">plt</span><span class="o">.</span><span class="n">vlines</span><span class="p">(</span><span class="n">h</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1000</span><span class="p">,</span><span class="n">linestyles</span><span class="o">=</span><span class="s">&#39;dashed&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">loglog</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s">&#39;Todo&#39;</span><span class="p">)</span>
 <span class="n">x</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">publicadas5</span><span class="o">.</span><span class="n">Cites</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">y</span><span class="o">=</span><span class="p">[</span><span class="n">publicadas5</span><span class="p">[</span><span class="n">publicadas5</span><span class="o">.</span><span class="n">Cites</span><span class="o">&gt;=</span><span class="n">c</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">x</span><span class="p">]</span>
 <span class="n">h</span><span class="o">=</span><span class="n">h_index</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="n">h</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1000</span><span class="p">,</span><span class="n">linestyles</span><span class="o">=</span><span class="s">&#39;dotted&#39;</span><span class="p">,</span><span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="n">colors</span><span class="o">=</span><span class="s">&#39;r&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s">&#39;h-index=%d (38)&#39;</span> <span class="o">%</span><span class="k">h</span>)
+<span class="n">plt</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="n">h</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1000</span><span class="p">,</span><span class="n">linestyles</span><span class="o">=</span><span class="s">&#39;dotted&#39;</span><span class="p">,</span><span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="n">colors</span><span class="o">=</span><span class="s">&#39;r&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s">&#39;h-index=</span><span class="si">%d</span><span class="s"> (38)&#39;</span> <span class="o">%</span><span class="k">h</span>)
 <span class="n">plt</span><span class="o">.</span><span class="n">vlines</span><span class="p">(</span><span class="n">h</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1000</span><span class="p">,</span><span class="n">linestyles</span><span class="o">=</span><span class="s">&#39;dotted&#39;</span><span class="p">,</span><span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="n">colors</span><span class="o">=</span><span class="s">&#39;r&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">loglog</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s">&#39;Desde 2011&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s">&#39;best&#39;</span><span class="p">)</span>
@@ -11779,16 +11784,16 @@ Bvr/mJPCWW+gU7MAAAAASUVORK5CYII=
 <h4 id="Por-Grupos-hist&#243;rico">Por Grupos hist&#243;rico<a class="anchor-link" href="#Por-Grupos-hist&#243;rico">&#182;</a></h4>
 </div>
 </div>
-</div><div class="fragment" data-fragment-index="105">
+</div><div class="fragment" data-fragment-index="106">
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[45]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">x</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">publicadas</span><span class="o">.</span><span class="n">Cites</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<div class=" highlight hl-ipython2"><pre><span class="n">x</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">publicadas</span><span class="o">.</span><span class="n">Cites</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">y</span><span class="o">=</span><span class="p">[</span><span class="n">publicadas</span><span class="p">[</span><span class="n">publicadas</span><span class="o">.</span><span class="n">Cites</span><span class="o">&gt;=</span><span class="n">c</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">x</span><span class="p">]</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">loglog</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s">&#39;Todo (h=%d)&#39;</span> <span class="o">%</span><span class="k">h_index</span>(x,y))
+<span class="n">plt</span><span class="o">.</span><span class="n">loglog</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s">&#39;Todo (h=</span><span class="si">%d</span><span class="s">)&#39;</span> <span class="o">%</span><span class="k">h_index</span>(x,y))
 
 <span class="n">s</span><span class="o">=</span><span class="p">[</span><span class="s">&#39;g-&#39;</span><span class="p">,</span><span class="s">&#39;r:&#39;</span><span class="p">,</span><span class="s">&#39;c--&#39;</span><span class="p">,</span><span class="s">&#39;m-.&#39;</span><span class="p">,</span><span class="s">&#39;y-&#39;</span><span class="p">,</span><span class="s">&#39;k:&#39;</span><span class="p">,</span><span class="s">&#39;b-&#39;</span><span class="p">]</span>
 <span class="n">i</span><span class="o">=</span><span class="mi">0</span>
@@ -11797,7 +11802,7 @@ Bvr/mJPCWW+gU7MAAAAASUVORK5CYII=
     <span class="n">x</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">pg</span><span class="o">.</span><span class="n">Cites</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
     <span class="n">y</span><span class="o">=</span><span class="p">[</span><span class="n">pg</span><span class="p">[</span><span class="n">pg</span><span class="o">.</span><span class="n">Cites</span><span class="o">&gt;=</span><span class="n">c</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">x</span><span class="p">]</span>
 
-    <span class="n">plt</span><span class="o">.</span><span class="n">loglog</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="n">lw</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s">&#39;%s (h=%d)&#39;</span> <span class="o">%</span><span class="p">(</span><span class="n">G</span><span class="p">,</span><span class="n">h_index</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)))</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">loglog</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="n">lw</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s">&#39;</span><span class="si">%s</span><span class="s"> (h=</span><span class="si">%d</span><span class="s">)&#39;</span> <span class="o">%</span><span class="p">(</span><span class="n">G</span><span class="p">,</span><span class="n">h_index</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)))</span>
     <span class="n">i</span><span class="o">=</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span>
     
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s">&#39;best&#39;</span><span class="p">)</span>
@@ -12704,9 +12709,9 @@ NuRJoHPOOedcG/Ik0DnnnHOuDXkS6JxzzjnXhv4fohs7mAV8dHQAAAAASUVORK5CYII=
 <div class="prompt input_prompt">In&nbsp;[46]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">x</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">publicadas5</span><span class="o">.</span><span class="n">Cites</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<div class=" highlight hl-ipython2"><pre><span class="n">x</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">publicadas5</span><span class="o">.</span><span class="n">Cites</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">y</span><span class="o">=</span><span class="p">[</span><span class="n">publicadas5</span><span class="p">[</span><span class="n">publicadas5</span><span class="o">.</span><span class="n">Cites</span><span class="o">&gt;=</span><span class="n">c</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">x</span><span class="p">]</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">loglog</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s">&#39;Desde 2011 (h=%d)&#39;</span> <span class="o">%</span><span class="k">h_index</span>(x,y))
+<span class="n">plt</span><span class="o">.</span><span class="n">loglog</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s">&#39;Desde 2011 (h=</span><span class="si">%d</span><span class="s">)&#39;</span> <span class="o">%</span><span class="k">h_index</span>(x,y))
 
 <span class="n">s</span><span class="o">=</span><span class="p">[</span><span class="s">&#39;g-&#39;</span><span class="p">,</span><span class="s">&#39;r:&#39;</span><span class="p">,</span><span class="s">&#39;c--&#39;</span><span class="p">,</span><span class="s">&#39;m-.&#39;</span><span class="p">,</span><span class="s">&#39;y-&#39;</span><span class="p">,</span><span class="s">&#39;k:&#39;</span><span class="p">,</span><span class="s">&#39;b-&#39;</span><span class="p">]</span>
 <span class="n">i</span><span class="o">=</span><span class="mi">0</span>
@@ -12715,7 +12720,7 @@ NuRJoHPOOedcG/Ik0DnnnHOuDXkS6JxzzjnXhv4fohs7mAV8dHQAAAAASUVORK5CYII=
     <span class="n">x</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">pg</span><span class="o">.</span><span class="n">Cites</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
     <span class="n">y</span><span class="o">=</span><span class="p">[</span><span class="n">pg</span><span class="p">[</span><span class="n">pg</span><span class="o">.</span><span class="n">Cites</span><span class="o">&gt;=</span><span class="n">c</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">x</span><span class="p">]</span>
 
-    <span class="n">plt</span><span class="o">.</span><span class="n">loglog</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="n">lw</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s">&#39;%s (h=%d)&#39;</span> <span class="o">%</span><span class="p">(</span><span class="n">G</span><span class="p">,</span><span class="n">h_index</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)))</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">loglog</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="n">lw</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s">&#39;</span><span class="si">%s</span><span class="s"> (h=</span><span class="si">%d</span><span class="s">)&#39;</span> <span class="o">%</span><span class="p">(</span><span class="n">G</span><span class="p">,</span><span class="n">h_index</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)))</span>
     <span class="n">i</span><span class="o">=</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span>
     
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s">&#39;best&#39;</span><span class="p">)</span>
@@ -13513,7 +13518,7 @@ nHOuAv0/MecUBlsQgDUAAAAASUVORK5CYII=
 </div>
 </div>
 
-</div><div class="fragment" data-fragment-index="108">
+</div><div class="fragment" data-fragment-index="109">
     
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
@@ -13570,8 +13575,8 @@ nHOuAv0/MecUBlsQgDUAAAAASUVORK5CYII=
 <div class="prompt input_prompt">In&nbsp;[47]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">total</span><span class="o">=</span><span class="n">publicadas</span><span class="p">[</span><span class="s">&#39;Clasificación Colciencias&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
-<span class="nb">print</span> <span class="s">&quot;Total A1+A2: &quot;</span><span class="p">,</span><span class="n">total</span><span class="p">[</span><span class="s">&#39;A1&#39;</span><span class="p">]</span><span class="o">+</span><span class="n">total</span><span class="p">[</span><span class="s">&#39;A2&#39;</span><span class="p">]</span>
+<div class=" highlight hl-ipython2"><pre><span class="n">total</span><span class="o">=</span><span class="n">publicadas</span><span class="p">[</span><span class="s">&#39;Clasificación Colciencias&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+<span class="k">print</span> <span class="s">&quot;Total A1+A2: &quot;</span><span class="p">,</span><span class="n">total</span><span class="p">[</span><span class="s">&#39;A1&#39;</span><span class="p">]</span><span class="o">+</span><span class="n">total</span><span class="p">[</span><span class="s">&#39;A2&#39;</span><span class="p">]</span>
 </pre></div>
 
 </div>
@@ -13605,14 +13610,14 @@ nHOuAv0/MecUBlsQgDUAAAAASUVORK5CYII=
 <h4 id="Hist&#243;rico">Hist&#243;rico<a class="anchor-link" href="#Hist&#243;rico">&#182;</a></h4>
 </div>
 </div>
-</div><div class="fragment" data-fragment-index="114">
+</div><div class="fragment" data-fragment-index="115">
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[48]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">publicadas</span><span class="p">[</span><span class="s">&#39;Clasificación Colciencias&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s">&#39;barh&#39;</span><span class="p">,</span><span class="n">grid</span><span class="o">=</span><span class="k">True</span><span class="p">)</span>
+<div class=" highlight hl-ipython2"><pre><span class="n">publicadas</span><span class="p">[</span><span class="s">&#39;Clasificación Colciencias&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s">&#39;barh&#39;</span><span class="p">,</span><span class="n">grid</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s">u&#39;Número de artículos&#39;</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
 </pre></div>
 
@@ -13842,8 +13847,8 @@ ALM6PqHH4M3pAAAAAElFTkSuQmCC
 <div class="prompt input_prompt">In&nbsp;[49]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">total</span><span class="o">=</span><span class="n">publicadas5</span><span class="p">[</span><span class="s">&#39;Clasificación Colciencias&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
-<span class="nb">print</span> <span class="s">&quot;Total A1+A2: &quot;</span><span class="p">,</span><span class="n">total</span><span class="p">[</span><span class="s">&#39;A1&#39;</span><span class="p">]</span><span class="o">+</span><span class="n">total</span><span class="p">[</span><span class="s">&#39;A2&#39;</span><span class="p">]</span>
+<div class=" highlight hl-ipython2"><pre><span class="n">total</span><span class="o">=</span><span class="n">publicadas5</span><span class="p">[</span><span class="s">&#39;Clasificación Colciencias&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+<span class="k">print</span> <span class="s">&quot;Total A1+A2: &quot;</span><span class="p">,</span><span class="n">total</span><span class="p">[</span><span class="s">&#39;A1&#39;</span><span class="p">]</span><span class="o">+</span><span class="n">total</span><span class="p">[</span><span class="s">&#39;A2&#39;</span><span class="p">]</span>
 </pre></div>
 
 </div>
@@ -13865,14 +13870,14 @@ ALM6PqHH4M3pAAAAAElFTkSuQmCC
 </div>
 
 </div>
-    </div><div class="fragment" data-fragment-index="117">
+    </div><div class="fragment" data-fragment-index="118">
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[50]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">publicadas5</span><span class="p">[</span><span class="s">&#39;Clasificación Colciencias&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s">&#39;barh&#39;</span><span class="p">,</span><span class="n">grid</span><span class="o">=</span><span class="k">True</span><span class="p">)</span>
+<div class=" highlight hl-ipython2"><pre><span class="n">publicadas5</span><span class="p">[</span><span class="s">&#39;Clasificación Colciencias&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s">&#39;barh&#39;</span><span class="p">,</span><span class="n">grid</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s">u&#39;Número de artículos&#39;</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
 </pre></div>
 
@@ -14091,7 +14096,7 @@ JEmSCrEQkyRJKsRCTJIkqZD/D76lMuvDXeqMAAAAAElFTkSuQmCC
 <div class="prompt input_prompt">In&nbsp;[51]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="kn">import</span> <span class="nn">datetime</span>
+<div class=" highlight hl-ipython2"><pre><span class="kn">import</span> <span class="nn">datetime</span>
 <span class="n">publicadas1</span><span class="o">=</span><span class="n">publicadas</span><span class="p">[</span><span class="n">publicadas</span><span class="p">[</span><span class="s">&#39;Año&#39;</span><span class="p">]</span><span class="o">&gt;</span><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">year</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
 <span class="nb">len</span><span class="p">(</span><span class="n">publicadas1</span><span class="p">)</span>
 </pre></div>
@@ -14131,7 +14136,7 @@ JEmSCrEQkyRJKsRCTJIkqZD/D76lMuvDXeqMAAAAAElFTkSuQmCC
 
 </div>
 </div>
-</div><div class="fragment" data-fragment-index="117">
+</div><div class="fragment" data-fragment-index="118">
         
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
@@ -14142,15 +14147,15 @@ JEmSCrEQkyRJKsRCTJIkqZD/D76lMuvDXeqMAAAAAElFTkSuQmCC
 </div>
 </div>
 </div>
-        </div><div class="fragment" data-fragment-index="122">
+        </div><div class="fragment" data-fragment-index="123">
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[52]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">fi</span><span class="o">=</span><span class="n">publicadas</span><span class="p">[[</span><span class="s">&#39;Factor de Impacto&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">&#39;null&#39;</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
-<span class="n">fii</span><span class="o">=</span><span class="n">fi</span><span class="p">[</span><span class="n">fi</span><span class="p">[</span><span class="s">&#39;Factor de Impacto&#39;</span><span class="p">]</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="k">True</span><span class="p">)</span>
+<div class=" highlight hl-ipython2"><pre><span class="n">fi</span><span class="o">=</span><span class="n">publicadas</span><span class="p">[[</span><span class="s">&#39;Factor de Impacto&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">&#39;null&#39;</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">fii</span><span class="o">=</span><span class="n">fi</span><span class="p">[</span><span class="n">fi</span><span class="p">[</span><span class="s">&#39;Factor de Impacto&#39;</span><span class="p">]</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
 <span class="n">fii</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s">&#39;float&#39;</span><span class="p">)[</span><span class="s">&#39;Factor de Impacto&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">bins</span><span class="o">=</span><span class="mi">40</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s">u&#39;Número de artículos&#39;</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s">u&#39;Factor de impacto&#39;</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
@@ -14442,7 +14447,7 @@ hZ8kSVIhLPwkSZIKYeEnSZJUiP8H5+Sl5KB2+tUAAAAASUVORK5CYII=
 </div>
 
 </div>
-    </div><div class="fragment" data-fragment-index="123">
+    </div><div class="fragment" data-fragment-index="124">
     
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
@@ -14454,14 +14459,14 @@ hZ8kSVIhLPwkSZIKYeEnSZJUiP8H5+Sl5KB2+tUAAAAASUVORK5CYII=
 </div>
 </div>
 </div>
-    </div><div class="fragment" data-fragment-index="124">
+    </div><div class="fragment" data-fragment-index="125">
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[53]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">publicadas</span><span class="o">=</span><span class="n">publicadas</span><span class="p">[</span><span class="n">publicadas</span><span class="p">[</span><span class="s">&#39;Factor de Impacto&#39;</span><span class="p">]</span><span class="o">&lt;</span><span class="mi">15</span><span class="p">]</span>
+<div class=" highlight hl-ipython2"><pre><span class="n">publicadas</span><span class="o">=</span><span class="n">publicadas</span><span class="p">[</span><span class="n">publicadas</span><span class="p">[</span><span class="s">&#39;Factor de Impacto&#39;</span><span class="p">]</span><span class="o">&lt;</span><span class="mi">15</span><span class="p">]</span>
 </pre></div>
 
 </div>
@@ -14481,16 +14486,16 @@ hZ8kSVIhLPwkSZIKYeEnSZJUiP8H5+Sl5KB2+tUAAAAASUVORK5CYII=
 <h4 id="Hist&#243;rico-por-Grupos">Hist&#243;rico por Grupos<a class="anchor-link" href="#Hist&#243;rico-por-Grupos">&#182;</a></h4>
 </div>
 </div>
-</div><div class="fragment" data-fragment-index="126">
+</div><div class="fragment" data-fragment-index="127">
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[54]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="k">for</span> <span class="n">group</span> <span class="ow">in</span> <span class="p">[</span><span class="s">&#39;GFIF&#39;</span><span class="p">,</span><span class="s">&#39;GES&#39;</span><span class="p">,</span><span class="s">&#39;GFAM&#39;</span><span class="p">,</span><span class="s">&#39;GMC&#39;</span><span class="p">,</span><span class="s">&#39;GOF&#39;</span><span class="p">,</span><span class="s">&#39;MS&#39;</span><span class="p">,</span><span class="s">&#39;FACOM&#39;</span><span class="p">]:</span>
+<div class=" highlight hl-ipython2"><pre><span class="k">for</span> <span class="n">group</span> <span class="ow">in</span> <span class="p">[</span><span class="s">&#39;GFIF&#39;</span><span class="p">,</span><span class="s">&#39;GES&#39;</span><span class="p">,</span><span class="s">&#39;GFAM&#39;</span><span class="p">,</span><span class="s">&#39;GMC&#39;</span><span class="p">,</span><span class="s">&#39;GOF&#39;</span><span class="p">,</span><span class="s">&#39;MS&#39;</span><span class="p">,</span><span class="s">&#39;FACOM&#39;</span><span class="p">]:</span>
     <span class="n">fi</span><span class="o">=</span><span class="n">publicadas</span><span class="p">[</span><span class="n">publicadas</span><span class="p">[</span><span class="s">&#39;Grupo&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="n">group</span><span class="p">)][[</span><span class="s">&#39;Factor de Impacto&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">&#39;null&#39;</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
-    <span class="n">fii</span><span class="o">=</span><span class="n">fi</span><span class="p">[</span><span class="n">fi</span><span class="p">[</span><span class="s">&#39;Factor de Impacto&#39;</span><span class="p">]</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="k">True</span><span class="p">)</span>
+    <span class="n">fii</span><span class="o">=</span><span class="n">fi</span><span class="p">[</span><span class="n">fi</span><span class="p">[</span><span class="s">&#39;Factor de Impacto&#39;</span><span class="p">]</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
     <span class="n">fii</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s">&#39;float&#39;</span><span class="p">)[</span><span class="s">&#39;Factor de Impacto&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">bins</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="n">group</span><span class="p">)</span> 
     <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s">&#39;best&#39;</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s">u&#39;Número de artículos&#39;</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
@@ -14950,16 +14955,16 @@ ZmZWMU7gzMzMzCrGCZyZmZlZxfx/c6ZMg5WsJasAAAAASUVORK5CYII=
 <h4 id="&#218;ltimos-cinco-a&#241;os-Global">&#218;ltimos cinco a&#241;os Global<a class="anchor-link" href="#&#218;ltimos-cinco-a&#241;os-Global">&#182;</a></h4>
 </div>
 </div>
-</div><div class="fragment" data-fragment-index="128">
+</div><div class="fragment" data-fragment-index="129">
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[55]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">publicadas5</span><span class="p">[</span><span class="s">&#39;Factor de Impacto&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">publicadas5</span><span class="p">[</span><span class="s">&#39;Factor de Impacto&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">&#39;Desconocido&#39;</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<div class=" highlight hl-ipython2"><pre><span class="n">publicadas5</span><span class="p">[</span><span class="s">&#39;Factor de Impacto&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">publicadas5</span><span class="p">[</span><span class="s">&#39;Factor de Impacto&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">&#39;Desconocido&#39;</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">fi</span><span class="o">=</span><span class="n">publicadas5</span><span class="p">[[</span><span class="s">&#39;Factor de Impacto&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">&#39;null&#39;</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
-<span class="n">fii</span><span class="o">=</span><span class="n">fi</span><span class="p">[</span><span class="n">fi</span><span class="p">[</span><span class="s">&#39;Factor de Impacto&#39;</span><span class="p">]</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="k">True</span><span class="p">)</span>
+<span class="n">fii</span><span class="o">=</span><span class="n">fi</span><span class="p">[</span><span class="n">fi</span><span class="p">[</span><span class="s">&#39;Factor de Impacto&#39;</span><span class="p">]</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
 <span class="n">fii</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s">&#39;float&#39;</span><span class="p">)[</span><span class="s">&#39;Factor de Impacto&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">bins</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s">u&#39;Número de artículos&#39;</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s">u&#39;Factor de impacto&#39;</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
@@ -15277,16 +15282,16 @@ SRPGAk6SJGnCWMBJkiRNmP8frSgUNNAur5IAAAAASUVORK5CYII=
 <h4 id="&#218;ltimos-cinco-a&#241;os:-por-Grupos">&#218;ltimos cinco a&#241;os: por Grupos<a class="anchor-link" href="#&#218;ltimos-cinco-a&#241;os:-por-Grupos">&#182;</a></h4>
 </div>
 </div>
-</div><div class="fragment" data-fragment-index="130">
+</div><div class="fragment" data-fragment-index="131">
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[56]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="k">for</span> <span class="n">group</span> <span class="ow">in</span> <span class="p">[</span><span class="s">&#39;GFIF&#39;</span><span class="p">,</span><span class="s">&#39;GES&#39;</span><span class="p">,</span><span class="s">&#39;GFAM&#39;</span><span class="p">,</span><span class="s">&#39;GMC&#39;</span><span class="p">,</span><span class="s">&#39;GOF&#39;</span><span class="p">,</span><span class="s">&#39;MS&#39;</span><span class="p">,</span><span class="s">&#39;FACOM&#39;</span><span class="p">]:</span>
+<div class=" highlight hl-ipython2"><pre><span class="k">for</span> <span class="n">group</span> <span class="ow">in</span> <span class="p">[</span><span class="s">&#39;GFIF&#39;</span><span class="p">,</span><span class="s">&#39;GES&#39;</span><span class="p">,</span><span class="s">&#39;GFAM&#39;</span><span class="p">,</span><span class="s">&#39;GMC&#39;</span><span class="p">,</span><span class="s">&#39;GOF&#39;</span><span class="p">,</span><span class="s">&#39;MS&#39;</span><span class="p">,</span><span class="s">&#39;FACOM&#39;</span><span class="p">]:</span>
     <span class="n">fi</span><span class="o">=</span><span class="n">publicadas5</span><span class="p">[</span><span class="n">publicadas5</span><span class="p">[</span><span class="s">&#39;Grupo&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="n">group</span><span class="p">)][[</span><span class="s">&#39;Factor de Impacto&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">&#39;null&#39;</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
-    <span class="n">fii</span><span class="o">=</span><span class="n">fi</span><span class="p">[</span><span class="n">fi</span><span class="p">[</span><span class="s">&#39;Factor de Impacto&#39;</span><span class="p">]</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="k">True</span><span class="p">)</span>
+    <span class="n">fii</span><span class="o">=</span><span class="n">fi</span><span class="p">[</span><span class="n">fi</span><span class="p">[</span><span class="s">&#39;Factor de Impacto&#39;</span><span class="p">]</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
     <span class="n">fii</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s">&#39;float&#39;</span><span class="p">)[</span><span class="s">&#39;Factor de Impacto&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">bins</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="n">group</span><span class="p">)</span> 
     <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s">&#39;best&#39;</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s">u&#39;Número de artículos&#39;</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
@@ -15694,16 +15699,16 @@ wAVBEARBELQZIeCCIAiCIAjajL8DggSsrZAmEPEAAAAASUVORK5CYII=
 
 </div>
 </div>
-</div><div class="fragment" data-fragment-index="132">
+</div><div class="fragment" data-fragment-index="133">
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[57]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="k">for</span> <span class="n">group</span> <span class="ow">in</span> <span class="p">[</span><span class="s">&#39;GMC&#39;</span><span class="p">,</span><span class="s">&#39;GFAM&#39;</span><span class="p">]:</span>
+<div class=" highlight hl-ipython2"><pre><span class="k">for</span> <span class="n">group</span> <span class="ow">in</span> <span class="p">[</span><span class="s">&#39;GMC&#39;</span><span class="p">,</span><span class="s">&#39;GFAM&#39;</span><span class="p">]:</span>
     <span class="n">fi</span><span class="o">=</span><span class="n">publicadas5</span><span class="p">[</span><span class="n">publicadas5</span><span class="p">[</span><span class="s">&#39;Grupo&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="n">group</span><span class="p">)][[</span><span class="s">&#39;Factor de Impacto&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">&#39;null&#39;</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
-    <span class="n">fii</span><span class="o">=</span><span class="n">fi</span><span class="p">[</span><span class="n">fi</span><span class="p">[</span><span class="s">&#39;Factor de Impacto&#39;</span><span class="p">]</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="k">True</span><span class="p">)</span>
+    <span class="n">fii</span><span class="o">=</span><span class="n">fi</span><span class="p">[</span><span class="n">fi</span><span class="p">[</span><span class="s">&#39;Factor de Impacto&#39;</span><span class="p">]</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
     <span class="n">fii</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s">&#39;float&#39;</span><span class="p">)[</span><span class="s">&#39;Factor de Impacto&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">bins</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="n">group</span><span class="p">)</span> 
     <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s">&#39;best&#39;</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s">u&#39;Número de artículos&#39;</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
@@ -16023,9 +16028,9 @@ JGnK2MBJkiRNGRs4SZKkKWMDJ0mSNGVs4CRJkqbM/welC3+pmpOhcAAAAABJRU5ErkJggg==
 <div class="prompt input_prompt">In&nbsp;[58]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="k">for</span> <span class="n">group</span> <span class="ow">in</span> <span class="p">[</span><span class="s">&#39;GMC&#39;</span><span class="p">,</span><span class="s">&#39;GES&#39;</span><span class="p">]:</span>
+<div class=" highlight hl-ipython2"><pre><span class="k">for</span> <span class="n">group</span> <span class="ow">in</span> <span class="p">[</span><span class="s">&#39;GMC&#39;</span><span class="p">,</span><span class="s">&#39;GES&#39;</span><span class="p">]:</span>
     <span class="n">fi</span><span class="o">=</span><span class="n">publicadas5</span><span class="p">[</span><span class="n">publicadas5</span><span class="p">[</span><span class="s">&#39;Grupo&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="n">group</span><span class="p">)][[</span><span class="s">&#39;Factor de Impacto&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">&#39;null&#39;</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
-    <span class="n">fii</span><span class="o">=</span><span class="n">fi</span><span class="p">[</span><span class="n">fi</span><span class="p">[</span><span class="s">&#39;Factor de Impacto&#39;</span><span class="p">]</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="k">True</span><span class="p">)</span>
+    <span class="n">fii</span><span class="o">=</span><span class="n">fi</span><span class="p">[</span><span class="n">fi</span><span class="p">[</span><span class="s">&#39;Factor de Impacto&#39;</span><span class="p">]</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
     <span class="n">fii</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s">&#39;float&#39;</span><span class="p">)[</span><span class="s">&#39;Factor de Impacto&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">bins</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="n">group</span><span class="p">)</span> 
     <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s">&#39;best&#39;</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s">u&#39;Número de artículos&#39;</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
@@ -16353,7 +16358,7 @@ gg==
 <h2 id="Conlusiones-generales">Conlusiones generales<a class="anchor-link" href="#Conlusiones-generales">&#182;</a></h2>
 </div>
 </div>
-</div><div class="fragment" data-fragment-index="136">
+</div><div class="fragment" data-fragment-index="137">
     
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
@@ -16367,7 +16372,7 @@ gg==
 </div>
 </div>
 </div>
-    </div><div class="fragment" data-fragment-index="137">
+    </div><div class="fragment" data-fragment-index="138">
     
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
@@ -16381,7 +16386,7 @@ gg==
 </div>
 </div>
 </div>
-    </div><div class="fragment" data-fragment-index="138">
+    </div><div class="fragment" data-fragment-index="139">
     
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
@@ -16395,7 +16400,7 @@ gg==
 </div>
 </div>
 </div>
-    </div><div class="fragment" data-fragment-index="139">
+    </div><div class="fragment" data-fragment-index="140">
     
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
@@ -16409,7 +16414,7 @@ gg==
 </div>
 </div>
 </div>
-    </div><div class="fragment" data-fragment-index="140">
+    </div><div class="fragment" data-fragment-index="141">
     
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
@@ -16430,7 +16435,7 @@ gg==
 <div class="prompt input_prompt">In&nbsp;[59]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="c">#0120-2650 revista colombiana de Fisica</span>
+<div class=" highlight hl-ipython2"><pre><span class="c">#0120-2650 revista colombiana de Fisica</span>
 <span class="c">#Physical Review D -&gt; Jose David</span>
 <span class="c">#10.1038/nature09084</span>
 <span class="n">publicadas</span><span class="p">[</span><span class="n">publicadas</span><span class="p">[</span><span class="s">&#39;Grupo&#39;</span><span class="p">]</span><span class="o">==</span><span class="s">&#39;Unknown&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="s">&#39;Year&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">shape</span>
@@ -16464,7 +16469,7 @@ gg==
 <div class="prompt input_prompt">In&nbsp;[60]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">df</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">logical_and</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">DOI</span><span class="o">==</span><span class="s">&#39;Not DOI&#39;</span><span class="p">,</span><span class="n">df</span><span class="o">.</span><span class="n">ISSN</span><span class="o">==</span><span class="s">&#39;0000-0000&#39;</span><span class="p">)]</span><span class="o">.</span><span class="n">shape</span>
+<div class=" highlight hl-ipython2"><pre><span class="n">df</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">logical_and</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">DOI</span><span class="o">==</span><span class="s">&#39;Not DOI&#39;</span><span class="p">,</span><span class="n">df</span><span class="o">.</span><span class="n">ISSN</span><span class="o">==</span><span class="s">&#39;0000-0000&#39;</span><span class="p">)]</span><span class="o">.</span><span class="n">shape</span>
 </pre></div>
 
 </div>
@@ -16488,14 +16493,14 @@ gg==
 </div>
 
 </div>
-    </div><div class="fragment" data-fragment-index="140">
+    </div><div class="fragment" data-fragment-index="141">
         
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[61]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">G</span><span class="p">[</span><span class="s">&#39;GES&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<div class=" highlight hl-ipython2"><pre><span class="n">G</span><span class="p">[</span><span class="s">&#39;GES&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
 </pre></div>
 
 </div>
@@ -16522,14 +16527,14 @@ gg==
 </div>
 
 </div>
-        </div><div class="fragment" data-fragment-index="140">
+        </div><div class="fragment" data-fragment-index="141">
         
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre> 
+<div class=" highlight hl-ipython2"><pre> 
 </pre></div>
 
 </div>
@@ -16537,8 +16542,7 @@ gg==
 </div>
 
 </div>
-        </div></section>
-    </section>
+        </div>
 </div>
 </div>
 
