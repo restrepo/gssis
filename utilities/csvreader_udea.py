@@ -105,9 +105,17 @@ if __name__=='__main__':
             
         #WARNING: Only Surname of first author
         if not entry.has_key(logkey):
-            surname=g.Authors.split(';')[0].split(',')[-2].strip()
-            #If several surnames pick the last one
-            surname=re.sub('.*\s(.*)','\\1',surname) 
+            #special cases:
+            if g.Authors=='CMS collaboration':
+                g.Authors='CMS, collaboration'
+
+            if len(g.Authors.split(';')[0].split(','))>1:
+                surname=g.Authors.split(';')[0].split(',')[-2].strip()
+                #If several surnames pick the last one
+                surname=re.sub('.*\s(.*)','\\1',surname)
+            else:
+                surname=''
+                
             doi=searchdoi(g.Title,surname)
             if doi.has_key('Persistent Link'):
                 g['DOI'] = doi['Persistent Link']
