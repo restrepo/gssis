@@ -8790,7 +8790,7 @@ NFDQLCIiIiLSQEGziIiIiEiDTwBWFfCM6V+AbAAAAABJRU5ErkJggg==
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[64]:</div>
+<div class="prompt input_prompt">In&nbsp;[69]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span class="n">aavg</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
@@ -8804,7 +8804,7 @@ NFDQLCIiIiLSQEGziIiIiEiDTwBWFfCM6V+AbAAAAABJRU5ErkJggg==
     <span class="n">Teo_aut</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">publicadasy</span><span class="p">[</span><span class="n">publicadasy</span><span class="o">.</span><span class="n">Area</span><span class="o">==</span><span class="s">&#39;Teórica&#39;</span><span class="p">][</span><span class="s">&#39;Institution Authors&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="s">&#39;NN&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">&#39;; &#39;</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
     <span class="n">GMC</span><span class="o">=</span><span class="n">publicadasy</span><span class="p">[</span><span class="n">publicadasy</span><span class="o">.</span><span class="n">Group</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s">&#39;GMC&#39;</span><span class="p">)]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
     <span class="n">GMC_aut</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">publicadasy</span><span class="p">[</span><span class="n">publicadasy</span><span class="o">.</span><span class="n">Group</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s">&#39;GMC&#39;</span><span class="p">)][</span><span class="s">&#39;Institution Authors&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="s">&#39;NN&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">&#39;; &#39;</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-    <span class="n">aavg</span><span class="o">=</span><span class="n">aavg</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s">&#39;Year&#39;</span><span class="p">:</span><span class="n">y</span><span class="p">,</span><span class="s">&#39;Tot&#39;</span><span class="p">:</span><span class="n">Tot</span><span class="p">,</span><span class="s">&#39;Tot_aut&#39;</span><span class="p">:</span><span class="n">Tot_aut</span><span class="p">,</span>\
+    <span class="n">aavg</span><span class="o">=</span><span class="n">aavg</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s">&#39;Artículos/Autores_UdeA&#39;</span><span class="p">:</span><span class="n">y</span><span class="p">,</span><span class="s">&#39;Tot&#39;</span><span class="p">:</span><span class="n">Tot</span><span class="p">,</span><span class="s">&#39;Tot_aut&#39;</span><span class="p">:</span><span class="n">Tot_aut</span><span class="p">,</span>\
       <span class="s">&#39;Exp&#39;</span><span class="p">:</span><span class="n">Exp</span><span class="p">,</span><span class="s">&#39;Exp_aut&#39;</span><span class="p">:</span><span class="n">Exp_aut</span><span class="p">,</span>\
       <span class="s">&#39;Theo&#39;</span><span class="p">:</span><span class="n">Teo</span><span class="p">,</span><span class="s">&#39;Theo_aut&#39;</span><span class="p">:</span><span class="n">Teo_aut</span><span class="p">,</span>\
       <span class="s">&#39;GMC&#39;</span><span class="p">:</span><span class="n">GMC</span><span class="p">,</span><span class="s">&#39;GMC_aut&#39;</span><span class="p">:</span><span class="n">GMC_aut</span><span class="p">},</span><span class="n">ignore_index</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
@@ -8812,11 +8812,11 @@ NFDQLCIiIiLSQEGziIiIiEiDTwBWFfCM6V+AbAAAAABJRU5ErkJggg==
 
 <span class="n">aavg</span><span class="p">[</span><span class="s">&#39;~GMC&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">aavg</span><span class="o">.</span><span class="n">Theo</span><span class="o">-</span><span class="n">aavg</span><span class="o">.</span><span class="n">GMC</span>    
 <span class="n">aavg</span><span class="p">[</span><span class="s">&#39;~GMC_aut&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">aavg</span><span class="o">.</span><span class="n">Theo_aut</span><span class="o">-</span><span class="n">aavg</span><span class="o">.</span><span class="n">GMC_aut</span>
-<span class="n">aavg</span><span class="p">[</span><span class="s">&#39;Tot/aut&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">aavg</span><span class="o">.</span><span class="n">Tot</span><span class="o">/</span><span class="n">aavg</span><span class="o">.</span><span class="n">Tot_aut</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">aavg</span><span class="p">[</span><span class="s">&#39;Exp/aut&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">aavg</span><span class="o">.</span><span class="n">Exp</span><span class="o">/</span><span class="n">aavg</span><span class="o">.</span><span class="n">Exp_aut</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">aavg</span><span class="p">[</span><span class="s">&#39;Theo/aut&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">aavg</span><span class="o">.</span><span class="n">Theo</span><span class="o">/</span><span class="n">aavg</span><span class="o">.</span><span class="n">Theo_aut</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">aavg</span><span class="p">[</span><span class="s">&#39;~GMC/aut&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">aavg</span><span class="p">[</span><span class="s">&#39;~GMC&#39;</span><span class="p">]</span><span class="o">/</span><span class="n">aavg</span><span class="p">[</span><span class="s">&#39;~GMC_aut&#39;</span><span class="p">],</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">aavg</span>
+<span class="n">aavg</span><span class="p">[</span><span class="s">&#39;Total&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">aavg</span><span class="o">.</span><span class="n">Tot</span><span class="o">/</span><span class="n">aavg</span><span class="o">.</span><span class="n">Tot_aut</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">aavg</span><span class="p">[</span><span class="s">&#39;Experimental&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">aavg</span><span class="o">.</span><span class="n">Exp</span><span class="o">/</span><span class="n">aavg</span><span class="o">.</span><span class="n">Exp_aut</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">aavg</span><span class="p">[</span><span class="s">&#39;Teórica&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">aavg</span><span class="o">.</span><span class="n">Theo</span><span class="o">/</span><span class="n">aavg</span><span class="o">.</span><span class="n">Theo_aut</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">aavg</span><span class="p">[</span><span class="s">&#39;Teórica sin GMC&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">aavg</span><span class="p">[</span><span class="s">&#39;~GMC&#39;</span><span class="p">]</span><span class="o">/</span><span class="n">aavg</span><span class="p">[</span><span class="s">&#39;~GMC_aut&#39;</span><span class="p">],</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">aavg</span><span class="p">[[</span><span class="s">&#39;Artículos/Autores_UdeA&#39;</span><span class="p">,</span><span class="s">&#39;Total&#39;</span><span class="p">,</span><span class="s">&#39;Experimental&#39;</span><span class="p">,</span><span class="s">&#39;Teórica&#39;</span><span class="p">,</span><span class="s">&#39;Teórica sin GMC&#39;</span><span class="p">]]</span>
 </pre></div>
 
 </div>
@@ -8827,7 +8827,7 @@ NFDQLCIiIiLSQEGziIiIiEiDTwBWFfCM6V+AbAAAAABJRU5ErkJggg==
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[64]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[69]:</div>
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
@@ -8835,37 +8835,17 @@ NFDQLCIiIiLSQEGziIiIiEiDTwBWFfCM6V+AbAAAAABJRU5ErkJggg==
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>Exp</th>
-      <th>Exp_aut</th>
-      <th>GMC</th>
-      <th>GMC_aut</th>
-      <th>Theo</th>
-      <th>Theo_aut</th>
-      <th>Tot</th>
-      <th>Tot_aut</th>
-      <th>Year</th>
-      <th>~GMC</th>
-      <th>~GMC_aut</th>
-      <th>Tot/aut</th>
-      <th>Exp/aut</th>
-      <th>Theo/aut</th>
-      <th>~GMC/aut</th>
+      <th>Artículos/Autores_UdeA</th>
+      <th>Total</th>
+      <th>Experimental</th>
+      <th>Teórica</th>
+      <th>Teórica sin GMC</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>0</th>
-      <td>10</td>
-      <td>8</td>
-      <td>20</td>
-      <td>1</td>
-      <td>54</td>
-      <td>14</td>
-      <td>65</td>
-      <td>22</td>
       <td>2011</td>
-      <td>34</td>
-      <td>13</td>
       <td>3.0</td>
       <td>1.2</td>
       <td>3.9</td>
@@ -8873,17 +8853,7 @@ NFDQLCIiIiLSQEGziIiIiEiDTwBWFfCM6V+AbAAAAABJRU5ErkJggg==
     </tr>
     <tr>
       <th>1</th>
-      <td>7</td>
-      <td>4</td>
-      <td>27</td>
-      <td>1</td>
-      <td>57</td>
-      <td>14</td>
-      <td>64</td>
-      <td>18</td>
       <td>2012</td>
-      <td>30</td>
-      <td>13</td>
       <td>3.6</td>
       <td>1.8</td>
       <td>4.1</td>
@@ -8891,17 +8861,7 @@ NFDQLCIiIiLSQEGziIiIiEiDTwBWFfCM6V+AbAAAAABJRU5ErkJggg==
     </tr>
     <tr>
       <th>2</th>
-      <td>15</td>
-      <td>7</td>
-      <td>14</td>
-      <td>2</td>
-      <td>53</td>
-      <td>19</td>
-      <td>70</td>
-      <td>27</td>
       <td>2013</td>
-      <td>39</td>
-      <td>17</td>
       <td>2.6</td>
       <td>2.1</td>
       <td>2.8</td>
@@ -8909,17 +8869,7 @@ NFDQLCIiIiLSQEGziIiIiEiDTwBWFfCM6V+AbAAAAABJRU5ErkJggg==
     </tr>
     <tr>
       <th>3</th>
-      <td>8</td>
-      <td>5</td>
-      <td>25</td>
-      <td>2</td>
-      <td>61</td>
-      <td>16</td>
-      <td>71</td>
-      <td>22</td>
       <td>2014</td>
-      <td>36</td>
-      <td>14</td>
       <td>3.2</td>
       <td>1.6</td>
       <td>3.8</td>
@@ -8927,17 +8877,7 @@ NFDQLCIiIiLSQEGziIiIiEiDTwBWFfCM6V+AbAAAAABJRU5ErkJggg==
     </tr>
     <tr>
       <th>4</th>
-      <td>11</td>
-      <td>6</td>
-      <td>28</td>
-      <td>2</td>
-      <td>58</td>
-      <td>16</td>
-      <td>72</td>
-      <td>23</td>
       <td>2015</td>
-      <td>30</td>
-      <td>14</td>
       <td>3.1</td>
       <td>1.8</td>
       <td>3.6</td>
@@ -8957,10 +8897,10 @@ NFDQLCIiIiLSQEGziIiIiEiDTwBWFfCM6V+AbAAAAABJRU5ErkJggg==
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[29]:</div>
+<div class="prompt input_prompt">In&nbsp;[66]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">aavg</span><span class="o">.</span><span class="n">describe</span><span class="p">()[[</span><span class="s">&#39;Tot/aut&#39;</span><span class="p">,</span><span class="s">&#39;Exp/aut&#39;</span><span class="p">,</span><span class="s">&#39;Theo/aut&#39;</span><span class="p">,</span><span class="s">&#39;~GMC/aut&#39;</span><span class="p">]]</span>
+<div class=" highlight hl-ipython2"><pre><span class="n">aavg</span><span class="o">.</span><span class="n">describe</span><span class="p">()[[</span><span class="s">&#39;Total&#39;</span><span class="p">,</span><span class="s">&#39;Experimental&#39;</span><span class="p">,</span><span class="s">&#39;Teórica&#39;</span><span class="p">,</span><span class="s">&#39;Teórica sin GMC&#39;</span><span class="p">]]</span>
 </pre></div>
 
 </div>
@@ -8971,7 +8911,7 @@ NFDQLCIiIiLSQEGziIiIiEiDTwBWFfCM6V+AbAAAAABJRU5ErkJggg==
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[29]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[66]:</div>
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
@@ -8979,10 +8919,10 @@ NFDQLCIiIiLSQEGziIiIiEiDTwBWFfCM6V+AbAAAAABJRU5ErkJggg==
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>Tot/aut</th>
-      <th>Exp/aut</th>
-      <th>Theo/aut</th>
-      <th>~GMC/aut</th>
+      <th>Total</th>
+      <th>Experimental</th>
+      <th>Teórica</th>
+      <th>Teórica sin GMC</th>
     </tr>
   </thead>
   <tbody>
